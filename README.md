@@ -1,12 +1,16 @@
-# firedart
+# Dartbase Admin SDK™️
 
-[![pub package](https://img.shields.io/pub/v/firedart.svg)](https://pub.dartlang.org/packages/firedart)
+A dart-native implementation of the Firebase Admin SDK.
 
-A dart-native implementation of the Firebase Auth and Firestore SDKs.
+This library is a fork of cachapa's client firebase sdk; cachapa/firedart; modified and converted to support admin only firebase features.
 
-This library attempts to minimize dependencies with the intention of making it able to run in any environment capable of executing dart code. Currently it has been successfully tested using the dart runtime (`x86-64` and `arm32`) as well as on Flutter Android, iOS and Desktop.
+Currently supported:
+[x] Firebase Auth
+[x] Firestore
+[x] Firebase Storage
 
-Firedart currently implements `Firebase Auth` and `Firestore`.
+
+### INCOMPLETE README ###
 
 ## Dependencies
 
