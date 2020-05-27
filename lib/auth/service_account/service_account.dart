@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:firedart/auth/service_account/access_exporter.dart';
-import 'package:firedart/auth/service_account/access_token_handler.dart';
+import 'package:firedart/auth/service_account/token_handler.dart';
 
 class ServiceAccount {
   final String serviceAccountString;
