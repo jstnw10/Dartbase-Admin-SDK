@@ -1,11 +1,14 @@
 import 'dart:convert';
 
+import 'package:firedart/auth/firebase_auth.dart';
+
 import 'rsa.dart';
 
 class Jwt {
   static final _rsaMap = <String, Rsa>{};
 
   final List<String> _tokenParts;
+  final String token;
 
   // TODO Improve this when dart gets lazy field instantiation
   _Header _h;
@@ -17,11 +20,24 @@ class Jwt {
 
   String get userId => _payload.subject;
 
-  Jwt(String token) : _tokenParts = token.split(' ').last.split('.');
+  Jwt(this.token) : _tokenParts = token.split(' ').last.split('.');
 
-  bool validate(String projectId, Map<String, String> certificates,
-      {bool enforceEmailVerification = false}) {
-    // Validate payload
+  // Google can validate the token for us and we can compare the results to revoke it.
+  // Otherwise, do local validation so we don't use network bandwidth and deal with latency.
+  Future<void> validate(FirebaseAuth auth, String projectId, Map<String, String> certificates,
+      {bool enforceEmailVerification = false, bool checkRevoked = false}) async {
+    if (checkRevoked) {
+      var user = await auth.getUserById();
+
+      if (user.validSince != null) {
+        final authTimeUtc = DateTime.fromMillisecondsSinceEpoch(_payload.issueTime);
+        final validSinceUtc = user.validSince;
+        if (authTimeUtc.isBefore(validSinceUtc)) {
+          throw RevokedTokenException();
+        }
+      }
+    }
+
     var now = (DateTime.now().toUtc().millisecondsSinceEpoch / 1000).floor();
 
     if (_payload.authenticationTime >= now) {
@@ -55,10 +71,13 @@ class Jwt {
       throw Exception('Unrecognized certificate id: ${_header.certificateId}');
     }
 
-    _rsaMap[_header.certificateId] ??=
-        Rsa.fromCertificate(certificates[_header.certificateId]);
+    _rsaMap[_header.certificateId] ??= Rsa.fromCertificate(certificates[_header.certificateId]);
     var rsa = _rsaMap[_header.certificateId];
-    return rsa.verify('${_tokenParts[0]}.${_tokenParts[1]}', _tokenParts[2]);
+    var verified = rsa.verify('${_tokenParts[0]}.${_tokenParts[1]}', _tokenParts[2]);
+
+    if (!verified) {
+      throw Exception('Could not verify the token against its signature');
+    }
   }
 }
 
@@ -92,9 +111,12 @@ class _Payload {
   _Payload(String tokenPart) : data = _parse(tokenPart);
 }
 
+class RevokedTokenException implements Exception {
+  final message = 'The token has been revoked';
+}
+
 class EmailVerificationException implements Exception {
   final message = 'Email has not been verified';
 }
 
-Map<String, dynamic> _parse(String tokenPart) =>
-    jsonDecode(utf8.decode(relaxedBase64Decode(tokenPart)));
+Map<String, dynamic> _parse(String tokenPart) => jsonDecode(utf8.decode(relaxedBase64Decode(tokenPart)));
