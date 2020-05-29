@@ -1,12 +1,13 @@
 import 'package:firedart/auth/client.dart';
 import 'package:firedart/auth/service_account/service_account.dart';
+import 'package:firedart/auth/token/verify_token.dart';
 import 'package:firedart/auth/user_gateway.dart';
+import 'package:firedart/auth/user_record.dart';
 import 'package:http/http.dart' as http;
 
 /// For service accounts, you can use ServiceAccount.fromJson(String) or ServiceAccount.fromEnvironmentVariable(optional String)
 /// Using the environment variable implementation will crash if you are on a platform that dart:io does not support.
 class FirebaseAuth {
-  /* Singleton interface */
   static FirebaseAuth _instance;
 
   static Future<FirebaseAuth> initialize(String projectId, ServiceAccount serviceAccount) async {
@@ -25,7 +26,6 @@ class FirebaseAuth {
     return _instance;
   }
 
-  /* Instance interface */
   final String projectId;
   final ServiceAccount serviceAccount;
 
@@ -45,15 +45,17 @@ class FirebaseAuth {
     _userGateway = UserGateway(projectId, adminClient);
   }
 
-  Future<void> requestEmailVerification() => _userGateway.requestEmailVerification();
+  Future<UserRecord> getUserById(String uid) => _userGateway.getUserById(uid);
 
-  Future<void> changePassword(String password) => _userGateway.changePassword(password);
-
-  Future<User> getUserById({String uid}) => _userGateway.getUserById(uid: uid);
-
-  Future<void> updateProfile({String displayName, String photoUrl}) => _userGateway.updateProfile(displayName, photoUrl);
-
-  Future<void> deleteAccount() async {
-    await _userGateway.deleteAccount();
+  Future<bool> verifyIdToken(String token,
+      {FirebaseAuth authInstance, bool enforceEmailVerification = false, bool checkRevoked = false}) async {
+    try {
+      await verifyToken(token,
+          authInstance: authInstance, enforceEmailVerification: enforceEmailVerification, checkRevoked: checkRevoked);
+      return true;
+    } catch (error) {
+      print(error);
+    }
+    return false;
   }
 }

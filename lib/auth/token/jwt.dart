@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:firedart/auth/firebase_auth.dart';
+import 'package:firedart/firedart.dart';
 
 import 'rsa.dart';
 
@@ -22,16 +23,17 @@ class Jwt {
 
   Jwt(this.token) : _tokenParts = token.split(' ').last.split('.');
 
-  // Google can validate the token for us and we can compare the results to revoke it.
-  // Otherwise, do local validation so we don't use network bandwidth and deal with latency.
-  Future<void> validate(FirebaseAuth auth, String projectId, Map<String, String> certificates,
-      {bool enforceEmailVerification = false, bool checkRevoked = false}) async {
-    if (checkRevoked) {
-      var user = await auth.getUserById();
+  // If check revoked is true, we get user information from Google and check if the remote token we got is
+  // not expired compared to the one we got offered here.
+  Future<void> validate(Map<String, String> certificates,
+      {FirebaseAuth authInstance, bool enforceEmailVerification = false, bool checkRevoked = false}) async {
+    var auth = authInstance ?? FirebaseAuth.instance;
 
-      if (user.validSince != null) {
+    if (checkRevoked) {
+      var user = await auth.getUserById(_payload.subject);
+      if (user.tokensValidAfterTime != null) {
         final authTimeUtc = DateTime.fromMillisecondsSinceEpoch(_payload.issueTime);
-        final validSinceUtc = user.validSince;
+        final validSinceUtc = user.tokensValidAfterTime;
         if (authTimeUtc.isBefore(validSinceUtc)) {
           throw RevokedTokenException();
         }
@@ -50,10 +52,10 @@ class Jwt {
       throw Exception('Token expired');
     }
 
-    if (_payload.audience != projectId) {
+    if (_payload.audience != auth.projectId) {
       throw Exception('Unexpected audience: ${_payload.audience}');
     }
-    if (_payload.issuer != 'https://securetoken.google.com/$projectId') {
+    if (_payload.issuer != 'https://securetoken.google.com/${auth.projectId}') {
       throw Exception('Unexpected issuer: ${_payload.issuer}');
     }
 

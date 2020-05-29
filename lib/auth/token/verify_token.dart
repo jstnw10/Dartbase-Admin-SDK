@@ -6,10 +6,10 @@ import 'package:http/http.dart' as http;
 import 'jwt.dart';
 
 /// Verify a Firebase token
-Future<void> verifyToken(FirebaseAuth auth, String token, String projectId,
-        {bool enforceEmailVerification = false, bool checkRevoked = false}) async =>
-    Jwt(token).validate(auth, projectId, await _googleCertificates,
-        enforceEmailVerification: enforceEmailVerification, checkRevoked: checkRevoked);
+Future<void> verifyToken(String token,
+        {FirebaseAuth authInstance, bool enforceEmailVerification = false, bool checkRevoked = false}) async =>
+    Jwt(token).validate(await _googleCertificates,
+        authInstance: authInstance, enforceEmailVerification: enforceEmailVerification, checkRevoked: checkRevoked);
 
 const _certificateUrl = 'https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com';
 

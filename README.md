@@ -3,6 +3,8 @@
 A dart-native implementation of the Firebase Admin SDK.
 
 This library is a fork of cachapa's client firebase sdk; cachapa/firedart; modified and converted to support admin only firebase features.
+This library also uses files from appsup-dart/firebase_admin like user_record.dart.
+
 
 ### Currently supported:
 
@@ -10,8 +12,7 @@ This library is a fork of cachapa's client firebase sdk; cachapa/firedart; modif
 * Firestore
 * Firebase Storage
 
-
-# INCOMPLETE README ###
+# INCOMPLETE README
 
 ## Dependencies
 
