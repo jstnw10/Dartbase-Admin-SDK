@@ -1,16 +1,17 @@
 import 'dart:convert';
 
-import 'package:firedart/firedart.dart';
+import 'package:dartbase/dartbase.dart';
 import 'package:test/test.dart';
 
 import 'test_config.dart';
 
 Future main() async {
-  FirebaseAuth auth;
+  Firebase auth;
   Firestore firestore;
 
   setUpAll(() async {
-    auth = await FirebaseAuth.initialize(projectId, await ServiceAccount.fromFile(serviceAccountPath));
+    auth = await Firebase.initialize(
+        projectId, await ServiceAccount.fromFile(serviceAccountPath));
     firestore = Firestore(projectId, auth: auth);
   });
 
@@ -44,14 +45,18 @@ Future main() async {
     var reference = firestore.collection('test');
     var documents = await reference.get(pageSize: 1);
     var first = documents[0];
-    documents = await reference.get(pageSize: 1, nextPageToken: documents.nextPageToken);
+    documents = await reference.get(
+        pageSize: 1, nextPageToken: documents.nextPageToken);
     var second = documents[0];
     expect(first.id, isNot(second.id));
   });
 
   test('Get documents via collection query', () async {
     await firestore.document('test/query').set({'test_field': 'test_value'});
-    var query = await firestore.collection('test').where('test_field', isEqualTo: 'test_value').get();
+    var query = await firestore
+        .collection('test')
+        .where('test_field', isEqualTo: 'test_value')
+        .get();
     expect(query.isNotEmpty, true);
   });
 
@@ -130,7 +135,8 @@ Future main() async {
 
     // Firestore may send empty events on subscription because we're reusing the
     // document path.
-    expect(reference.stream.where((doc) => doc != null), emits((document) => document['field'] == 'test'));
+    expect(reference.stream.where((doc) => doc != null),
+        emits((document) => document['field'] == 'test'));
 
     await reference.set({'field': 'test'});
     await reference.delete();
@@ -140,7 +146,8 @@ Future main() async {
     var reference = firestore.collection('test');
 
     var document = await reference.add({'field': 'test'});
-    expect(reference.stream, emits((List<Document> documents) => documents.isNotEmpty));
+    expect(reference.stream,
+        emits((List<Document> documents) => documents.isNotEmpty));
     await document.reference.delete();
   });
 

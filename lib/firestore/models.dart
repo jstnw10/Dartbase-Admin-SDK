@@ -1,12 +1,12 @@
 import 'dart:collection';
 
-import 'package:firedart/generated/google/firestore/v1/document.pb.dart' as fs;
-import 'package:firedart/generated/google/firestore/v1/query.pb.dart';
-import 'package:firedart/generated/google/protobuf/struct.pb.dart';
-import 'package:firedart/generated/google/protobuf/struct.pbenum.dart';
-import 'package:firedart/generated/google/protobuf/timestamp.pb.dart';
-import 'package:firedart/generated/google/protobuf/wrappers.pb.dart';
-import 'package:firedart/generated/google/type/latlng.pb.dart';
+import 'package:dartbase/generated/google/firestore/v1/document.pb.dart' as fs;
+import 'package:dartbase/generated/google/firestore/v1/query.pb.dart';
+import 'package:dartbase/generated/google/protobuf/struct.pb.dart';
+import 'package:dartbase/generated/google/protobuf/struct.pbenum.dart';
+import 'package:dartbase/generated/google/protobuf/timestamp.pb.dart';
+import 'package:dartbase/generated/google/protobuf/wrappers.pb.dart';
+import 'package:dartbase/generated/google/type/latlng.pb.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:grpc/grpc.dart';
 

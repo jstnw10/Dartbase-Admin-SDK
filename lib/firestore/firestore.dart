@@ -1,5 +1,4 @@
-import 'package:firedart/auth/firebase_auth.dart';
-
+import '../base/firebase.dart';
 import 'firestore_gateway.dart';
 import 'models.dart';
 
@@ -11,9 +10,9 @@ class Firestore {
     if (_instance != null) {
       throw Exception('Firestore instance was already initialized');
     }
-    FirebaseAuth auth;
+    Firebase auth;
     try {
-      auth = FirebaseAuth.instance;
+      auth = Firebase.instance;
     } catch (e) {
       // FirebaseAuth isn't initialized
     }
@@ -32,7 +31,7 @@ class Firestore {
   /* Instance interface */
   final FirestoreGateway _gateway;
 
-  Firestore(String projectId, {String databaseId, FirebaseAuth auth})
+  Firestore(String projectId, {String databaseId, Firebase auth})
       : _gateway =
             FirestoreGateway(projectId, databaseId: databaseId, auth: auth),
         assert(projectId.isNotEmpty);

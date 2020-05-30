@@ -3,8 +3,9 @@
 A dart-native implementation of the Firebase Admin SDK.
 
 This library is a fork of cachapa's client firebase sdk; cachapa/firedart; modified and converted to support admin only firebase features.
-This library also uses files from appsup-dart/firebase_admin like user_record.dart.
-
+This library also uses these files from appsup-dart/firebase_admin to enable admin authentication to firebase because it is not documented on firebase's official documentation (May 2020):
+* user_record.dart.
+* token_handler.dart
 
 ### Currently supported:
 

@@ -1,5 +1,5 @@
-import 'package:firedart/auth/service_account/service_account.dart';
-import 'package:firedart/firedart.dart';
+import 'package:dartbase/auth/service_account/service_account.dart';
+import 'package:dartbase/dartbase.dart';
 
 const apiKey = 'Project Settings -> General -> Web API Key';
 const projectId = 'Project Settings -> General -> Project ID';
@@ -13,7 +13,7 @@ Future main() async {
   /// ServiceAccount.serviceAccountFromFile(filePath);
 
   /// Alternatively:
-  await FirebaseAuth.initialize(projectId, ServiceAccount.fromJson(r'''
+  await Firebase.initialize(projectId, ServiceAccount.fromJson(r'''
       <Project Settings -> Service Accounts -> generate new private key>
       Paste the json here
     '''));
@@ -32,7 +32,8 @@ Future main() async {
   var document = await ref.get();
   print('snapshot: ${document['value']}');
 
-  print('Sleeping for 30 seconds. You can make changes to test/doc in the UI console');
+  print(
+      'Sleeping for 30 seconds. You can make changes to test/doc in the UI console');
   await Future.delayed((const Duration(seconds: 30)));
   print('closing the connection');
   await Firestore.instance.close();

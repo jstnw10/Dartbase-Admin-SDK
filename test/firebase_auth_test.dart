@@ -1,12 +1,13 @@
-import 'package:firedart/firedart.dart';
+import 'package:dartbase/dartbase.dart';
 import 'package:test/test.dart';
 
 import 'test_config.dart';
 
 Future main() async {
-  FirebaseAuth auth;
+  Firebase auth;
 
   setUpAll(() async {
-    auth = FirebaseAuth(projectId, await ServiceAccount.fromFile(serviceAccountPath));
+    auth =
+        Firebase(projectId, await ServiceAccount.fromFile(serviceAccountPath));
   });
 }

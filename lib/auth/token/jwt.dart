@@ -1,8 +1,6 @@
 import 'dart:convert';
 
-import 'package:firedart/auth/firebase_auth.dart';
-import 'package:firedart/firedart.dart';
-
+import '../../base/firebase.dart';
 import 'rsa.dart';
 
 class Jwt {
@@ -26,13 +24,16 @@ class Jwt {
   // If check revoked is true, we get user information from Google and check if the remote token we got is
   // not expired compared to the one we got offered here.
   Future<void> validate(Map<String, String> certificates,
-      {FirebaseAuth authInstance, bool enforceEmailVerification = false, bool checkRevoked = false}) async {
-    var auth = authInstance ?? FirebaseAuth.instance;
+      {Firebase authInstance,
+      bool enforceEmailVerification = false,
+      bool checkRevoked = false}) async {
+    var auth = authInstance ?? Firebase.instance;
 
     if (checkRevoked) {
       var user = await auth.getUserById(_payload.subject);
       if (user.tokensValidAfterTime != null) {
-        final authTimeUtc = DateTime.fromMillisecondsSinceEpoch(_payload.issueTime);
+        final authTimeUtc =
+            DateTime.fromMillisecondsSinceEpoch(_payload.issueTime);
         final validSinceUtc = user.tokensValidAfterTime;
         if (authTimeUtc.isBefore(validSinceUtc)) {
           throw RevokedTokenException();
@@ -73,9 +74,11 @@ class Jwt {
       throw Exception('Unrecognized certificate id: ${_header.certificateId}');
     }
 
-    _rsaMap[_header.certificateId] ??= Rsa.fromCertificate(certificates[_header.certificateId]);
+    _rsaMap[_header.certificateId] ??=
+        Rsa.fromCertificate(certificates[_header.certificateId]);
     var rsa = _rsaMap[_header.certificateId];
-    var verified = rsa.verify('${_tokenParts[0]}.${_tokenParts[1]}', _tokenParts[2]);
+    var verified =
+        rsa.verify('${_tokenParts[0]}.${_tokenParts[1]}', _tokenParts[2]);
 
     if (!verified) {
       throw Exception('Could not verify the token against its signature');
@@ -121,4 +124,5 @@ class EmailVerificationException implements Exception {
   final message = 'Email has not been verified';
 }
 
-Map<String, dynamic> _parse(String tokenPart) => jsonDecode(utf8.decode(relaxedBase64Decode(tokenPart)));
+Map<String, dynamic> _parse(String tokenPart) =>
+    jsonDecode(utf8.decode(relaxedBase64Decode(tokenPart)));
