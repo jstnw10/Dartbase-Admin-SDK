@@ -19,8 +19,7 @@ class FirestoreGateway {
   Stream<ListenResponse> stream;
 
   FirestoreGateway(this.firebase, {String databaseId = '(default'})
-      : database =
-            'projects/${firebase.projectId}/databases/$databaseId/documents' {
+      : database = 'projects/${firebase.projectId}/databases/$databaseId' {
     _setupClient();
   }
 

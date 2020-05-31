@@ -17,6 +17,7 @@ Future main() async {
         projectId, await ServiceAccount.fromFile(serviceAccountPath));
     bucket = await FirebaseStorage.getBucket(storageUrl, firebase: firebase);
 
+    await localFile.create(recursive: true);
     // Download a test image
     await HttpClient()
         .getUrl(Uri.parse('https://bit.ly/36HMid0'))
