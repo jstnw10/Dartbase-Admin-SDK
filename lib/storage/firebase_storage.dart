@@ -16,8 +16,9 @@ class FirebaseStorage {
       {Firebase firebase}) async {
     assert(firebase != null || Firebase.initialized,
         'Firebase global instance not initialized, run Firebase.initialize().\nAlternatively, provide a local instance via FirebaseStorage.getBucket(bucketId, firebase: <firebase instance>)');
-
     assert(bucketId.isNotEmpty, 'Bucket ID cannot be null');
+
+    firebase ??= Firebase.instance;
 
     var credentials = gauth.ServiceAccountCredentials.fromJson(
         firebase.serviceAccount.serviceAccountString);
