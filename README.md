@@ -26,7 +26,7 @@ dependencies:
 
 ## Firebase Auth
 
-The `FirebaseAuth` class implements the necessary functionality for managing accounts. It currently only supports `Email/Password` sign-in, so make sure it's enabled under `Authentication` -> `Sign-in Method`.
+The `Firebase` class implements the necessary functionality for managing accounts. It currently only supports `Email/Password` sign-in, so make sure it's enabled under `Authentication` -> `Sign-in Method`.
 
 You'll also need to go to your `Firebase Console`, open `Project Settings` and under the `General` tab copy the `Web API Key`.
 
@@ -38,18 +38,18 @@ You'll also need to go to your `Firebase Console`, open `Project Settings` and u
 import 'package:firedart/firedart.dart';
 ```
 
-`FirebaseAuth` has a singleton version which should be enough for most use cases. You'll need to initialise it with your API key and a token store (see note above):
+`Firebase` has a singleton version which should be enough for most use cases. You'll need to initialise it with your API key and a token store (see note above):
 
 ``` dart
-FirebaseAuth.initialize(apiKey, await HiveStore());
-await FirebaseAuth.instance.signIn(email, password);
-var user = await FirebaseAuth.instance.getUser();
+Firebase.initialize(apiKey, await HiveStore());
+await Firebase.instance.signIn(email, password);
+var user = await Firebase.instance.getUser();
 ```
 
-Alternatively you can instantiate your own `FirebaseAuth` object:
+Alternatively you can instantiate your own `Firebase` object:
 
 ``` dart
-var firebaseAuth = FirebaseAuth.(apiKey, await PreferencesStore());
+var firebaseAuth = Firebase.(apiKey, await PreferencesStore());
 await firebaseAuth.signIn(email, password);
 var user = await firebaseAuth.getUser();
 ```
@@ -70,7 +70,7 @@ The `Firestore` class is a basic implementation of the service's RPC interface. 
 import 'package:firedart/firedart.dart';
 ```
 
-As with `FirebaseAuth`, `Firestore` offers a singleton version that needs to be initialised with your `Project ID`, which you can find under `Project Settings` -> `General`:
+As with `Firebase`, `Firestore` offers a singleton version that needs to be initialised with your `Project ID`, which you can find under `Project Settings` -> `General`:
 
 ``` dart
 Firestore.initialize(projectId);
@@ -78,10 +78,10 @@ var map = await Firestore.instance.collection("users").get();
 var users = UserCollection.fromMap(map);
 ```
 
-You can also instantiate your own `Firestore` object. Please note that if your database requires authenticated access, you'll need to pass along an instance of `FirebaseAuth`.
+You can also instantiate your own `Firestore` object. Please note that if your database requires authenticated access, you'll need to pass along an instance of `Firebase`.
 
 ``` dart
-var firebaseAuth = FirebaseAuth.(apiKey, await HiveStore());
+var firebaseAuth = Firebase.(apiKey, await HiveStore());
 var firestore = Firestore(projectId, auth: firebaseAuth);
 
 await firebaseAuth.signIn(email, password);
@@ -121,7 +121,7 @@ For debugging `Firebase Auth` you can use `VerboseClient`, an HTTP client that l
 
 ``` dart
 var client = !kReleaseMode ? VerboseClient() : http.Client();
-var firebaseAuth = FirebaseAuth(apiKey, await PreferencesStore(), httpClient: client);
+var firebaseAuth = Firebase(apiKey, await PreferencesStore(), httpClient: client);
 ```
 
 ## Securing Tokens

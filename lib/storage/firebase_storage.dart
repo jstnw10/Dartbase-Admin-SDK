@@ -12,18 +12,19 @@ class FirebaseStorage {
 
   FirebaseStorage._internal(this._bucket);
 
-  static Future<FirebaseStorage> getBucket(
-      String projectId, String bucketId, Firebase auth) async {
-    assert(projectId.isNotEmpty, 'Project ID cannot be null');
+  static Future<FirebaseStorage> getBucket(String bucketId,
+      {Firebase firebase}) async {
+    assert(firebase == null && !Firebase.initialized,
+        'Firebase global instance not initialized, run Firebase.initialize().\nAlternatively, provide a local instance via FirebaseStorage.getBucket(bucketId, firebase: <firebase instance>)');
+
     assert(bucketId.isNotEmpty, 'Bucket ID cannot be null');
-    assert(auth != null, 'Auth cannot be null');
 
     var credentials = gauth.ServiceAccountCredentials.fromJson(
-        auth.serviceAccount.serviceAccountString);
+        firebase.serviceAccount.serviceAccountString);
     var client = await gauth.clientViaServiceAccount(
         credentials, Storage.SCOPES,
-        baseClient: auth.httpClient);
-    var storage = Storage(client, projectId);
+        baseClient: firebase.httpClient);
+    var storage = Storage(client, firebase.projectId);
     var bucket = await storage.bucket(bucketId);
 
     return FirebaseStorage._internal(bucket);
@@ -31,7 +32,7 @@ class FirebaseStorage {
 
   Future<void> download(String remotePath, String localPath,
       {int offset, int length}) async {
-    var sink = getIOAccess().openWrite(localPath);
+    var sink = getPlatformAccess().openWrite(localPath);
     await _bucket.read(remotePath, offset: offset, length: length).pipe(sink);
     await sink.close();
   }
@@ -49,7 +50,7 @@ class FirebaseStorage {
         predefinedAcl: predefinedAcl,
         contentType: contentType);
 
-    await getIOAccess().openRead(localPath).pipe(streamSink);
+    await getPlatformAccess().openRead(localPath).pipe(streamSink);
 
     return await streamSink.done;
   }

@@ -1,4 +1,3 @@
-const apiKey = "Project Settings -> General -> Web API Key";
 const projectId = "Project Settings -> General -> Project ID";
-const email = "you@server.com";
-const password = "1234";
+const storageUrl = 'Bucket name without gs://';
+const serviceAccountPath = 'Project Settings -> Service Accounts -> generate new private key -> download and get file path';

@@ -11,7 +11,7 @@ class ServiceAccount {
   ServiceAccount.fromEnvironmentVariable(
       {String environmentVariable = 'GOOGLE_APPLICATION_CREDENTIALS'})
       : serviceAccountString =
-            getIOAccess().getEnvironmentVariable(environmentVariable);
+            getPlatformAccess().getEnvironmentVariable(environmentVariable);
 
   Future<AccessToken> getAccessToken() async {
     return ServiceAccountCredential(jsonDecode(serviceAccountString))
@@ -19,5 +19,6 @@ class ServiceAccount {
   }
 
   static Future<ServiceAccount> fromFile(String filePath) async =>
-      ServiceAccount.fromJson(await getIOAccess().getStringFromFile(filePath));
+      ServiceAccount.fromJson(
+          await getPlatformAccess().getStringFromFile(filePath));
 }

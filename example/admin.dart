@@ -1,7 +1,6 @@
 import 'package:dartbase/auth/service_account/service_account.dart';
 import 'package:dartbase/dartbase.dart';
 
-const apiKey = 'Project Settings -> General -> Web API Key';
 const projectId = 'Project Settings -> General -> Project ID';
 
 /// Note: Beware of pushing your credentials to source control.
@@ -10,14 +9,17 @@ Future main() async {
   /// (GOOGLE_APPLICATION_CREDENTIALS is the default environment variable we look for.)
   /// ServiceAccount.fromEnvironmentVariable();
   /// or from a file
-  /// ServiceAccount.serviceAccountFromFile(filePath);
-
-  /// Alternatively:
+  /// ServiceAccount.fromFile(filePath);
+  /// or directly from a json string
+  /// ServiceAccount.fromJson(String);
   await Firebase.initialize(projectId, ServiceAccount.fromJson(r'''
-      <Project Settings -> Service Accounts -> generate new private key>
+{
+      Project Settings -> Service Accounts -> generate new private key
       Paste the json here
-    '''));
-  Firestore.initialize(projectId); // Firestore reuses the auth client
+}
+'''));
+
+  Firestore.initialize(); // Firestore reuses the firebase client
 
   // Instantiate a reference to a document - this happens offline
   var ref = Firestore.instance.collection('test').document('doc');

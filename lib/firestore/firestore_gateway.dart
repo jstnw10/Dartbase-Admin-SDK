@@ -10,17 +10,17 @@ import '../base/firebase.dart';
 import 'models.dart';
 
 class FirestoreGateway {
-  final Firebase auth;
   final String database;
+  final Firebase firebase;
 
   ClientChannel _channel;
   FirestoreClient _client;
   StreamController<ListenRequest> streamController;
   Stream<ListenResponse> stream;
 
-  FirestoreGateway(String projectId, {String databaseId, this.auth})
+  FirestoreGateway(this.firebase, {String databaseId})
       : database =
-            'projects/$projectId/databases/${databaseId ?? '(default)'}/documents' {
+            'projects/${firebase.projectId}/databases/${databaseId ?? '(default)'}/documents' {
     _setupClient();
   }
 
@@ -147,9 +147,9 @@ class FirestoreGateway {
 
   void _setupClient() {
     _channel = ClientChannel('firestore.googleapis.com');
-    var options =
-        JwtServiceAccountAuthenticator(auth.serviceAccount.serviceAccountString)
-            .toCallOptions;
+    var options = JwtServiceAccountAuthenticator(
+            firebase.serviceAccount.serviceAccountString)
+        .toCallOptions;
     _client = FirestoreClient(_channel, options: options);
     streamController = null;
     stream = null;

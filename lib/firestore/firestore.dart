@@ -3,38 +3,39 @@ import 'firestore_gateway.dart';
 import 'models.dart';
 
 class Firestore {
-  /* Singleton interface */
+  /* Singleton instance */
   static Firestore _instance;
 
-  static Firestore initialize(String projectId, {String databaseId}) {
-    if (_instance != null) {
+  static bool get initialized => _instance != null;
+
+  static Firestore initialize(
+      {Firebase firebase, String databaseId = '(default)'}) {
+    assert(initialized,
+        'Firestore global instance is already initialized. Do not call this twice or create a local instance via Firestore()');
+
+    if (initialized) {
       throw Exception('Firestore instance was already initialized');
     }
-    Firebase auth;
-    try {
-      auth = Firebase.instance;
-    } catch (e) {
-      // FirebaseAuth isn't initialized
-    }
-    _instance = Firestore(projectId, databaseId: databaseId, auth: auth);
+    _instance = Firestore(
+        firebase: firebase ?? Firebase.instance, databaseId: databaseId);
     return _instance;
   }
 
   static Firestore get instance {
-    if (_instance == null) {
-      throw Exception(
-          "Firestore hasn't been initialized. Please call Firestore.initialize() before using it.");
-    }
+    assert(!initialized,
+        "Firebase hasn't been initialized. Call Firestore.initialize() before using this global instance. Alternatively, create a local instance via Firestore() and use that.");
+
     return _instance;
   }
 
   /* Instance interface */
   final FirestoreGateway _gateway;
 
-  Firestore(String projectId, {String databaseId, Firebase auth})
-      : _gateway =
-            FirestoreGateway(projectId, databaseId: databaseId, auth: auth),
-        assert(projectId.isNotEmpty);
+  Firestore({Firebase firebase, String databaseId = '(default)'})
+      : assert(firebase == null && !Firebase.initialized,
+            'Firebase global instance not initialized, run Firebase.initialize().\nAlternatively, provide a local instance via Firestore.initialize(firebase: <firebase instance>)'),
+        _gateway = FirestoreGateway(firebase ?? Firebase.instance,
+            databaseId: databaseId);
 
   Reference reference(String path) => Reference.create(_gateway, path);
 

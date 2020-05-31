@@ -6,13 +6,13 @@ import 'package:test/test.dart';
 import 'test_config.dart';
 
 Future main() async {
-  Firebase auth;
+  Firebase firebase;
   Firestore firestore;
 
   setUpAll(() async {
-    auth = await Firebase.initialize(
+    firebase = await Firebase.initialize(
         projectId, await ServiceAccount.fromFile(serviceAccountPath));
-    firestore = Firestore(projectId, auth: auth);
+    firestore = Firestore(firebase: firebase);
   });
 
   test('Create reference', () async {

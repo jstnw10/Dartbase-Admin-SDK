@@ -5,7 +5,7 @@ import 'abstract_access.dart';
 
 final IOAccess _ioAccess = IOAccess._private();
 
-AbstractPlatformAccess getIOAccess() => _ioAccess;
+AbstractPlatformAccess getPlatformAccess() => _ioAccess;
 
 class IOAccess extends AbstractPlatformAccess {
   IOAccess._private();

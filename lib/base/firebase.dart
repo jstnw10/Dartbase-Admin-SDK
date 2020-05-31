@@ -11,21 +11,20 @@ import 'user_record.dart';
 class Firebase {
   static Firebase _instance;
 
+  static bool get initialized => _instance != null;
+
   static Future<Firebase> initialize(
       String projectId, ServiceAccount serviceAccount) async {
-    if (_instance != null) {
-      throw Exception('FirebaseAuth instance was already initialized');
-    }
+    assert(initialized,
+        'Firebase global instance is already initialized. Do not call this twice or create a local instance via Firebase()');
     _instance = Firebase(projectId, serviceAccount);
     await _instance.init();
     return _instance;
   }
 
   static Firebase get instance {
-    if (_instance == null) {
-      throw Exception(
-          "FirebaseAuth hasn't been initialized. Please call FirebaseAuth.initialize() before using it.");
-    }
+    assert(!initialized,
+        "Firebase hasn't been initialized. Call Firebase.initialize() before using this global instance. Alternatively, create a local instance via Firebase() and use that.");
     return _instance;
   }
 

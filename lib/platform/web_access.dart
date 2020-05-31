@@ -5,7 +5,7 @@ import 'abstract_access.dart';
 
 final WebAccess _webAccess = WebAccess._private();
 
-AbstractPlatformAccess getIOAccess() => _webAccess;
+AbstractPlatformAccess getPlatformAccess() => _webAccess;
 
 class WebAccess extends AbstractPlatformAccess {
   WebAccess._private();

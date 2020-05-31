@@ -4,7 +4,7 @@ import 'abstract_access.dart';
 
 final UnsupportedAccess _access = UnsupportedAccess._private();
 
-AbstractPlatformAccess getIOAccess() => _access;
+AbstractPlatformAccess getPlatformAccess() => _access;
 
 class UnsupportedAccess extends AbstractPlatformAccess {
   UnsupportedAccess._private();

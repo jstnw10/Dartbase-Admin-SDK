@@ -9,13 +9,13 @@ import 'test_config.dart';
 
 Future main() async {
   var bucket;
-  Firebase auth;
   var localFile = File('localDirectory/localFile.jpg');
+  Firebase firebase;
 
   setUpAll(() async {
-    auth = await Firebase.initialize(
+    firebase = await Firebase.initialize(
         projectId, await ServiceAccount.fromFile(serviceAccountPath));
-    bucket = await FirebaseStorage.getBucket(projectId, storageUrl, auth);
+    bucket = await FirebaseStorage.getBucket(storageUrl, firebase: firebase);
 
     // Download a test image
     await HttpClient()
