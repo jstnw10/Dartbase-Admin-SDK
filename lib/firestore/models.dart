@@ -133,9 +133,6 @@ class DocumentReference extends Reference {
 
   Future<Document> get() => _gateway.getDocument(_fullPath);
 
-  @Deprecated('Use the stream getter instead')
-  Stream<Document> subscribe() => stream;
-
   Stream<Document> get stream => _gateway.streamDocument(_fullPath);
 
   /// Check if a document exists.

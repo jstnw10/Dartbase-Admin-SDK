@@ -15,7 +15,7 @@ class Firebase {
 
   static Future<Firebase> initialize(
       String projectId, ServiceAccount serviceAccount) async {
-    assert(initialized,
+    assert(!initialized,
         'Firebase global instance is already initialized. Do not call this twice or create a local instance via Firebase()');
     _instance = Firebase(projectId, serviceAccount);
     await _instance.init();
@@ -23,7 +23,7 @@ class Firebase {
   }
 
   static Firebase get instance {
-    assert(!initialized,
+    assert(initialized,
         "Firebase hasn't been initialized. Call Firebase.initialize() before using this global instance. Alternatively, create a local instance via Firebase() and use that.");
     return _instance;
   }

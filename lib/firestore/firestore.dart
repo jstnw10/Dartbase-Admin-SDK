@@ -10,19 +10,16 @@ class Firestore {
 
   static Firestore initialize(
       {Firebase firebase, String databaseId = '(default)'}) {
-    assert(initialized,
+    assert(!initialized,
         'Firestore global instance is already initialized. Do not call this twice or create a local instance via Firestore()');
 
-    if (initialized) {
-      throw Exception('Firestore instance was already initialized');
-    }
     _instance = Firestore(
         firebase: firebase ?? Firebase.instance, databaseId: databaseId);
     return _instance;
   }
 
   static Firestore get instance {
-    assert(!initialized,
+    assert(initialized,
         "Firebase hasn't been initialized. Call Firestore.initialize() before using this global instance. Alternatively, create a local instance via Firestore() and use that.");
 
     return _instance;
@@ -32,7 +29,7 @@ class Firestore {
   final FirestoreGateway _gateway;
 
   Firestore({Firebase firebase, String databaseId = '(default)'})
-      : assert(firebase == null && !Firebase.initialized,
+      : assert(firebase != null || Firebase.initialized,
             'Firebase global instance not initialized, run Firebase.initialize().\nAlternatively, provide a local instance via Firestore.initialize(firebase: <firebase instance>)'),
         _gateway = FirestoreGateway(firebase ?? Firebase.instance,
             databaseId: databaseId);
