@@ -2,16 +2,16 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../../base/firebase.dart';
+import '../firebase_auth.dart';
 import 'jwt.dart';
 
 /// Verify a Firebase token
 Future<void> verifyToken(String token,
-        {Firebase authInstance,
+        {FirebaseAuth firebaseAuth,
         bool enforceEmailVerification = false,
         bool checkRevoked = false}) async =>
     Jwt(token).validate(await _googleCertificates,
-        authInstance: authInstance,
+        firebaseAuth: firebaseAuth,
         enforceEmailVerification: enforceEmailVerification,
         checkRevoked: checkRevoked);
 

@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-import 'client.dart';
+import 'package:dartbase/base/firebase.dart';
+
 import 'user_record.dart';
 
 class UserGateway {
-  final AdminClient client;
-  final String projectId;
+  final Firebase firebase;
 
-  UserGateway(this.projectId, this.client);
+  UserGateway(this.firebase);
 
   Future<UserRecord> getUserById(String uid) async {
     var map = await _post('lookup', {'localId': uid});
@@ -17,9 +17,9 @@ class UserGateway {
   Future<Map<String, dynamic>> _post<T>(
       String method, Map<String, dynamic> body) async {
     var requestUrl =
-        'https://identitytoolkit.googleapis.com/v1/projects/$projectId/accounts:$method';
+        'https://identitytoolkit.googleapis.com/v1/projects/${firebase.projectId}/accounts:$method';
 
-    var response = await client
+    var response = await firebase.client
         .post(requestUrl, body: body)
         .catchError((error) => print(error));
 

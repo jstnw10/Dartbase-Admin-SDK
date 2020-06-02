@@ -20,15 +20,16 @@ class Firestore {
 
   static Firestore get instance {
     assert(initialized,
-        "Firebase hasn't been initialized. Call Firestore.initialize() before using this global instance. Alternatively, create a local instance via Firestore() and use that.");
+        "Firestore hasn't been initialized. Call Firestore.initialize() before using this global instance. Alternatively, create a local instance via Firestore() and use that.");
 
     return _instance;
   }
 
   /* Instance interface */
   final FirestoreGateway _gateway;
+  final Firebase firebase;
 
-  Firestore({Firebase firebase, String databaseId = '(default)'})
+  Firestore({this.firebase, String databaseId = '(default)'})
       : assert(firebase != null || Firebase.initialized,
             'Firebase global instance not initialized, run Firebase.initialize().\nAlternatively, provide a local instance via Firestore.initialize(firebase: <firebase instance>)'),
         _gateway = FirestoreGateway(firebase ?? Firebase.instance,
