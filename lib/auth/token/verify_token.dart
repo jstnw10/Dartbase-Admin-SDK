@@ -6,7 +6,7 @@ import '../firebase_auth.dart';
 import 'jwt.dart';
 
 /// Verify a Firebase token
-Future<void> verifyToken(String token,
+Future<String> verifyToken(String token,
         {FirebaseAuth firebaseAuth,
         bool enforceEmailVerification = false,
         bool checkRevoked = false}) async =>

@@ -21,9 +21,8 @@ class Jwt {
 
   Jwt(this.token) : _tokenParts = token.split(' ').last.split('.');
 
-  // If check revoked is true, we get user information from Google and check if the remote token we got is
-  // not expired compared to the one we got offered here.
-  Future<void> validate(Map<String, String> certificates,
+  // Returns subject uid if token is valid. Throws exception otherwise.
+  Future<String> validate(Map<String, String> certificates,
       {FirebaseAuth firebaseAuth,
       bool enforceEmailVerification = false,
       bool checkRevoked = false}) async {
@@ -87,6 +86,7 @@ class Jwt {
     if (!verified) {
       throw Exception('Could not verify the token against its signature');
     }
+    return _payload.subject;
   }
 }
 
