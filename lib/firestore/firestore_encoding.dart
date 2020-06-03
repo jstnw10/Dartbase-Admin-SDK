@@ -16,6 +16,10 @@ abstract class FirestoreEncoding {
   static fs.Value encode(dynamic value) {
     if (value == null) return fs.Value()..nullValue = NullValue.NULL_VALUE;
 
+    if (value is Uint8List) {
+      return fs.Value()..bytesValue = value;
+    }
+
     if (value is List) {
       final array = fs.ArrayValue();
       value.forEach((element) => array.values.add(encode(element)));
@@ -28,10 +32,6 @@ abstract class FirestoreEncoding {
       return fs.Value()..mapValue = map;
     }
 
-    if (value is Uint8List) {
-      return fs.Value()..bytesValue = value;
-    }
-
     switch (value.runtimeType) {
       case bool:
         return fs.Value()..booleanValue = value as bool;
@@ -40,12 +40,11 @@ abstract class FirestoreEncoding {
       case double:
         return fs.Value()..doubleValue = value as double;
       case DateTime:
-        return fs.Value()
-          ..timestampValue = Timestamp.fromDateTime(value as DateTime);
+        return fs.Value()..timestampValue = Timestamp.fromDateTime(value as DateTime);
       case String:
         return fs.Value()..stringValue = value as String;
       case DocumentReference:
-        return fs.Value()..referenceValue = value._fullPath as String;
+        return fs.Value()..referenceValue = (value as DocumentReference).fullPath;
       case GeoPoint:
         return fs.Value()..geoPointValue = (value as GeoPoint).toLatLng();
       default:
@@ -69,18 +68,15 @@ abstract class FirestoreEncoding {
       case fs.Value_ValueType.timestampValue:
         return value.timestampValue.toDateTime().toLocal();
       case fs.Value_ValueType.bytesValue:
-        return value.bytesValue;
+        return Uint8List.fromList(value.bytesValue);
       case fs.Value_ValueType.referenceValue:
         return DocumentReference(gateway, value.referenceValue);
       case fs.Value_ValueType.geoPointValue:
         return GeoPoint.fromLatLng(value.geoPointValue);
       case fs.Value_ValueType.arrayValue:
-        return value.arrayValue.values
-            .map((item) => decode(item, gateway))
-            .toList(growable: false);
+        return value.arrayValue.values.map((item) => decode(item, gateway)).toList(growable: false);
       case fs.Value_ValueType.mapValue:
-        return value.mapValue.fields
-            .map((key, value) => MapEntry(key, decode(value, gateway)));
+        return value.mapValue.fields.map((key, value) => MapEntry(key, decode(value, gateway)));
       default:
         throw Exception('Unrecognized type: $value');
     }

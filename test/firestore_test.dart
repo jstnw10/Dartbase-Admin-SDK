@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:dartbase/dartbase.dart';
 import 'package:test/test.dart';
@@ -10,8 +11,7 @@ Future main() async {
   Firestore firestore;
 
   setUpAll(() async {
-    firebase = await Firebase.initialize(
-        projectId, await ServiceAccount.fromFile(serviceAccountPath));
+    firebase = await Firebase.initialize(projectId, await ServiceAccount.fromFile(serviceAccountPath));
     firestore = Firestore(firebase: firebase);
   });
 
@@ -55,10 +55,7 @@ Future main() async {
 
   test('Get documents via collection query', () async {
     await firestore.document('test/query').set({'test_field': 'test_value'});
-    var query = await firestore
-        .collection('test')
-        .where('test_field', isEqualTo: 'test_value')
-        .get();
+    var query = await firestore.collection('test').where('test_field', isEqualTo: 'test_value').get();
     expect(query.isNotEmpty, true);
   });
 
@@ -137,8 +134,7 @@ Future main() async {
 
     // Firestore may send empty events on subscription because we're reusing the
     // document path.
-    expect(reference.stream.where((doc) => doc != null),
-        emits((document) => document['field'] == 'test'));
+    expect(reference.stream.where((doc) => doc != null), emits((document) => document['field'] == 'test'));
 
     await reference.set({'field': 'test'});
     await reference.delete();
@@ -148,8 +144,7 @@ Future main() async {
     var reference = firestore.collection('test');
 
     var document = await reference.add({'field': 'test'});
-    expect(reference.stream,
-        emits((List<Document> documents) => documents.isNotEmpty));
+    expect(reference.stream, emits((List<Document> documents) => documents.isNotEmpty));
     await document.reference.delete();
   });
 
@@ -169,6 +164,7 @@ Future main() async {
       'coordinates': geoPoint,
       'list': [1, 'text'],
       'map': {'int': 1, 'string': 'text'},
+      'blob': Uint8List.fromList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
     });
     var doc = await reference.get();
     expect(doc['null'], null);
@@ -182,5 +178,6 @@ Future main() async {
     expect(doc['coordinates'], geoPoint);
     expect(doc['list'], [1, 'text']);
     expect(doc['map'], {'int': 1, 'string': 'text'});
+    expect(doc['blob'], Uint8List.fromList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
   });
 }
