@@ -22,3 +22,4 @@ dependencies:
 dev_dependencies:
   test: ^1.14.3
   pedantic: ^1.9.0
+  firedart: ^0.8.0+1
