@@ -1,4 +1,4 @@
-library firedart;
+library dartbase;
 
 export 'package:dartbase/auth/service_account/service_account.dart';
 export 'package:dartbase/base/firebase.dart';
