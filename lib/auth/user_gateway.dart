@@ -14,14 +14,10 @@ class UserGateway {
     return UserRecord.fromJson(map['users'][0]);
   }
 
-  Future<Map<String, dynamic>> _post<T>(
-      String method, Map<String, dynamic> body) async {
-    var requestUrl =
-        'https://identitytoolkit.googleapis.com/v1/projects/${firebase.projectId}/accounts:$method';
+  Future<Map<String, dynamic>> _post<T>(String method, Map<String, dynamic> body) async {
+    var requestUrl = 'https://identitytoolkit.googleapis.com/v1/projects/${firebase.projectId}/accounts:$method';
 
-    var response = await firebase.client
-        .post(requestUrl, body: body)
-        .catchError((error) => print(error));
+    var response = await firebase.client.post(requestUrl, body: body);
 
     return json.decode(response.body);
   }
