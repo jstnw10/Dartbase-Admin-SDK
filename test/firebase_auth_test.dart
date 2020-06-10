@@ -18,7 +18,7 @@ Future main() async {
     var token = await fd.FirebaseAuth.instance.tokenProvider.idToken;
 
     await Future.delayed(const Duration(seconds: 5));
-    var id = await FirebaseAuth.instance.verifyIdToken(token);
+    var id = await FirebaseAuth.instance.verifyIdToken(token, checkRevoked: true);
     expect(id != null, true);
     print(id);
   });

@@ -21,7 +21,8 @@ class UserMetadata {
 
   UserMetadata.fromJson(Map<String, dynamic> map)
       : this(
-            creationTime: map['createdAt'] == null ? null : DateTime.fromMillisecondsSinceEpoch(int.parse(map['createdAt'])),
+            creationTime:
+                map['createdAt'] == null ? null : DateTime.fromMillisecondsSinceEpoch(int.parse(map['createdAt'])),
             lastSignInTime: map['lastSignInTime'] == null
                 ? null
                 : DateTime.fromMillisecondsSinceEpoch(int.parse(map['lastSignInTime'])));
@@ -44,8 +45,9 @@ class UserInfo {
   final String providerId;
   final String phoneNumber;
 
-  UserInfo({@required this.uid, this.displayName, this.email, this.photoUrl, @required this.providerId, this.phoneNumber})
-      : assert(uid == null && providerId == null);
+  UserInfo(
+      {@required this.uid, this.displayName, this.email, this.photoUrl, @required this.providerId, this.phoneNumber})
+      : assert(uid != null && providerId != null);
 
   UserInfo.fromJson(Map<String, dynamic> map)
       : this(
@@ -109,8 +111,9 @@ class UserRecord {
                 return null;
               }
             })(),
-            tokensValidAfterTime:
-                map['validSince'] == null ? null : DateTime.fromMillisecondsSinceEpoch(int.parse(map['validSince']) * 1000),
+            tokensValidAfterTime: map['validSince'] == null
+                ? null
+                : DateTime.fromMillisecondsSinceEpoch(int.parse(map['validSince']) * 1000),
             tenantId: map['tenantId']);
 
   UserRecord(
