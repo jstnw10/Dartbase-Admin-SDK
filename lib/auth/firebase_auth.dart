@@ -36,19 +36,10 @@ class FirebaseAuth {
 
   Future<UserRecord> getUserById(String uid) => _userGateway.getUserById(uid);
 
-  // Returns the uid of the subject if the token is valid. Returns null otherwise.
-  Future<String> verifyIdToken(String token,
-      {bool enforceEmailVerification = false,
-      bool checkRevoked = false}) async {
-    try {
-      var uid = await verifyToken(token,
-          firebaseAuth: this,
-          enforceEmailVerification: enforceEmailVerification,
-          checkRevoked: checkRevoked);
-      return uid;
-    } catch (error) {
-      print(error);
-    }
-    return null;
+  // Returns the uid of the subject if the token is valid. Throws exception otherwise.
+  Future<String> verifyIdToken(String token, {bool enforceEmailVerification = false, bool checkRevoked = false}) async {
+    var uid = await verifyToken(token,
+        firebaseAuth: this, enforceEmailVerification: enforceEmailVerification, checkRevoked: checkRevoked);
+    return uid;
   }
 }
