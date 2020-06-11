@@ -42,10 +42,10 @@ class Jwt {
 
     var now = (DateTime.now().toUtc().millisecondsSinceEpoch / 1000).floor();
 
-    if (_payload.authenticationTime >= now) {
+    if (_payload.authenticationTime > now) {
       throw Exception('Authentication time must be in the past');
     }
-    if (_payload.issueTime >= now) {
+    if (_payload.issueTime > now) {
       throw Exception('Issue time must be in the past');
     }
     if (_payload.expirationTime <= now) {
