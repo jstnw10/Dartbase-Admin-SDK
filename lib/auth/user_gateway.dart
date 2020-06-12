@@ -11,6 +11,9 @@ class UserGateway {
 
   Future<UserRecord> getUserById(String uid) async {
     var map = await _post('lookup', {'localId': uid});
+    if (!map.containsKey('users')) {
+      throw Exception('User not found with id [$uid]');
+    }
     return UserRecord.fromJson(map['users'][0]);
   }
 

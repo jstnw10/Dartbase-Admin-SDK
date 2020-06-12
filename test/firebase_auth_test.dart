@@ -13,6 +13,11 @@ Future main() async {
     await FirebaseAuth.initialize();
   });
 
+  test('Get user by ID', () async {
+    var user = await FirebaseAuth.instance.getUserById(uid);
+    expect(user.email, email);
+  });
+
   test('Verify Token', () async {
     await fd.FirebaseAuth.instance.signIn(email, pass);
     var token = await fd.FirebaseAuth.instance.tokenProvider.idToken;
