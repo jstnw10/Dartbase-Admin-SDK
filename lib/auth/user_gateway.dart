@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dartbase/base/exceptions.dart';
 import 'package:dartbase/base/firebase.dart';
 
 import 'user_record.dart';
@@ -21,6 +22,10 @@ class UserGateway {
     var requestUrl = 'https://identitytoolkit.googleapis.com/v1/projects/${firebase.projectId}/accounts:$method';
 
     var response = await firebase.client.post(requestUrl, body: body);
+
+    if (response.statusCode != 200) {
+      throw AuthException(response.body);
+    }
 
     return json.decode(response.body);
   }
