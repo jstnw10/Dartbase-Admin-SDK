@@ -1,4 +1,4 @@
-import 'package:dartbase/auth/user_gateway.dart';
+import 'package:dartbase_admin/auth/user_gateway.dart';
 
 import '../base/firebase.dart';
 import 'token/verify_token.dart';

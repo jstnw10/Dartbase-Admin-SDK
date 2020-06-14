@@ -1,5 +1,5 @@
-import 'package:dartbase/dartbase.dart';
-import 'package:dartbase/fcm/message.dart';
+import 'package:dartbase_admin/dartbase.dart';
+import 'package:dartbase_admin/fcm/message.dart';
 import 'package:test/test.dart';
 
 import 'test_config.dart';

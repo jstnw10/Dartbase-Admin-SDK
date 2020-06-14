@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
-import 'package:dartbase/generated/google/firestore/v1/document.pb.dart' as fs;
-import 'package:dartbase/generated/google/protobuf/struct.pb.dart';
-import 'package:dartbase/generated/google/protobuf/struct.pbenum.dart';
-import 'package:dartbase/generated/google/protobuf/timestamp.pb.dart';
+import 'package:dartbase_admin/generated/google/firestore/v1/document.pb.dart' as fs;
+import 'package:dartbase_admin/generated/google/protobuf/struct.pb.dart';
+import 'package:dartbase_admin/generated/google/protobuf/struct.pbenum.dart';
+import 'package:dartbase_admin/generated/google/protobuf/timestamp.pb.dart';
 import 'package:fixnum/fixnum.dart';
 
 import 'firestore_gateway.dart';

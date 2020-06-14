@@ -1,4 +1,4 @@
-import 'package:dartbase/auth/service_account/service_account.dart';
+import 'package:dartbase_admin/auth/service_account/service_account.dart';
 import 'package:http/http.dart' as http;
 
 import 'client.dart';

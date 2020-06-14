@@ -25,7 +25,7 @@ dependencies:
 
 ## Setup & Usage
 ``` dart
-import 'package:dartbase/dartbase.dart';
+import 'package:dartbase_admin/dartbase.dart';
 ```
 
 To begin, you need to initialize Firebase:
@@ -178,8 +178,8 @@ You'll also need to go to open `Project Settings` and under the `Cloud Messaging
 
 Then in your main script:
 ``` dart
-import 'package:dartbase/dartbase.dart';
-import 'package:dartbase/fcm/message.dart';
+import 'package:dartbase_admin/dartbase.dart';
+import 'package:dartbase_admin/fcm/message.dart';
 
 const cloudMessagingServerKey = 'Project settings -> Cloud Messaging -> Server key';
 

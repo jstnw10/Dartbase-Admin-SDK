@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:dartbase/generated/google/firestore/v1/common.pb.dart';
-import 'package:dartbase/generated/google/firestore/v1/document.pb.dart' as fs;
-import 'package:dartbase/generated/google/firestore/v1/firestore.pbgrpc.dart';
-import 'package:dartbase/generated/google/firestore/v1/query.pb.dart';
+import 'package:dartbase_admin/generated/google/firestore/v1/common.pb.dart';
+import 'package:dartbase_admin/generated/google/firestore/v1/document.pb.dart' as fs;
+import 'package:dartbase_admin/generated/google/firestore/v1/firestore.pbgrpc.dart';
+import 'package:dartbase_admin/generated/google/firestore/v1/query.pb.dart';
 import 'package:grpc/grpc.dart';
 
 import '../base/firebase.dart';

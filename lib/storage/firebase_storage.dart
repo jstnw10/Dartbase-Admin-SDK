@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:typed_data';
 
-import 'package:dartbase/platform/access_exporter.dart';
+import 'package:dartbase_admin/platform/access_exporter.dart';
 import 'package:gcloud/storage.dart';
 import 'package:googleapis_auth/auth_io.dart' as gauth;
 

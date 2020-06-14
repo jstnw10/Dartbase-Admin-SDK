@@ -1,5 +1,5 @@
-import 'package:dartbase/auth/service_account/service_account.dart';
-import 'package:dartbase/dartbase.dart';
+import 'package:dartbase_admin/auth/service_account/service_account.dart';
+import 'package:dartbase_admin/dartbase.dart';
 
 const projectId = 'Project Settings -> General -> Project ID';
 

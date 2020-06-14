@@ -1,9 +1,9 @@
 import 'dart:collection';
 
-import 'package:dartbase/generated/google/firestore/v1/document.pb.dart' as fs;
-import 'package:dartbase/generated/google/firestore/v1/query.pb.dart';
-import 'package:dartbase/generated/google/protobuf/wrappers.pb.dart';
-import 'package:dartbase/generated/google/type/latlng.pb.dart';
+import 'package:dartbase_admin/generated/google/firestore/v1/document.pb.dart' as fs;
+import 'package:dartbase_admin/generated/google/firestore/v1/query.pb.dart';
+import 'package:dartbase_admin/generated/google/protobuf/wrappers.pb.dart';
+import 'package:dartbase_admin/generated/google/type/latlng.pb.dart';
 import 'package:grpc/grpc.dart';
 
 import 'firestore_encoding.dart';

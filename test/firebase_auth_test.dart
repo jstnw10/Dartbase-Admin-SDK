@@ -1,4 +1,4 @@
-import 'package:dartbase/dartbase.dart';
+import 'package:dartbase_admin/dartbase.dart';
 import 'package:firedart/firedart.dart' as fd;
 import 'package:test/test.dart';
 

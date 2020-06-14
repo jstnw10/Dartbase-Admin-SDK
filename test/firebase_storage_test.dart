@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:dartbase/dartbase.dart';
-import 'package:dartbase/storage/firebase_storage.dart';
+import 'package:dartbase_admin/dartbase.dart';
+import 'package:dartbase_admin/storage/firebase_storage.dart';
 import 'package:gcloud/storage.dart';
 import 'package:test/test.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:dartbase/dartbase.dart';
+import 'package:dartbase_admin/dartbase.dart';
 import 'package:test/test.dart';
 
 import 'test_config.dart';

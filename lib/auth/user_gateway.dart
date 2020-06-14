@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:dartbase/base/exceptions.dart';
-import 'package:dartbase/base/firebase.dart';
+import 'package:dartbase_admin/base/exceptions.dart';
+import 'package:dartbase_admin/base/firebase.dart';
 
 import 'user_record.dart';
 
