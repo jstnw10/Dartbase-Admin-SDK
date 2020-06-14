@@ -9,7 +9,8 @@ Future main() async {
   final nameRegExp = RegExp(r'projects/.*/messages/[0-9]+');
 
   setUpAll(() async {
-    await Firebase.initialize(projectId, await ServiceAccount.fromFile(serviceAccountPath));
+    await Firebase.initialize(
+        projectId, await ServiceAccount.fromFile(serviceAccountPath));
     fcm = FCM.initialize();
   });
 

@@ -22,9 +22,11 @@ class DoubleValue extends $pb.GeneratedMessage with $mixin.DoubleValueMixin {
 
   DoubleValue._() : super();
   factory DoubleValue() => create();
-  factory DoubleValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory DoubleValue.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory DoubleValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory DoubleValue.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   DoubleValue clone() => DoubleValue()..mergeFromMessage(this);
   DoubleValue copyWith(void Function(DoubleValue) updates) =>
@@ -35,7 +37,8 @@ class DoubleValue extends $pb.GeneratedMessage with $mixin.DoubleValueMixin {
   DoubleValue createEmptyInstance() => create();
   static $pb.PbList<DoubleValue> createRepeated() => $pb.PbList<DoubleValue>();
   @$core.pragma('dart2js:noInline')
-  static DoubleValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DoubleValue>(create);
+  static DoubleValue getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DoubleValue>(create);
   static DoubleValue _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -62,19 +65,23 @@ class FloatValue extends $pb.GeneratedMessage with $mixin.FloatValueMixin {
 
   FloatValue._() : super();
   factory FloatValue() => create();
-  factory FloatValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory FloatValue.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory FloatValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory FloatValue.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   FloatValue clone() => FloatValue()..mergeFromMessage(this);
-  FloatValue copyWith(void Function(FloatValue) updates) => super.copyWith((message) => updates(message as FloatValue));
+  FloatValue copyWith(void Function(FloatValue) updates) =>
+      super.copyWith((message) => updates(message as FloatValue));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static FloatValue create() => FloatValue._();
   FloatValue createEmptyInstance() => create();
   static $pb.PbList<FloatValue> createRepeated() => $pb.PbList<FloatValue>();
   @$core.pragma('dart2js:noInline')
-  static FloatValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FloatValue>(create);
+  static FloatValue getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FloatValue>(create);
   static FloatValue _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -101,19 +108,23 @@ class Int64Value extends $pb.GeneratedMessage with $mixin.Int64ValueMixin {
 
   Int64Value._() : super();
   factory Int64Value() => create();
-  factory Int64Value.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Int64Value.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory Int64Value.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Int64Value.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   Int64Value clone() => Int64Value()..mergeFromMessage(this);
-  Int64Value copyWith(void Function(Int64Value) updates) => super.copyWith((message) => updates(message as Int64Value));
+  Int64Value copyWith(void Function(Int64Value) updates) =>
+      super.copyWith((message) => updates(message as Int64Value));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Int64Value create() => Int64Value._();
   Int64Value createEmptyInstance() => create();
   static $pb.PbList<Int64Value> createRepeated() => $pb.PbList<Int64Value>();
   @$core.pragma('dart2js:noInline')
-  static Int64Value getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Int64Value>(create);
+  static Int64Value getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Int64Value>(create);
   static Int64Value _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -135,14 +146,17 @@ class UInt64Value extends $pb.GeneratedMessage with $mixin.UInt64ValueMixin {
       createEmptyInstance: create,
       toProto3Json: $mixin.UInt64ValueMixin.toProto3JsonHelper,
       fromProto3Json: $mixin.UInt64ValueMixin.fromProto3JsonHelper)
-    ..a<$fixnum.Int64>(1, 'value', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(1, 'value', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   UInt64Value._() : super();
   factory UInt64Value() => create();
-  factory UInt64Value.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UInt64Value.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory UInt64Value.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UInt64Value.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   UInt64Value clone() => UInt64Value()..mergeFromMessage(this);
   UInt64Value copyWith(void Function(UInt64Value) updates) =>
@@ -153,7 +167,8 @@ class UInt64Value extends $pb.GeneratedMessage with $mixin.UInt64ValueMixin {
   UInt64Value createEmptyInstance() => create();
   static $pb.PbList<UInt64Value> createRepeated() => $pb.PbList<UInt64Value>();
   @$core.pragma('dart2js:noInline')
-  static UInt64Value getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UInt64Value>(create);
+  static UInt64Value getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UInt64Value>(create);
   static UInt64Value _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -180,19 +195,23 @@ class Int32Value extends $pb.GeneratedMessage with $mixin.Int32ValueMixin {
 
   Int32Value._() : super();
   factory Int32Value() => create();
-  factory Int32Value.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Int32Value.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory Int32Value.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Int32Value.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   Int32Value clone() => Int32Value()..mergeFromMessage(this);
-  Int32Value copyWith(void Function(Int32Value) updates) => super.copyWith((message) => updates(message as Int32Value));
+  Int32Value copyWith(void Function(Int32Value) updates) =>
+      super.copyWith((message) => updates(message as Int32Value));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Int32Value create() => Int32Value._();
   Int32Value createEmptyInstance() => create();
   static $pb.PbList<Int32Value> createRepeated() => $pb.PbList<Int32Value>();
   @$core.pragma('dart2js:noInline')
-  static Int32Value getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Int32Value>(create);
+  static Int32Value getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Int32Value>(create);
   static Int32Value _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -219,9 +238,11 @@ class UInt32Value extends $pb.GeneratedMessage with $mixin.UInt32ValueMixin {
 
   UInt32Value._() : super();
   factory UInt32Value() => create();
-  factory UInt32Value.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UInt32Value.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory UInt32Value.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UInt32Value.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   UInt32Value clone() => UInt32Value()..mergeFromMessage(this);
   UInt32Value copyWith(void Function(UInt32Value) updates) =>
@@ -232,7 +253,8 @@ class UInt32Value extends $pb.GeneratedMessage with $mixin.UInt32ValueMixin {
   UInt32Value createEmptyInstance() => create();
   static $pb.PbList<UInt32Value> createRepeated() => $pb.PbList<UInt32Value>();
   @$core.pragma('dart2js:noInline')
-  static UInt32Value getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UInt32Value>(create);
+  static UInt32Value getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UInt32Value>(create);
   static UInt32Value _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -259,19 +281,23 @@ class BoolValue extends $pb.GeneratedMessage with $mixin.BoolValueMixin {
 
   BoolValue._() : super();
   factory BoolValue() => create();
-  factory BoolValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BoolValue.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory BoolValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BoolValue.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   BoolValue clone() => BoolValue()..mergeFromMessage(this);
-  BoolValue copyWith(void Function(BoolValue) updates) => super.copyWith((message) => updates(message as BoolValue));
+  BoolValue copyWith(void Function(BoolValue) updates) =>
+      super.copyWith((message) => updates(message as BoolValue));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static BoolValue create() => BoolValue._();
   BoolValue createEmptyInstance() => create();
   static $pb.PbList<BoolValue> createRepeated() => $pb.PbList<BoolValue>();
   @$core.pragma('dart2js:noInline')
-  static BoolValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoolValue>(create);
+  static BoolValue getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoolValue>(create);
   static BoolValue _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -298,9 +324,11 @@ class StringValue extends $pb.GeneratedMessage with $mixin.StringValueMixin {
 
   StringValue._() : super();
   factory StringValue() => create();
-  factory StringValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory StringValue.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory StringValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory StringValue.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   StringValue clone() => StringValue()..mergeFromMessage(this);
   StringValue copyWith(void Function(StringValue) updates) =>
@@ -311,7 +339,8 @@ class StringValue extends $pb.GeneratedMessage with $mixin.StringValueMixin {
   StringValue createEmptyInstance() => create();
   static $pb.PbList<StringValue> createRepeated() => $pb.PbList<StringValue>();
   @$core.pragma('dart2js:noInline')
-  static StringValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<StringValue>(create);
+  static StringValue getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<StringValue>(create);
   static StringValue _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -338,19 +367,23 @@ class BytesValue extends $pb.GeneratedMessage with $mixin.BytesValueMixin {
 
   BytesValue._() : super();
   factory BytesValue() => create();
-  factory BytesValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BytesValue.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory BytesValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BytesValue.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   BytesValue clone() => BytesValue()..mergeFromMessage(this);
-  BytesValue copyWith(void Function(BytesValue) updates) => super.copyWith((message) => updates(message as BytesValue));
+  BytesValue copyWith(void Function(BytesValue) updates) =>
+      super.copyWith((message) => updates(message as BytesValue));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static BytesValue create() => BytesValue._();
   BytesValue createEmptyInstance() => create();
   static $pb.PbList<BytesValue> createRepeated() => $pb.PbList<BytesValue>();
   @$core.pragma('dart2js:noInline')
-  static BytesValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BytesValue>(create);
+  static BytesValue getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BytesValue>(create);
   static BytesValue _defaultInstance;
 
   @$pb.TagNumber(1)

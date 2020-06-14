@@ -10,27 +10,32 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class LatLng extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo('LatLng', package: const $pb.PackageName('google.type'), createEmptyInstance: create)
-        ..a<$core.double>(1, 'latitude', $pb.PbFieldType.OD)
-        ..a<$core.double>(2, 'longitude', $pb.PbFieldType.OD)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('LatLng',
+      package: const $pb.PackageName('google.type'),
+      createEmptyInstance: create)
+    ..a<$core.double>(1, 'latitude', $pb.PbFieldType.OD)
+    ..a<$core.double>(2, 'longitude', $pb.PbFieldType.OD)
+    ..hasRequiredFields = false;
 
   LatLng._() : super();
   factory LatLng() => create();
-  factory LatLng.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory LatLng.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory LatLng.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory LatLng.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   LatLng clone() => LatLng()..mergeFromMessage(this);
-  LatLng copyWith(void Function(LatLng) updates) => super.copyWith((message) => updates(message as LatLng));
+  LatLng copyWith(void Function(LatLng) updates) =>
+      super.copyWith((message) => updates(message as LatLng));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static LatLng create() => LatLng._();
   LatLng createEmptyInstance() => create();
   static $pb.PbList<LatLng> createRepeated() => $pb.PbList<LatLng>();
   @$core.pragma('dart2js:noInline')
-  static LatLng getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LatLng>(create);
+  static LatLng getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LatLng>(create);
   static LatLng _defaultInstance;
 
   @$pb.TagNumber(1)

@@ -33,7 +33,9 @@ class FCM {
     assert(!initialized,
         'FCM global instance is already initialized. Do not call this twice or create a local instance via FCM()');
 
-    _instance = FCM(firebase: firebase ?? Firebase.instance, fcmConfig: fcmConfig ?? FCMConfig(firebase: firebase));
+    _instance = FCM(
+        firebase: firebase ?? Firebase.instance,
+        fcmConfig: fcmConfig ?? FCMConfig(firebase: firebase));
     return _instance;
   }
 

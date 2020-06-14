@@ -59,7 +59,8 @@ class Message {
     this.condition,
   });
 
-  factory Message.fromJson(Map<String, dynamic> json) => _$MessageFromJson(json);
+  factory Message.fromJson(Map<String, dynamic> json) =>
+      _$MessageFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageToJson(this);
 }
@@ -84,7 +85,8 @@ class MessageNotification {
 
   MessageNotification({this.title, this.body, this.image});
 
-  factory MessageNotification.fromJson(Map<String, dynamic> json) => _$MessageNotificationFromJson(json);
+  factory MessageNotification.fromJson(Map<String, dynamic> json) =>
+      _$MessageNotificationFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageNotificationToJson(this);
 }
@@ -147,7 +149,8 @@ class MessageAndroidConfig {
     this.direct_boot_ok,
   });
 
-  factory MessageAndroidConfig.fromJson(Map<String, dynamic> json) => _$MessageAndroidConfigFromJson(json);
+  factory MessageAndroidConfig.fromJson(Map<String, dynamic> json) =>
+      _$MessageAndroidConfigFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageAndroidConfigToJson(this);
 }
@@ -370,7 +373,8 @@ class MessageAndroidNotification {
     this.image,
   });
 
-  factory MessageAndroidNotification.fromJson(Map<String, dynamic> json) => _$MessageAndroidNotificationFromJson(json);
+  factory MessageAndroidNotification.fromJson(Map<String, dynamic> json) =>
+      _$MessageAndroidNotificationFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageAndroidNotificationToJson(this);
 }
@@ -405,7 +409,8 @@ class MessageLightSettings {
     @required this.light_off_duration,
   });
 
-  factory MessageLightSettings.fromJson(Map<String, dynamic> json) => _$MessageLightSettingsFromJson(json);
+  factory MessageLightSettings.fromJson(Map<String, dynamic> json) =>
+      _$MessageLightSettingsFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageLightSettingsToJson(this);
 }
@@ -443,7 +448,8 @@ class MessageColor {
     this.alpha,
   });
 
-  factory MessageColor.fromJson(Map<String, dynamic> json) => _$MessageColorFromJson(json);
+  factory MessageColor.fromJson(Map<String, dynamic> json) =>
+      _$MessageColorFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageColorToJson(this);
 }
@@ -459,7 +465,8 @@ class MessageAndroidFcmOptions {
     this.analytics_label,
   });
 
-  factory MessageAndroidFcmOptions.fromJson(Map<String, dynamic> json) => _$MessageAndroidFcmOptionsFromJson(json);
+  factory MessageAndroidFcmOptions.fromJson(Map<String, dynamic> json) =>
+      _$MessageAndroidFcmOptionsFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageAndroidFcmOptionsToJson(this);
 }
@@ -498,7 +505,8 @@ class MessageWebpushConfig {
     this.fcm_options,
   });
 
-  factory MessageWebpushConfig.fromJson(Map<String, dynamic> json) => _$MessageWebpushConfigFromJson(json);
+  factory MessageWebpushConfig.fromJson(Map<String, dynamic> json) =>
+      _$MessageWebpushConfigFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageWebpushConfigToJson(this);
 }
@@ -519,7 +527,8 @@ class MessageWebpushFcmOptions {
     this.analytics_label,
   });
 
-  factory MessageWebpushFcmOptions.fromJson(Map<String, dynamic> json) => _$MessageWebpushFcmOptionsFromJson(json);
+  factory MessageWebpushFcmOptions.fromJson(Map<String, dynamic> json) =>
+      _$MessageWebpushFcmOptionsFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageWebpushFcmOptionsToJson(this);
 }
@@ -551,7 +560,8 @@ class MessageApnsConfig {
     this.fcm_options,
   });
 
-  factory MessageApnsConfig.fromJson(Map<String, dynamic> json) => _$MessageApnsConfigFromJson(json);
+  factory MessageApnsConfig.fromJson(Map<String, dynamic> json) =>
+      _$MessageApnsConfigFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageApnsConfigToJson(this);
 }
@@ -572,7 +582,8 @@ class MessageApnsFcmOptions {
     this.analytics_label,
   });
 
-  factory MessageApnsFcmOptions.fromJson(Map<String, dynamic> json) => _$MessageApnsFcmOptionsFromJson(json);
+  factory MessageApnsFcmOptions.fromJson(Map<String, dynamic> json) =>
+      _$MessageApnsFcmOptionsFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageApnsFcmOptionsToJson(this);
 }
@@ -588,7 +599,8 @@ class MessageFcmOptions {
     this.analytics_label,
   });
 
-  factory MessageFcmOptions.fromJson(Map<String, dynamic> json) => _$MessageFcmOptionsFromJson(json);
+  factory MessageFcmOptions.fromJson(Map<String, dynamic> json) =>
+      _$MessageFcmOptionsFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageFcmOptionsToJson(this);
 }
@@ -630,7 +642,8 @@ class Response {
 
   Response({this.name});
 
-  factory Response.fromJson(Map<String, dynamic> json) => _$ResponseFromJson(json);
+  factory Response.fromJson(Map<String, dynamic> json) =>
+      _$ResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$ResponseToJson(this);
 }

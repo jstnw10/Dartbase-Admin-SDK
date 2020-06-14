@@ -21,11 +21,14 @@ class UserMetadata {
 
   UserMetadata.fromJson(Map<String, dynamic> map)
       : this(
-            creationTime:
-                map['createdAt'] == null ? null : DateTime.fromMillisecondsSinceEpoch(int.parse(map['createdAt'])),
+            creationTime: map['createdAt'] == null
+                ? null
+                : DateTime.fromMillisecondsSinceEpoch(
+                    int.parse(map['createdAt'])),
             lastSignInTime: map['lastSignInTime'] == null
                 ? null
-                : DateTime.fromMillisecondsSinceEpoch(int.parse(map['lastSignInTime'])));
+                : DateTime.fromMillisecondsSinceEpoch(
+                    int.parse(map['lastSignInTime'])));
 
   Map<String, dynamic> toJson() {
     return {
@@ -46,7 +49,12 @@ class UserInfo {
   final String phoneNumber;
 
   UserInfo(
-      {@required this.uid, this.displayName, this.email, this.photoUrl, @required this.providerId, this.phoneNumber})
+      {@required this.uid,
+      this.displayName,
+      this.email,
+      this.photoUrl,
+      @required this.providerId,
+      this.phoneNumber})
       : assert(uid != null && providerId != null);
 
   UserInfo.fromJson(Map<String, dynamic> map)
@@ -98,11 +106,15 @@ class UserRecord {
             // If disabled is not provided, the account is enabled by default.
             disabled: map['disabled'] ?? false,
             metadata: UserMetadata.fromJson(map),
-            providerData: (map['providerUserInfo'] as List ?? []).map((v) => UserInfo.fromJson(v)).toList(),
+            providerData: (map['providerUserInfo'] as List ?? [])
+                .map((v) => UserInfo.fromJson(v))
+                .toList(),
             // If the password hash is redacted (probably due to missing permissions)
             // then clear it out, similar to how the salt is returned. (Otherwise, it
             // *looks* like a b64-encoded hash is present, which is confusing.)
-            passwordHash: map['passwordHash'] == _b64Redacted ? null : map['passwordHash'],
+            passwordHash: map['passwordHash'] == _b64Redacted
+                ? null
+                : map['passwordHash'],
             passwordSalt: map['passwordSalt'],
             customClaims: (() {
               try {
@@ -113,7 +125,8 @@ class UserRecord {
             })(),
             tokensValidAfterTime: map['validSince'] == null
                 ? null
-                : DateTime.fromMillisecondsSinceEpoch(int.parse(map['validSince']) * 1000),
+                : DateTime.fromMillisecondsSinceEpoch(
+                    int.parse(map['validSince']) * 1000),
             tenantId: map['tenantId']);
 
   UserRecord(

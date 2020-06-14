@@ -29,7 +29,8 @@ class GetDocumentRequest extends $pb.GeneratedMessage {
     0: GetDocumentRequest_ConsistencySelector.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('GetDocumentRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..oo(0, [3, 5])
     ..aOS(1, 'name')
     ..aOM<$3.DocumentMask>(2, 'mask', subBuilder: $3.DocumentMask.create)
@@ -42,7 +43,8 @@ class GetDocumentRequest extends $pb.GeneratedMessage {
   factory GetDocumentRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory GetDocumentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory GetDocumentRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   GetDocumentRequest clone() => GetDocumentRequest()..mergeFromMessage(this);
   GetDocumentRequest copyWith(void Function(GetDocumentRequest) updates) =>
@@ -51,10 +53,11 @@ class GetDocumentRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GetDocumentRequest create() => GetDocumentRequest._();
   GetDocumentRequest createEmptyInstance() => create();
-  static $pb.PbList<GetDocumentRequest> createRepeated() => $pb.PbList<GetDocumentRequest>();
+  static $pb.PbList<GetDocumentRequest> createRepeated() =>
+      $pb.PbList<GetDocumentRequest>();
   @$core.pragma('dart2js:noInline')
-  static GetDocumentRequest getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetDocumentRequest>(create);
+  static GetDocumentRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetDocumentRequest>(create);
   static GetDocumentRequest _defaultInstance;
 
   GetDocumentRequest_ConsistencySelector whichConsistencySelector() =>
@@ -124,7 +127,8 @@ class ListDocumentsRequest extends $pb.GeneratedMessage {
     0: ListDocumentsRequest_ConsistencySelector.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('ListDocumentsRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..oo(0, [8, 10])
     ..aOS(1, 'parent')
     ..aOS(2, 'collectionId')
@@ -142,19 +146,22 @@ class ListDocumentsRequest extends $pb.GeneratedMessage {
   factory ListDocumentsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory ListDocumentsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListDocumentsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  ListDocumentsRequest clone() => ListDocumentsRequest()..mergeFromMessage(this);
+  ListDocumentsRequest clone() =>
+      ListDocumentsRequest()..mergeFromMessage(this);
   ListDocumentsRequest copyWith(void Function(ListDocumentsRequest) updates) =>
       super.copyWith((message) => updates(message as ListDocumentsRequest));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static ListDocumentsRequest create() => ListDocumentsRequest._();
   ListDocumentsRequest createEmptyInstance() => create();
-  static $pb.PbList<ListDocumentsRequest> createRepeated() => $pb.PbList<ListDocumentsRequest>();
+  static $pb.PbList<ListDocumentsRequest> createRepeated() =>
+      $pb.PbList<ListDocumentsRequest>();
   @$core.pragma('dart2js:noInline')
-  static ListDocumentsRequest getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListDocumentsRequest>(create);
+  static ListDocumentsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListDocumentsRequest>(create);
   static ListDocumentsRequest _defaultInstance;
 
   ListDocumentsRequest_ConsistencySelector whichConsistencySelector() =>
@@ -276,8 +283,10 @@ class ListDocumentsRequest extends $pb.GeneratedMessage {
 
 class ListDocumentsResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('ListDocumentsResponse',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
-    ..pc<$1.Document>(1, 'documents', $pb.PbFieldType.PM, subBuilder: $1.Document.create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
+    ..pc<$1.Document>(1, 'documents', $pb.PbFieldType.PM,
+        subBuilder: $1.Document.create)
     ..aOS(2, 'nextPageToken')
     ..hasRequiredFields = false;
 
@@ -286,19 +295,23 @@ class ListDocumentsResponse extends $pb.GeneratedMessage {
   factory ListDocumentsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory ListDocumentsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListDocumentsResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  ListDocumentsResponse clone() => ListDocumentsResponse()..mergeFromMessage(this);
-  ListDocumentsResponse copyWith(void Function(ListDocumentsResponse) updates) =>
+  ListDocumentsResponse clone() =>
+      ListDocumentsResponse()..mergeFromMessage(this);
+  ListDocumentsResponse copyWith(
+          void Function(ListDocumentsResponse) updates) =>
       super.copyWith((message) => updates(message as ListDocumentsResponse));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static ListDocumentsResponse create() => ListDocumentsResponse._();
   ListDocumentsResponse createEmptyInstance() => create();
-  static $pb.PbList<ListDocumentsResponse> createRepeated() => $pb.PbList<ListDocumentsResponse>();
+  static $pb.PbList<ListDocumentsResponse> createRepeated() =>
+      $pb.PbList<ListDocumentsResponse>();
   @$core.pragma('dart2js:noInline')
-  static ListDocumentsResponse getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListDocumentsResponse>(create);
+  static ListDocumentsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListDocumentsResponse>(create);
   static ListDocumentsResponse _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -319,7 +332,8 @@ class ListDocumentsResponse extends $pb.GeneratedMessage {
 
 class CreateDocumentRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('CreateDocumentRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..aOS(1, 'parent')
     ..aOS(2, 'collectionId')
     ..aOS(3, 'documentId')
@@ -332,19 +346,23 @@ class CreateDocumentRequest extends $pb.GeneratedMessage {
   factory CreateDocumentRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory CreateDocumentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CreateDocumentRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  CreateDocumentRequest clone() => CreateDocumentRequest()..mergeFromMessage(this);
-  CreateDocumentRequest copyWith(void Function(CreateDocumentRequest) updates) =>
+  CreateDocumentRequest clone() =>
+      CreateDocumentRequest()..mergeFromMessage(this);
+  CreateDocumentRequest copyWith(
+          void Function(CreateDocumentRequest) updates) =>
       super.copyWith((message) => updates(message as CreateDocumentRequest));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static CreateDocumentRequest create() => CreateDocumentRequest._();
   CreateDocumentRequest createEmptyInstance() => create();
-  static $pb.PbList<CreateDocumentRequest> createRepeated() => $pb.PbList<CreateDocumentRequest>();
+  static $pb.PbList<CreateDocumentRequest> createRepeated() =>
+      $pb.PbList<CreateDocumentRequest>();
   @$core.pragma('dart2js:noInline')
-  static CreateDocumentRequest getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateDocumentRequest>(create);
+  static CreateDocumentRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CreateDocumentRequest>(create);
   static CreateDocumentRequest _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -414,11 +432,13 @@ class CreateDocumentRequest extends $pb.GeneratedMessage {
 
 class UpdateDocumentRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('UpdateDocumentRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..aOM<$1.Document>(1, 'document', subBuilder: $1.Document.create)
     ..aOM<$3.DocumentMask>(2, 'updateMask', subBuilder: $3.DocumentMask.create)
     ..aOM<$3.DocumentMask>(3, 'mask', subBuilder: $3.DocumentMask.create)
-    ..aOM<$3.Precondition>(4, 'currentDocument', subBuilder: $3.Precondition.create)
+    ..aOM<$3.Precondition>(4, 'currentDocument',
+        subBuilder: $3.Precondition.create)
     ..hasRequiredFields = false;
 
   UpdateDocumentRequest._() : super();
@@ -426,19 +446,23 @@ class UpdateDocumentRequest extends $pb.GeneratedMessage {
   factory UpdateDocumentRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory UpdateDocumentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory UpdateDocumentRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  UpdateDocumentRequest clone() => UpdateDocumentRequest()..mergeFromMessage(this);
-  UpdateDocumentRequest copyWith(void Function(UpdateDocumentRequest) updates) =>
+  UpdateDocumentRequest clone() =>
+      UpdateDocumentRequest()..mergeFromMessage(this);
+  UpdateDocumentRequest copyWith(
+          void Function(UpdateDocumentRequest) updates) =>
       super.copyWith((message) => updates(message as UpdateDocumentRequest));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static UpdateDocumentRequest create() => UpdateDocumentRequest._();
   UpdateDocumentRequest createEmptyInstance() => create();
-  static $pb.PbList<UpdateDocumentRequest> createRepeated() => $pb.PbList<UpdateDocumentRequest>();
+  static $pb.PbList<UpdateDocumentRequest> createRepeated() =>
+      $pb.PbList<UpdateDocumentRequest>();
   @$core.pragma('dart2js:noInline')
-  static UpdateDocumentRequest getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateDocumentRequest>(create);
+  static UpdateDocumentRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateDocumentRequest>(create);
   static UpdateDocumentRequest _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -500,9 +524,11 @@ class UpdateDocumentRequest extends $pb.GeneratedMessage {
 
 class DeleteDocumentRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('DeleteDocumentRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..aOS(1, 'name')
-    ..aOM<$3.Precondition>(2, 'currentDocument', subBuilder: $3.Precondition.create)
+    ..aOM<$3.Precondition>(2, 'currentDocument',
+        subBuilder: $3.Precondition.create)
     ..hasRequiredFields = false;
 
   DeleteDocumentRequest._() : super();
@@ -510,19 +536,23 @@ class DeleteDocumentRequest extends $pb.GeneratedMessage {
   factory DeleteDocumentRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory DeleteDocumentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory DeleteDocumentRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  DeleteDocumentRequest clone() => DeleteDocumentRequest()..mergeFromMessage(this);
-  DeleteDocumentRequest copyWith(void Function(DeleteDocumentRequest) updates) =>
+  DeleteDocumentRequest clone() =>
+      DeleteDocumentRequest()..mergeFromMessage(this);
+  DeleteDocumentRequest copyWith(
+          void Function(DeleteDocumentRequest) updates) =>
       super.copyWith((message) => updates(message as DeleteDocumentRequest));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static DeleteDocumentRequest create() => DeleteDocumentRequest._();
   DeleteDocumentRequest createEmptyInstance() => create();
-  static $pb.PbList<DeleteDocumentRequest> createRepeated() => $pb.PbList<DeleteDocumentRequest>();
+  static $pb.PbList<DeleteDocumentRequest> createRepeated() =>
+      $pb.PbList<DeleteDocumentRequest>();
   @$core.pragma('dart2js:noInline')
-  static DeleteDocumentRequest getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteDocumentRequest>(create);
+  static DeleteDocumentRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DeleteDocumentRequest>(create);
   static DeleteDocumentRequest _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -552,10 +582,16 @@ class DeleteDocumentRequest extends $pb.GeneratedMessage {
   $3.Precondition ensureCurrentDocument() => $_ensure(1);
 }
 
-enum BatchGetDocumentsRequest_ConsistencySelector { transaction, newTransaction, readTime, notSet }
+enum BatchGetDocumentsRequest_ConsistencySelector {
+  transaction,
+  newTransaction,
+  readTime,
+  notSet
+}
 
 class BatchGetDocumentsRequest extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, BatchGetDocumentsRequest_ConsistencySelector>
+  static const $core
+          .Map<$core.int, BatchGetDocumentsRequest_ConsistencySelector>
       _BatchGetDocumentsRequest_ConsistencySelectorByTag = {
     4: BatchGetDocumentsRequest_ConsistencySelector.transaction,
     5: BatchGetDocumentsRequest_ConsistencySelector.newTransaction,
@@ -563,13 +599,15 @@ class BatchGetDocumentsRequest extends $pb.GeneratedMessage {
     0: BatchGetDocumentsRequest_ConsistencySelector.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('BatchGetDocumentsRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..oo(0, [4, 5, 7])
     ..aOS(1, 'database')
     ..pPS(2, 'documents')
     ..aOM<$3.DocumentMask>(3, 'mask', subBuilder: $3.DocumentMask.create)
     ..a<$core.List<$core.int>>(4, 'transaction', $pb.PbFieldType.OY)
-    ..aOM<$3.TransactionOptions>(5, 'newTransaction', subBuilder: $3.TransactionOptions.create)
+    ..aOM<$3.TransactionOptions>(5, 'newTransaction',
+        subBuilder: $3.TransactionOptions.create)
     ..aOM<$4.Timestamp>(7, 'readTime', subBuilder: $4.Timestamp.create)
     ..hasRequiredFields = false;
 
@@ -578,19 +616,23 @@ class BatchGetDocumentsRequest extends $pb.GeneratedMessage {
   factory BatchGetDocumentsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory BatchGetDocumentsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BatchGetDocumentsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  BatchGetDocumentsRequest clone() => BatchGetDocumentsRequest()..mergeFromMessage(this);
-  BatchGetDocumentsRequest copyWith(void Function(BatchGetDocumentsRequest) updates) =>
+  BatchGetDocumentsRequest clone() =>
+      BatchGetDocumentsRequest()..mergeFromMessage(this);
+  BatchGetDocumentsRequest copyWith(
+          void Function(BatchGetDocumentsRequest) updates) =>
       super.copyWith((message) => updates(message as BatchGetDocumentsRequest));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static BatchGetDocumentsRequest create() => BatchGetDocumentsRequest._();
   BatchGetDocumentsRequest createEmptyInstance() => create();
-  static $pb.PbList<BatchGetDocumentsRequest> createRepeated() => $pb.PbList<BatchGetDocumentsRequest>();
+  static $pb.PbList<BatchGetDocumentsRequest> createRepeated() =>
+      $pb.PbList<BatchGetDocumentsRequest>();
   @$core.pragma('dart2js:noInline')
-  static BatchGetDocumentsRequest getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BatchGetDocumentsRequest>(create);
+  static BatchGetDocumentsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BatchGetDocumentsRequest>(create);
   static BatchGetDocumentsRequest _defaultInstance;
 
   BatchGetDocumentsRequest_ConsistencySelector whichConsistencySelector() =>
@@ -670,13 +712,15 @@ class BatchGetDocumentsRequest extends $pb.GeneratedMessage {
 enum BatchGetDocumentsResponse_Result { found, missing, notSet }
 
 class BatchGetDocumentsResponse extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, BatchGetDocumentsResponse_Result> _BatchGetDocumentsResponse_ResultByTag = {
+  static const $core.Map<$core.int, BatchGetDocumentsResponse_Result>
+      _BatchGetDocumentsResponse_ResultByTag = {
     1: BatchGetDocumentsResponse_Result.found,
     2: BatchGetDocumentsResponse_Result.missing,
     0: BatchGetDocumentsResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('BatchGetDocumentsResponse',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aOM<$1.Document>(1, 'found', subBuilder: $1.Document.create)
     ..aOS(2, 'missing')
@@ -689,22 +733,28 @@ class BatchGetDocumentsResponse extends $pb.GeneratedMessage {
   factory BatchGetDocumentsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory BatchGetDocumentsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BatchGetDocumentsResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  BatchGetDocumentsResponse clone() => BatchGetDocumentsResponse()..mergeFromMessage(this);
-  BatchGetDocumentsResponse copyWith(void Function(BatchGetDocumentsResponse) updates) =>
-      super.copyWith((message) => updates(message as BatchGetDocumentsResponse));
+  BatchGetDocumentsResponse clone() =>
+      BatchGetDocumentsResponse()..mergeFromMessage(this);
+  BatchGetDocumentsResponse copyWith(
+          void Function(BatchGetDocumentsResponse) updates) =>
+      super
+          .copyWith((message) => updates(message as BatchGetDocumentsResponse));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static BatchGetDocumentsResponse create() => BatchGetDocumentsResponse._();
   BatchGetDocumentsResponse createEmptyInstance() => create();
-  static $pb.PbList<BatchGetDocumentsResponse> createRepeated() => $pb.PbList<BatchGetDocumentsResponse>();
+  static $pb.PbList<BatchGetDocumentsResponse> createRepeated() =>
+      $pb.PbList<BatchGetDocumentsResponse>();
   @$core.pragma('dart2js:noInline')
-  static BatchGetDocumentsResponse getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BatchGetDocumentsResponse>(create);
+  static BatchGetDocumentsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BatchGetDocumentsResponse>(create);
   static BatchGetDocumentsResponse _defaultInstance;
 
-  BatchGetDocumentsResponse_Result whichResult() => _BatchGetDocumentsResponse_ResultByTag[$_whichOneof(0)];
+  BatchGetDocumentsResponse_Result whichResult() =>
+      _BatchGetDocumentsResponse_ResultByTag[$_whichOneof(0)];
   void clearResult() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -762,9 +812,11 @@ class BatchGetDocumentsResponse extends $pb.GeneratedMessage {
 
 class BeginTransactionRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('BeginTransactionRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..aOS(1, 'database')
-    ..aOM<$3.TransactionOptions>(2, 'options', subBuilder: $3.TransactionOptions.create)
+    ..aOM<$3.TransactionOptions>(2, 'options',
+        subBuilder: $3.TransactionOptions.create)
     ..hasRequiredFields = false;
 
   BeginTransactionRequest._() : super();
@@ -772,19 +824,23 @@ class BeginTransactionRequest extends $pb.GeneratedMessage {
   factory BeginTransactionRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory BeginTransactionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BeginTransactionRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  BeginTransactionRequest clone() => BeginTransactionRequest()..mergeFromMessage(this);
-  BeginTransactionRequest copyWith(void Function(BeginTransactionRequest) updates) =>
+  BeginTransactionRequest clone() =>
+      BeginTransactionRequest()..mergeFromMessage(this);
+  BeginTransactionRequest copyWith(
+          void Function(BeginTransactionRequest) updates) =>
       super.copyWith((message) => updates(message as BeginTransactionRequest));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static BeginTransactionRequest create() => BeginTransactionRequest._();
   BeginTransactionRequest createEmptyInstance() => create();
-  static $pb.PbList<BeginTransactionRequest> createRepeated() => $pb.PbList<BeginTransactionRequest>();
+  static $pb.PbList<BeginTransactionRequest> createRepeated() =>
+      $pb.PbList<BeginTransactionRequest>();
   @$core.pragma('dart2js:noInline')
-  static BeginTransactionRequest getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BeginTransactionRequest>(create);
+  static BeginTransactionRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BeginTransactionRequest>(create);
   static BeginTransactionRequest _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -816,7 +872,8 @@ class BeginTransactionRequest extends $pb.GeneratedMessage {
 
 class BeginTransactionResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('BeginTransactionResponse',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..a<$core.List<$core.int>>(1, 'transaction', $pb.PbFieldType.OY)
     ..hasRequiredFields = false;
 
@@ -825,19 +882,23 @@ class BeginTransactionResponse extends $pb.GeneratedMessage {
   factory BeginTransactionResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory BeginTransactionResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory BeginTransactionResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  BeginTransactionResponse clone() => BeginTransactionResponse()..mergeFromMessage(this);
-  BeginTransactionResponse copyWith(void Function(BeginTransactionResponse) updates) =>
+  BeginTransactionResponse clone() =>
+      BeginTransactionResponse()..mergeFromMessage(this);
+  BeginTransactionResponse copyWith(
+          void Function(BeginTransactionResponse) updates) =>
       super.copyWith((message) => updates(message as BeginTransactionResponse));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static BeginTransactionResponse create() => BeginTransactionResponse._();
   BeginTransactionResponse createEmptyInstance() => create();
-  static $pb.PbList<BeginTransactionResponse> createRepeated() => $pb.PbList<BeginTransactionResponse>();
+  static $pb.PbList<BeginTransactionResponse> createRepeated() =>
+      $pb.PbList<BeginTransactionResponse>();
   @$core.pragma('dart2js:noInline')
-  static BeginTransactionResponse getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BeginTransactionResponse>(create);
+  static BeginTransactionResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BeginTransactionResponse>(create);
   static BeginTransactionResponse _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -855,7 +916,8 @@ class BeginTransactionResponse extends $pb.GeneratedMessage {
 
 class CommitRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('CommitRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..aOS(1, 'database')
     ..pc<$5.Write>(2, 'writes', $pb.PbFieldType.PM, subBuilder: $5.Write.create)
     ..a<$core.List<$core.int>>(3, 'transaction', $pb.PbFieldType.OY)
@@ -863,9 +925,11 @@ class CommitRequest extends $pb.GeneratedMessage {
 
   CommitRequest._() : super();
   factory CommitRequest() => create();
-  factory CommitRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CommitRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory CommitRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CommitRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   CommitRequest clone() => CommitRequest()..mergeFromMessage(this);
   CommitRequest copyWith(void Function(CommitRequest) updates) =>
@@ -874,9 +938,11 @@ class CommitRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CommitRequest create() => CommitRequest._();
   CommitRequest createEmptyInstance() => create();
-  static $pb.PbList<CommitRequest> createRepeated() => $pb.PbList<CommitRequest>();
+  static $pb.PbList<CommitRequest> createRepeated() =>
+      $pb.PbList<CommitRequest>();
   @$core.pragma('dart2js:noInline')
-  static CommitRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CommitRequest>(create);
+  static CommitRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CommitRequest>(create);
   static CommitRequest _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -909,16 +975,20 @@ class CommitRequest extends $pb.GeneratedMessage {
 
 class CommitResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('CommitResponse',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
-    ..pc<$5.WriteResult>(1, 'writeResults', $pb.PbFieldType.PM, subBuilder: $5.WriteResult.create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
+    ..pc<$5.WriteResult>(1, 'writeResults', $pb.PbFieldType.PM,
+        subBuilder: $5.WriteResult.create)
     ..aOM<$4.Timestamp>(2, 'commitTime', subBuilder: $4.Timestamp.create)
     ..hasRequiredFields = false;
 
   CommitResponse._() : super();
   factory CommitResponse() => create();
-  factory CommitResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CommitResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory CommitResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory CommitResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   CommitResponse clone() => CommitResponse()..mergeFromMessage(this);
   CommitResponse copyWith(void Function(CommitResponse) updates) =>
@@ -927,9 +997,11 @@ class CommitResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CommitResponse create() => CommitResponse._();
   CommitResponse createEmptyInstance() => create();
-  static $pb.PbList<CommitResponse> createRepeated() => $pb.PbList<CommitResponse>();
+  static $pb.PbList<CommitResponse> createRepeated() =>
+      $pb.PbList<CommitResponse>();
   @$core.pragma('dart2js:noInline')
-  static CommitResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CommitResponse>(create);
+  static CommitResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CommitResponse>(create);
   static CommitResponse _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -952,7 +1024,8 @@ class CommitResponse extends $pb.GeneratedMessage {
 
 class RollbackRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RollbackRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..aOS(1, 'database')
     ..a<$core.List<$core.int>>(2, 'transaction', $pb.PbFieldType.OY)
     ..hasRequiredFields = false;
@@ -962,7 +1035,8 @@ class RollbackRequest extends $pb.GeneratedMessage {
   factory RollbackRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory RollbackRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RollbackRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   RollbackRequest clone() => RollbackRequest()..mergeFromMessage(this);
   RollbackRequest copyWith(void Function(RollbackRequest) updates) =>
@@ -971,10 +1045,11 @@ class RollbackRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RollbackRequest create() => RollbackRequest._();
   RollbackRequest createEmptyInstance() => create();
-  static $pb.PbList<RollbackRequest> createRepeated() => $pb.PbList<RollbackRequest>();
+  static $pb.PbList<RollbackRequest> createRepeated() =>
+      $pb.PbList<RollbackRequest>();
   @$core.pragma('dart2js:noInline')
-  static RollbackRequest getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RollbackRequest>(create);
+  static RollbackRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RollbackRequest>(create);
   static RollbackRequest _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1004,27 +1079,37 @@ class RollbackRequest extends $pb.GeneratedMessage {
 
 enum RunQueryRequest_QueryType { structuredQuery, notSet }
 
-enum RunQueryRequest_ConsistencySelector { transaction, newTransaction, readTime, notSet }
+enum RunQueryRequest_ConsistencySelector {
+  transaction,
+  newTransaction,
+  readTime,
+  notSet
+}
 
 class RunQueryRequest extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, RunQueryRequest_QueryType> _RunQueryRequest_QueryTypeByTag = {
+  static const $core.Map<$core.int, RunQueryRequest_QueryType>
+      _RunQueryRequest_QueryTypeByTag = {
     2: RunQueryRequest_QueryType.structuredQuery,
     0: RunQueryRequest_QueryType.notSet
   };
-  static const $core.Map<$core.int, RunQueryRequest_ConsistencySelector> _RunQueryRequest_ConsistencySelectorByTag = {
+  static const $core.Map<$core.int, RunQueryRequest_ConsistencySelector>
+      _RunQueryRequest_ConsistencySelectorByTag = {
     5: RunQueryRequest_ConsistencySelector.transaction,
     6: RunQueryRequest_ConsistencySelector.newTransaction,
     7: RunQueryRequest_ConsistencySelector.readTime,
     0: RunQueryRequest_ConsistencySelector.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RunQueryRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..oo(0, [2])
     ..oo(1, [5, 6, 7])
     ..aOS(1, 'parent')
-    ..aOM<$6.StructuredQuery>(2, 'structuredQuery', subBuilder: $6.StructuredQuery.create)
+    ..aOM<$6.StructuredQuery>(2, 'structuredQuery',
+        subBuilder: $6.StructuredQuery.create)
     ..a<$core.List<$core.int>>(5, 'transaction', $pb.PbFieldType.OY)
-    ..aOM<$3.TransactionOptions>(6, 'newTransaction', subBuilder: $3.TransactionOptions.create)
+    ..aOM<$3.TransactionOptions>(6, 'newTransaction',
+        subBuilder: $3.TransactionOptions.create)
     ..aOM<$4.Timestamp>(7, 'readTime', subBuilder: $4.Timestamp.create)
     ..hasRequiredFields = false;
 
@@ -1033,7 +1118,8 @@ class RunQueryRequest extends $pb.GeneratedMessage {
   factory RunQueryRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory RunQueryRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RunQueryRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   RunQueryRequest clone() => RunQueryRequest()..mergeFromMessage(this);
   RunQueryRequest copyWith(void Function(RunQueryRequest) updates) =>
@@ -1042,13 +1128,15 @@ class RunQueryRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RunQueryRequest create() => RunQueryRequest._();
   RunQueryRequest createEmptyInstance() => create();
-  static $pb.PbList<RunQueryRequest> createRepeated() => $pb.PbList<RunQueryRequest>();
+  static $pb.PbList<RunQueryRequest> createRepeated() =>
+      $pb.PbList<RunQueryRequest>();
   @$core.pragma('dart2js:noInline')
-  static RunQueryRequest getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RunQueryRequest>(create);
+  static RunQueryRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RunQueryRequest>(create);
   static RunQueryRequest _defaultInstance;
 
-  RunQueryRequest_QueryType whichQueryType() => _RunQueryRequest_QueryTypeByTag[$_whichOneof(0)];
+  RunQueryRequest_QueryType whichQueryType() =>
+      _RunQueryRequest_QueryTypeByTag[$_whichOneof(0)];
   void clearQueryType() => clearField($_whichOneof(0));
 
   RunQueryRequest_ConsistencySelector whichConsistencySelector() =>
@@ -1124,7 +1212,8 @@ class RunQueryRequest extends $pb.GeneratedMessage {
 
 class RunQueryResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RunQueryResponse',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..aOM<$1.Document>(1, 'document', subBuilder: $1.Document.create)
     ..a<$core.List<$core.int>>(2, 'transaction', $pb.PbFieldType.OY)
     ..aOM<$4.Timestamp>(3, 'readTime', subBuilder: $4.Timestamp.create)
@@ -1136,7 +1225,8 @@ class RunQueryResponse extends $pb.GeneratedMessage {
   factory RunQueryResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory RunQueryResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory RunQueryResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   RunQueryResponse clone() => RunQueryResponse()..mergeFromMessage(this);
   RunQueryResponse copyWith(void Function(RunQueryResponse) updates) =>
@@ -1145,10 +1235,11 @@ class RunQueryResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static RunQueryResponse create() => RunQueryResponse._();
   RunQueryResponse createEmptyInstance() => create();
-  static $pb.PbList<RunQueryResponse> createRepeated() => $pb.PbList<RunQueryResponse>();
+  static $pb.PbList<RunQueryResponse> createRepeated() =>
+      $pb.PbList<RunQueryResponse>();
   @$core.pragma('dart2js:noInline')
-  static RunQueryResponse getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RunQueryResponse>(create);
+  static RunQueryResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RunQueryResponse>(create);
   static RunQueryResponse _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1206,7 +1297,8 @@ class RunQueryResponse extends $pb.GeneratedMessage {
 
 class WriteRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('WriteRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..aOS(1, 'database')
     ..aOS(2, 'streamId')
     ..pc<$5.Write>(3, 'writes', $pb.PbFieldType.PM, subBuilder: $5.Write.create)
@@ -1220,9 +1312,11 @@ class WriteRequest extends $pb.GeneratedMessage {
 
   WriteRequest._() : super();
   factory WriteRequest() => create();
-  factory WriteRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory WriteRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory WriteRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory WriteRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   WriteRequest clone() => WriteRequest()..mergeFromMessage(this);
   WriteRequest copyWith(void Function(WriteRequest) updates) =>
@@ -1231,9 +1325,11 @@ class WriteRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static WriteRequest create() => WriteRequest._();
   WriteRequest createEmptyInstance() => create();
-  static $pb.PbList<WriteRequest> createRepeated() => $pb.PbList<WriteRequest>();
+  static $pb.PbList<WriteRequest> createRepeated() =>
+      $pb.PbList<WriteRequest>();
   @$core.pragma('dart2js:noInline')
-  static WriteRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<WriteRequest>(create);
+  static WriteRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<WriteRequest>(create);
   static WriteRequest _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1281,18 +1377,22 @@ class WriteRequest extends $pb.GeneratedMessage {
 
 class WriteResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('WriteResponse',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..aOS(1, 'streamId')
     ..a<$core.List<$core.int>>(2, 'streamToken', $pb.PbFieldType.OY)
-    ..pc<$5.WriteResult>(3, 'writeResults', $pb.PbFieldType.PM, subBuilder: $5.WriteResult.create)
+    ..pc<$5.WriteResult>(3, 'writeResults', $pb.PbFieldType.PM,
+        subBuilder: $5.WriteResult.create)
     ..aOM<$4.Timestamp>(4, 'commitTime', subBuilder: $4.Timestamp.create)
     ..hasRequiredFields = false;
 
   WriteResponse._() : super();
   factory WriteResponse() => create();
-  factory WriteResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory WriteResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory WriteResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory WriteResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   WriteResponse clone() => WriteResponse()..mergeFromMessage(this);
   WriteResponse copyWith(void Function(WriteResponse) updates) =>
@@ -1301,9 +1401,11 @@ class WriteResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static WriteResponse create() => WriteResponse._();
   WriteResponse createEmptyInstance() => create();
-  static $pb.PbList<WriteResponse> createRepeated() => $pb.PbList<WriteResponse>();
+  static $pb.PbList<WriteResponse> createRepeated() =>
+      $pb.PbList<WriteResponse>();
   @$core.pragma('dart2js:noInline')
-  static WriteResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<WriteResponse>(create);
+  static WriteResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<WriteResponse>(create);
   static WriteResponse _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1351,13 +1453,15 @@ class WriteResponse extends $pb.GeneratedMessage {
 enum ListenRequest_TargetChange { addTarget, removeTarget, notSet }
 
 class ListenRequest extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, ListenRequest_TargetChange> _ListenRequest_TargetChangeByTag = {
+  static const $core.Map<$core.int, ListenRequest_TargetChange>
+      _ListenRequest_TargetChangeByTag = {
     2: ListenRequest_TargetChange.addTarget,
     3: ListenRequest_TargetChange.removeTarget,
     0: ListenRequest_TargetChange.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('ListenRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..oo(0, [2, 3])
     ..aOS(1, 'database')
     ..aOM<Target>(2, 'addTarget', subBuilder: Target.create)
@@ -1371,9 +1475,11 @@ class ListenRequest extends $pb.GeneratedMessage {
 
   ListenRequest._() : super();
   factory ListenRequest() => create();
-  factory ListenRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListenRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory ListenRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListenRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   ListenRequest clone() => ListenRequest()..mergeFromMessage(this);
   ListenRequest copyWith(void Function(ListenRequest) updates) =>
@@ -1382,12 +1488,15 @@ class ListenRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListenRequest create() => ListenRequest._();
   ListenRequest createEmptyInstance() => create();
-  static $pb.PbList<ListenRequest> createRepeated() => $pb.PbList<ListenRequest>();
+  static $pb.PbList<ListenRequest> createRepeated() =>
+      $pb.PbList<ListenRequest>();
   @$core.pragma('dart2js:noInline')
-  static ListenRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListenRequest>(create);
+  static ListenRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListenRequest>(create);
   static ListenRequest _defaultInstance;
 
-  ListenRequest_TargetChange whichTargetChange() => _ListenRequest_TargetChangeByTag[$_whichOneof(0)];
+  ListenRequest_TargetChange whichTargetChange() =>
+      _ListenRequest_TargetChangeByTag[$_whichOneof(0)];
   void clearTargetChange() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -1432,10 +1541,18 @@ class ListenRequest extends $pb.GeneratedMessage {
   $core.Map<$core.String, $core.String> get labels => $_getMap(3);
 }
 
-enum ListenResponse_ResponseType { targetChange, documentChange, documentDelete, filter, documentRemove, notSet }
+enum ListenResponse_ResponseType {
+  targetChange,
+  documentChange,
+  documentDelete,
+  filter,
+  documentRemove,
+  notSet
+}
 
 class ListenResponse extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, ListenResponse_ResponseType> _ListenResponse_ResponseTypeByTag = {
+  static const $core.Map<$core.int, ListenResponse_ResponseType>
+      _ListenResponse_ResponseTypeByTag = {
     2: ListenResponse_ResponseType.targetChange,
     3: ListenResponse_ResponseType.documentChange,
     4: ListenResponse_ResponseType.documentDelete,
@@ -1444,20 +1561,27 @@ class ListenResponse extends $pb.GeneratedMessage {
     0: ListenResponse_ResponseType.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('ListenResponse',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..oo(0, [2, 3, 4, 5, 6])
     ..aOM<TargetChange>(2, 'targetChange', subBuilder: TargetChange.create)
-    ..aOM<$5.DocumentChange>(3, 'documentChange', subBuilder: $5.DocumentChange.create)
-    ..aOM<$5.DocumentDelete>(4, 'documentDelete', subBuilder: $5.DocumentDelete.create)
-    ..aOM<$5.ExistenceFilter>(5, 'filter', subBuilder: $5.ExistenceFilter.create)
-    ..aOM<$5.DocumentRemove>(6, 'documentRemove', subBuilder: $5.DocumentRemove.create)
+    ..aOM<$5.DocumentChange>(3, 'documentChange',
+        subBuilder: $5.DocumentChange.create)
+    ..aOM<$5.DocumentDelete>(4, 'documentDelete',
+        subBuilder: $5.DocumentDelete.create)
+    ..aOM<$5.ExistenceFilter>(5, 'filter',
+        subBuilder: $5.ExistenceFilter.create)
+    ..aOM<$5.DocumentRemove>(6, 'documentRemove',
+        subBuilder: $5.DocumentRemove.create)
     ..hasRequiredFields = false;
 
   ListenResponse._() : super();
   factory ListenResponse() => create();
-  factory ListenResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListenResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory ListenResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListenResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   ListenResponse clone() => ListenResponse()..mergeFromMessage(this);
   ListenResponse copyWith(void Function(ListenResponse) updates) =>
@@ -1466,12 +1590,15 @@ class ListenResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ListenResponse create() => ListenResponse._();
   ListenResponse createEmptyInstance() => create();
-  static $pb.PbList<ListenResponse> createRepeated() => $pb.PbList<ListenResponse>();
+  static $pb.PbList<ListenResponse> createRepeated() =>
+      $pb.PbList<ListenResponse>();
   @$core.pragma('dart2js:noInline')
-  static ListenResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListenResponse>(create);
+  static ListenResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListenResponse>(create);
   static ListenResponse _defaultInstance;
 
-  ListenResponse_ResponseType whichResponseType() => _ListenResponse_ResponseTypeByTag[$_whichOneof(0)];
+  ListenResponse_ResponseType whichResponseType() =>
+      _ListenResponse_ResponseTypeByTag[$_whichOneof(0)];
   void clearResponseType() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(2)
@@ -1547,7 +1674,8 @@ class ListenResponse extends $pb.GeneratedMessage {
 
 class Target_DocumentsTarget extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('Target.DocumentsTarget',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..pPS(2, 'documents')
     ..hasRequiredFields = false;
 
@@ -1556,19 +1684,23 @@ class Target_DocumentsTarget extends $pb.GeneratedMessage {
   factory Target_DocumentsTarget.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory Target_DocumentsTarget.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Target_DocumentsTarget.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  Target_DocumentsTarget clone() => Target_DocumentsTarget()..mergeFromMessage(this);
-  Target_DocumentsTarget copyWith(void Function(Target_DocumentsTarget) updates) =>
+  Target_DocumentsTarget clone() =>
+      Target_DocumentsTarget()..mergeFromMessage(this);
+  Target_DocumentsTarget copyWith(
+          void Function(Target_DocumentsTarget) updates) =>
       super.copyWith((message) => updates(message as Target_DocumentsTarget));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Target_DocumentsTarget create() => Target_DocumentsTarget._();
   Target_DocumentsTarget createEmptyInstance() => create();
-  static $pb.PbList<Target_DocumentsTarget> createRepeated() => $pb.PbList<Target_DocumentsTarget>();
+  static $pb.PbList<Target_DocumentsTarget> createRepeated() =>
+      $pb.PbList<Target_DocumentsTarget>();
   @$core.pragma('dart2js:noInline')
-  static Target_DocumentsTarget getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Target_DocumentsTarget>(create);
+  static Target_DocumentsTarget getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Target_DocumentsTarget>(create);
   static Target_DocumentsTarget _defaultInstance;
 
   @$pb.TagNumber(2)
@@ -1578,15 +1710,18 @@ class Target_DocumentsTarget extends $pb.GeneratedMessage {
 enum Target_QueryTarget_QueryType { structuredQuery, notSet }
 
 class Target_QueryTarget extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, Target_QueryTarget_QueryType> _Target_QueryTarget_QueryTypeByTag = {
+  static const $core.Map<$core.int, Target_QueryTarget_QueryType>
+      _Target_QueryTarget_QueryTypeByTag = {
     2: Target_QueryTarget_QueryType.structuredQuery,
     0: Target_QueryTarget_QueryType.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('Target.QueryTarget',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..oo(0, [2])
     ..aOS(1, 'parent')
-    ..aOM<$6.StructuredQuery>(2, 'structuredQuery', subBuilder: $6.StructuredQuery.create)
+    ..aOM<$6.StructuredQuery>(2, 'structuredQuery',
+        subBuilder: $6.StructuredQuery.create)
     ..hasRequiredFields = false;
 
   Target_QueryTarget._() : super();
@@ -1594,7 +1729,8 @@ class Target_QueryTarget extends $pb.GeneratedMessage {
   factory Target_QueryTarget.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory Target_QueryTarget.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Target_QueryTarget.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   Target_QueryTarget clone() => Target_QueryTarget()..mergeFromMessage(this);
   Target_QueryTarget copyWith(void Function(Target_QueryTarget) updates) =>
@@ -1603,13 +1739,15 @@ class Target_QueryTarget extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static Target_QueryTarget create() => Target_QueryTarget._();
   Target_QueryTarget createEmptyInstance() => create();
-  static $pb.PbList<Target_QueryTarget> createRepeated() => $pb.PbList<Target_QueryTarget>();
+  static $pb.PbList<Target_QueryTarget> createRepeated() =>
+      $pb.PbList<Target_QueryTarget>();
   @$core.pragma('dart2js:noInline')
-  static Target_QueryTarget getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Target_QueryTarget>(create);
+  static Target_QueryTarget getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Target_QueryTarget>(create);
   static Target_QueryTarget _defaultInstance;
 
-  Target_QueryTarget_QueryType whichQueryType() => _Target_QueryTarget_QueryTypeByTag[$_whichOneof(0)];
+  Target_QueryTarget_QueryType whichQueryType() =>
+      _Target_QueryTarget_QueryTypeByTag[$_whichOneof(0)];
   void clearQueryType() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -1644,49 +1782,59 @@ enum Target_TargetType { query, documents, notSet }
 enum Target_ResumeType { resumeToken, readTime, notSet }
 
 class Target extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, Target_TargetType> _Target_TargetTypeByTag = {
+  static const $core.Map<$core.int, Target_TargetType> _Target_TargetTypeByTag =
+      {
     2: Target_TargetType.query,
     3: Target_TargetType.documents,
     0: Target_TargetType.notSet
   };
-  static const $core.Map<$core.int, Target_ResumeType> _Target_ResumeTypeByTag = {
+  static const $core.Map<$core.int, Target_ResumeType> _Target_ResumeTypeByTag =
+      {
     4: Target_ResumeType.resumeToken,
     11: Target_ResumeType.readTime,
     0: Target_ResumeType.notSet
   };
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo('Target', package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
-        ..oo(0, [2, 3])
-        ..oo(1, [4, 11])
-        ..aOM<Target_QueryTarget>(2, 'query', subBuilder: Target_QueryTarget.create)
-        ..aOM<Target_DocumentsTarget>(3, 'documents', subBuilder: Target_DocumentsTarget.create)
-        ..a<$core.List<$core.int>>(4, 'resumeToken', $pb.PbFieldType.OY)
-        ..a<$core.int>(5, 'targetId', $pb.PbFieldType.O3)
-        ..aOB(6, 'once')
-        ..aOM<$4.Timestamp>(11, 'readTime', subBuilder: $4.Timestamp.create)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Target',
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
+    ..oo(0, [2, 3])
+    ..oo(1, [4, 11])
+    ..aOM<Target_QueryTarget>(2, 'query', subBuilder: Target_QueryTarget.create)
+    ..aOM<Target_DocumentsTarget>(3, 'documents',
+        subBuilder: Target_DocumentsTarget.create)
+    ..a<$core.List<$core.int>>(4, 'resumeToken', $pb.PbFieldType.OY)
+    ..a<$core.int>(5, 'targetId', $pb.PbFieldType.O3)
+    ..aOB(6, 'once')
+    ..aOM<$4.Timestamp>(11, 'readTime', subBuilder: $4.Timestamp.create)
+    ..hasRequiredFields = false;
 
   Target._() : super();
   factory Target() => create();
-  factory Target.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Target.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory Target.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Target.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   Target clone() => Target()..mergeFromMessage(this);
-  Target copyWith(void Function(Target) updates) => super.copyWith((message) => updates(message as Target));
+  Target copyWith(void Function(Target) updates) =>
+      super.copyWith((message) => updates(message as Target));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Target create() => Target._();
   Target createEmptyInstance() => create();
   static $pb.PbList<Target> createRepeated() => $pb.PbList<Target>();
   @$core.pragma('dart2js:noInline')
-  static Target getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Target>(create);
+  static Target getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Target>(create);
   static Target _defaultInstance;
 
-  Target_TargetType whichTargetType() => _Target_TargetTypeByTag[$_whichOneof(0)];
+  Target_TargetType whichTargetType() =>
+      _Target_TargetTypeByTag[$_whichOneof(0)];
   void clearTargetType() => clearField($_whichOneof(0));
 
-  Target_ResumeType whichResumeType() => _Target_ResumeTypeByTag[$_whichOneof(1)];
+  Target_ResumeType whichResumeType() =>
+      _Target_ResumeTypeByTag[$_whichOneof(1)];
   void clearResumeType() => clearField($_whichOneof(1));
 
   @$pb.TagNumber(2)
@@ -1770,8 +1918,10 @@ class Target extends $pb.GeneratedMessage {
 
 class TargetChange extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('TargetChange',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
-    ..e<TargetChange_TargetChangeType>(1, 'targetChangeType', $pb.PbFieldType.OE,
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
+    ..e<TargetChange_TargetChangeType>(
+        1, 'targetChangeType', $pb.PbFieldType.OE,
         defaultOrMaker: TargetChange_TargetChangeType.NO_CHANGE,
         valueOf: TargetChange_TargetChangeType.valueOf,
         enumValues: TargetChange_TargetChangeType.values)
@@ -1783,9 +1933,11 @@ class TargetChange extends $pb.GeneratedMessage {
 
   TargetChange._() : super();
   factory TargetChange() => create();
-  factory TargetChange.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory TargetChange.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory TargetChange.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory TargetChange.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   TargetChange clone() => TargetChange()..mergeFromMessage(this);
   TargetChange copyWith(void Function(TargetChange) updates) =>
@@ -1794,9 +1946,11 @@ class TargetChange extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static TargetChange create() => TargetChange._();
   TargetChange createEmptyInstance() => create();
-  static $pb.PbList<TargetChange> createRepeated() => $pb.PbList<TargetChange>();
+  static $pb.PbList<TargetChange> createRepeated() =>
+      $pb.PbList<TargetChange>();
   @$core.pragma('dart2js:noInline')
-  static TargetChange getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TargetChange>(create);
+  static TargetChange getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TargetChange>(create);
   static TargetChange _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1857,7 +2011,8 @@ class TargetChange extends $pb.GeneratedMessage {
 
 class ListCollectionIdsRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('ListCollectionIdsRequest',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..aOS(1, 'parent')
     ..a<$core.int>(2, 'pageSize', $pb.PbFieldType.O3)
     ..aOS(3, 'pageToken')
@@ -1868,19 +2023,23 @@ class ListCollectionIdsRequest extends $pb.GeneratedMessage {
   factory ListCollectionIdsRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory ListCollectionIdsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListCollectionIdsRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  ListCollectionIdsRequest clone() => ListCollectionIdsRequest()..mergeFromMessage(this);
-  ListCollectionIdsRequest copyWith(void Function(ListCollectionIdsRequest) updates) =>
+  ListCollectionIdsRequest clone() =>
+      ListCollectionIdsRequest()..mergeFromMessage(this);
+  ListCollectionIdsRequest copyWith(
+          void Function(ListCollectionIdsRequest) updates) =>
       super.copyWith((message) => updates(message as ListCollectionIdsRequest));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static ListCollectionIdsRequest create() => ListCollectionIdsRequest._();
   ListCollectionIdsRequest createEmptyInstance() => create();
-  static $pb.PbList<ListCollectionIdsRequest> createRepeated() => $pb.PbList<ListCollectionIdsRequest>();
+  static $pb.PbList<ListCollectionIdsRequest> createRepeated() =>
+      $pb.PbList<ListCollectionIdsRequest>();
   @$core.pragma('dart2js:noInline')
-  static ListCollectionIdsRequest getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListCollectionIdsRequest>(create);
+  static ListCollectionIdsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListCollectionIdsRequest>(create);
   static ListCollectionIdsRequest _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -1922,7 +2081,8 @@ class ListCollectionIdsRequest extends $pb.GeneratedMessage {
 
 class ListCollectionIdsResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('ListCollectionIdsResponse',
-      package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+      package: const $pb.PackageName('google.firestore.v1'),
+      createEmptyInstance: create)
     ..pPS(1, 'collectionIds')
     ..aOS(2, 'nextPageToken')
     ..hasRequiredFields = false;
@@ -1932,19 +2092,24 @@ class ListCollectionIdsResponse extends $pb.GeneratedMessage {
   factory ListCollectionIdsResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory ListCollectionIdsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListCollectionIdsResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  ListCollectionIdsResponse clone() => ListCollectionIdsResponse()..mergeFromMessage(this);
-  ListCollectionIdsResponse copyWith(void Function(ListCollectionIdsResponse) updates) =>
-      super.copyWith((message) => updates(message as ListCollectionIdsResponse));
+  ListCollectionIdsResponse clone() =>
+      ListCollectionIdsResponse()..mergeFromMessage(this);
+  ListCollectionIdsResponse copyWith(
+          void Function(ListCollectionIdsResponse) updates) =>
+      super
+          .copyWith((message) => updates(message as ListCollectionIdsResponse));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static ListCollectionIdsResponse create() => ListCollectionIdsResponse._();
   ListCollectionIdsResponse createEmptyInstance() => create();
-  static $pb.PbList<ListCollectionIdsResponse> createRepeated() => $pb.PbList<ListCollectionIdsResponse>();
+  static $pb.PbList<ListCollectionIdsResponse> createRepeated() =>
+      $pb.PbList<ListCollectionIdsResponse>();
   @$core.pragma('dart2js:noInline')
-  static ListCollectionIdsResponse getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListCollectionIdsResponse>(create);
+  static ListCollectionIdsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListCollectionIdsResponse>(create);
   static ListCollectionIdsResponse _defaultInstance;
 
   @$pb.TagNumber(1)

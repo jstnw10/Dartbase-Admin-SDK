@@ -16,7 +16,8 @@ class VerboseClient extends http.BaseClient {
     print((request as http.Request).body);
 
     var response = await _client.send(request);
-    print('<-- ${response.statusCode} ${response.reasonPhrase} ${response.request.url}');
+    print(
+        '<-- ${response.statusCode} ${response.reasonPhrase} ${response.request.url}');
     var loggedStream = response.stream.map((event) {
       print(utf8.decode(event));
       return event;

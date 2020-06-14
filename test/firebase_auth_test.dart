@@ -8,7 +8,8 @@ import 'test_config.dart';
 /// in our tests.
 Future main() async {
   setUpAll(() async {
-    await Firebase.initialize(projectId, await ServiceAccount.fromFile(serviceAccountPath));
+    await Firebase.initialize(
+        projectId, await ServiceAccount.fromFile(serviceAccountPath));
 
     fd.FirebaseAuth.initialize(webApiKey, fd.VolatileStore());
 
@@ -25,7 +26,8 @@ Future main() async {
     var token = await fd.FirebaseAuth.instance.tokenProvider.idToken;
 
     await Future.delayed(const Duration(seconds: 5));
-    var id = await FirebaseAuth.instance.verifyIdToken(token, enforceEmailVerification: true, checkRevoked: true);
+    var id = await FirebaseAuth.instance.verifyIdToken(token,
+        enforceEmailVerification: true, checkRevoked: true);
     expect(id != null, true);
     print(id);
   });

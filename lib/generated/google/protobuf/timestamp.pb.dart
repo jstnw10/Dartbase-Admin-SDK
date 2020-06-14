@@ -23,19 +23,23 @@ class Timestamp extends $pb.GeneratedMessage with $mixin.TimestampMixin {
 
   Timestamp._() : super();
   factory Timestamp() => create();
-  factory Timestamp.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Timestamp.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory Timestamp.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Timestamp.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   Timestamp clone() => Timestamp()..mergeFromMessage(this);
-  Timestamp copyWith(void Function(Timestamp) updates) => super.copyWith((message) => updates(message as Timestamp));
+  Timestamp copyWith(void Function(Timestamp) updates) =>
+      super.copyWith((message) => updates(message as Timestamp));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Timestamp create() => Timestamp._();
   Timestamp createEmptyInstance() => create();
   static $pb.PbList<Timestamp> createRepeated() => $pb.PbList<Timestamp>();
   @$core.pragma('dart2js:noInline')
-  static Timestamp getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Timestamp>(create);
+  static Timestamp getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Timestamp>(create);
   static Timestamp _defaultInstance;
 
   @$pb.TagNumber(1)

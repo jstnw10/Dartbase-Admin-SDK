@@ -23,7 +23,9 @@ class Jwt {
 
   // Returns subject uid if token is valid. Throws exception otherwise.
   Future<String> validate(Map<String, String> certificates,
-      {FirebaseAuth firebaseAuth, bool enforceEmailVerification = false, bool checkRevoked = false}) async {
+      {FirebaseAuth firebaseAuth,
+      bool enforceEmailVerification = false,
+      bool checkRevoked = false}) async {
     assert(firebaseAuth != null || FirebaseAuth.initialized,
         "Firebase Auth hasn't been initialized. Call FirebaseAuth.initialize() before using this global instance. Alternatively, create a local instance via FirebaseAuth() and use that.");
 
@@ -32,7 +34,8 @@ class Jwt {
     if (checkRevoked) {
       var user = await auth.getUserById(_payload.subject);
       if (user.tokensValidAfterTime != null) {
-        final authTimeUtc = DateTime.fromMillisecondsSinceEpoch(_payload.issueTime * 1000);
+        final authTimeUtc =
+            DateTime.fromMillisecondsSinceEpoch(_payload.issueTime * 1000);
         final validSinceUtc = user.tokensValidAfterTime;
         if (authTimeUtc.isBefore(validSinceUtc)) {
           throw RevokedTokenException();
@@ -55,7 +58,8 @@ class Jwt {
     if (_payload.audience != auth.firebase.projectId) {
       throw Exception('Unexpected audience: ${_payload.audience}');
     }
-    if (_payload.issuer != 'https://securetoken.google.com/${auth.firebase.projectId}') {
+    if (_payload.issuer !=
+        'https://securetoken.google.com/${auth.firebase.projectId}') {
       throw Exception('Unexpected issuer: ${_payload.issuer}');
     }
 
@@ -73,9 +77,11 @@ class Jwt {
       throw Exception('Unrecognized certificate id: ${_header.certificateId}');
     }
 
-    _rsaMap[_header.certificateId] ??= Rsa.fromCertificate(certificates[_header.certificateId]);
+    _rsaMap[_header.certificateId] ??=
+        Rsa.fromCertificate(certificates[_header.certificateId]);
     var rsa = _rsaMap[_header.certificateId];
-    var verified = rsa.verify('${_tokenParts[0]}.${_tokenParts[1]}', _tokenParts[2]);
+    var verified =
+        rsa.verify('${_tokenParts[0]}.${_tokenParts[1]}', _tokenParts[2]);
 
     if (!verified) {
       throw Exception('Could not verify the token against its signature');
@@ -122,4 +128,5 @@ class EmailVerificationException implements Exception {
   final message = 'Email has not been verified';
 }
 
-Map<String, dynamic> _parse(String tokenPart) => jsonDecode(utf8.decode(relaxedBase64Decode(tokenPart)));
+Map<String, dynamic> _parse(String tokenPart) =>
+    jsonDecode(utf8.decode(relaxedBase64Decode(tokenPart)));

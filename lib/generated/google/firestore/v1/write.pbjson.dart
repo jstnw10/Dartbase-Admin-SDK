@@ -8,7 +8,15 @@
 const Write$json = const {
   '1': 'Write',
   '2': const [
-    const {'1': 'update', '3': 1, '4': 1, '5': 11, '6': '.google.firestore.v1.Document', '9': 0, '10': 'update'},
+    const {
+      '1': 'update',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.google.firestore.v1.Document',
+      '9': 0,
+      '10': 'update'
+    },
     const {'1': 'delete', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'delete'},
     const {
       '1': 'transform',
@@ -19,7 +27,14 @@ const Write$json = const {
       '9': 0,
       '10': 'transform'
     },
-    const {'1': 'update_mask', '3': 3, '4': 1, '5': 11, '6': '.google.firestore.v1.DocumentMask', '10': 'updateMask'},
+    const {
+      '1': 'update_mask',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.google.firestore.v1.DocumentMask',
+      '10': 'updateMask'
+    },
     const {
       '1': 'current_document',
       '3': 4,
@@ -63,9 +78,33 @@ const DocumentTransform_FieldTransform$json = const {
       '9': 0,
       '10': 'setToServerValue'
     },
-    const {'1': 'increment', '3': 3, '4': 1, '5': 11, '6': '.google.firestore.v1.Value', '9': 0, '10': 'increment'},
-    const {'1': 'maximum', '3': 4, '4': 1, '5': 11, '6': '.google.firestore.v1.Value', '9': 0, '10': 'maximum'},
-    const {'1': 'minimum', '3': 5, '4': 1, '5': 11, '6': '.google.firestore.v1.Value', '9': 0, '10': 'minimum'},
+    const {
+      '1': 'increment',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.google.firestore.v1.Value',
+      '9': 0,
+      '10': 'increment'
+    },
+    const {
+      '1': 'maximum',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.google.firestore.v1.Value',
+      '9': 0,
+      '10': 'maximum'
+    },
+    const {
+      '1': 'minimum',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.google.firestore.v1.Value',
+      '9': 0,
+      '10': 'minimum'
+    },
     const {
       '1': 'append_missing_elements',
       '3': 6,
@@ -102,7 +141,14 @@ const DocumentTransform_FieldTransform_ServerValue$json = const {
 const WriteResult$json = const {
   '1': 'WriteResult',
   '2': const [
-    const {'1': 'update_time', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updateTime'},
+    const {
+      '1': 'update_time',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Timestamp',
+      '10': 'updateTime'
+    },
     const {
       '1': 'transform_results',
       '3': 2,
@@ -117,9 +163,22 @@ const WriteResult$json = const {
 const DocumentChange$json = const {
   '1': 'DocumentChange',
   '2': const [
-    const {'1': 'document', '3': 1, '4': 1, '5': 11, '6': '.google.firestore.v1.Document', '10': 'document'},
+    const {
+      '1': 'document',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.google.firestore.v1.Document',
+      '10': 'document'
+    },
     const {'1': 'target_ids', '3': 5, '4': 3, '5': 5, '10': 'targetIds'},
-    const {'1': 'removed_target_ids', '3': 6, '4': 3, '5': 5, '10': 'removedTargetIds'},
+    const {
+      '1': 'removed_target_ids',
+      '3': 6,
+      '4': 3,
+      '5': 5,
+      '10': 'removedTargetIds'
+    },
   ],
 };
 
@@ -127,8 +186,21 @@ const DocumentDelete$json = const {
   '1': 'DocumentDelete',
   '2': const [
     const {'1': 'document', '3': 1, '4': 1, '5': 9, '10': 'document'},
-    const {'1': 'removed_target_ids', '3': 6, '4': 3, '5': 5, '10': 'removedTargetIds'},
-    const {'1': 'read_time', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'readTime'},
+    const {
+      '1': 'removed_target_ids',
+      '3': 6,
+      '4': 3,
+      '5': 5,
+      '10': 'removedTargetIds'
+    },
+    const {
+      '1': 'read_time',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Timestamp',
+      '10': 'readTime'
+    },
   ],
 };
 
@@ -136,8 +208,21 @@ const DocumentRemove$json = const {
   '1': 'DocumentRemove',
   '2': const [
     const {'1': 'document', '3': 1, '4': 1, '5': 9, '10': 'document'},
-    const {'1': 'removed_target_ids', '3': 2, '4': 3, '5': 5, '10': 'removedTargetIds'},
-    const {'1': 'read_time', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'readTime'},
+    const {
+      '1': 'removed_target_ids',
+      '3': 2,
+      '4': 3,
+      '5': 5,
+      '10': 'removedTargetIds'
+    },
+    const {
+      '1': 'read_time',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Timestamp',
+      '10': 'readTime'
+    },
   ],
 };
 

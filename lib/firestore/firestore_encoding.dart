@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
-import 'package:dartbase_admin/generated/google/firestore/v1/document.pb.dart' as fs;
+import 'package:dartbase_admin/generated/google/firestore/v1/document.pb.dart'
+    as fs;
 import 'package:dartbase_admin/generated/google/protobuf/struct.pb.dart';
 import 'package:dartbase_admin/generated/google/protobuf/struct.pbenum.dart';
 import 'package:dartbase_admin/generated/google/protobuf/timestamp.pb.dart';
@@ -40,11 +41,13 @@ abstract class FirestoreEncoding {
       case double:
         return fs.Value()..doubleValue = value as double;
       case DateTime:
-        return fs.Value()..timestampValue = Timestamp.fromDateTime(value as DateTime);
+        return fs.Value()
+          ..timestampValue = Timestamp.fromDateTime(value as DateTime);
       case String:
         return fs.Value()..stringValue = value as String;
       case DocumentReference:
-        return fs.Value()..referenceValue = (value as DocumentReference).fullPath;
+        return fs.Value()
+          ..referenceValue = (value as DocumentReference).fullPath;
       case GeoPoint:
         return fs.Value()..geoPointValue = (value as GeoPoint).toLatLng();
       default:
@@ -74,9 +77,12 @@ abstract class FirestoreEncoding {
       case fs.Value_ValueType.geoPointValue:
         return GeoPoint.fromLatLng(value.geoPointValue);
       case fs.Value_ValueType.arrayValue:
-        return value.arrayValue.values.map((item) => decode(item, gateway)).toList(growable: false);
+        return value.arrayValue.values
+            .map((item) => decode(item, gateway))
+            .toList(growable: false);
       case fs.Value_ValueType.mapValue:
-        return value.mapValue.fields.map((key, value) => MapEntry(key, decode(value, gateway)));
+        return value.mapValue.fields
+            .map((key, value) => MapEntry(key, decode(value, gateway)));
       default:
         throw Exception('Unrecognized type: $value');
     }

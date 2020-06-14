@@ -12,7 +12,8 @@ Future main() async {
   var localFile = File('localDirectory/localFile.jpg');
 
   setUpAll(() async {
-    await Firebase.initialize(projectId, await ServiceAccount.fromFile(serviceAccountPath));
+    await Firebase.initialize(
+        projectId, await ServiceAccount.fromFile(serviceAccountPath));
 
     bucket = await FirebaseStorage.getBucket(storageUrl);
 
@@ -21,13 +22,15 @@ Future main() async {
     await HttpClient()
         .getUrl(Uri.parse('https://bit.ly/36HMid0'))
         .then((HttpClientRequest request) => request.close())
-        .then((HttpClientResponse response) => response.pipe(localFile.openWrite()));
+        .then((HttpClientResponse response) =>
+            response.pipe(localFile.openWrite()));
   });
 
   await test('Storage upload', () async {
     expect(await localFile.exists(), true);
 
-    await bucket.upload('remoteDirectory/remoteFile.jpg', localFile.absolute.path,
+    await bucket.upload(
+        'remoteDirectory/remoteFile.jpg', localFile.absolute.path,
         predefinedAcl: PredefinedAcl.publicRead);
 
     var info = await bucket.info('remoteDirectory/remoteFile.jpg');
@@ -37,7 +40,8 @@ Future main() async {
   });
 
   await test('Storage download', () async {
-    await bucket.download('remoteDirectory/remoteFile.jpg', localFile.absolute.path);
+    await bucket.download(
+        'remoteDirectory/remoteFile.jpg', localFile.absolute.path);
 
     expect(await localFile.exists(), true);
   });

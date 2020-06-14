@@ -19,9 +19,11 @@ class Certificate {
 
   Certificate._({this.projectId, this.privateKey, this.clientEmail}) {
     if (privateKey == null) {
-      throw Exception('Invalid Credentials: Certificate object must contain a string "private_key" property.');
+      throw Exception(
+          'Invalid Credentials: Certificate object must contain a string "private_key" property.');
     } else if (clientEmail == null) {
-      throw Exception('Invalid Credentials: Certificate object must contain a string "client_email" property.');
+      throw Exception(
+          'Invalid Credentials: Certificate object must contain a string "client_email" property.');
     }
   }
 
@@ -65,7 +67,8 @@ class Certificate {
       'kid': json['private_key_id']
     });
 
-    return Certificate._(projectId: json['project_id'], privateKey: k, clientEmail: clientEmail);
+    return Certificate._(
+        projectId: json['project_id'], privateKey: k, clientEmail: clientEmail);
   }
 }
 
@@ -74,13 +77,15 @@ class ServiceAccountCredential {
   final Certificate certificate;
   final http.Client httpClient = http.Client();
 
-  ServiceAccountCredential(Map<String, dynamic> map) : certificate = Certificate._fromJson(map);
+  ServiceAccountCredential(Map<String, dynamic> map)
+      : certificate = Certificate._fromJson(map);
 
   Future<AccessToken> getAccessToken() async {
     final token = _createAuthJwt();
     final postData = 'grant_type=urn%3Aietf%3Aparams%3Aoauth%3A'
         'grant-type%3Ajwt-bearer&assertion=$token';
-    final request = http.Request('POST', Uri.parse('https://accounts.google.com/o/oauth2/token'))
+    final request = http.Request(
+        'POST', Uri.parse('https://accounts.google.com/o/oauth2/token'))
       ..headers.addAll({
         'Content-Type': 'application/x-www-form-urlencoded',
       })
@@ -90,7 +95,8 @@ class ServiceAccountCredential {
   }
 
   /// Obtain a OAuth2 token by making a remote service call.
-  Future<AccessToken> _requestAccessToken(http.Client client, http.Request request) async {
+  Future<AccessToken> _requestAccessToken(
+      http.Client client, http.Request request) async {
     var resp = await http.Response.fromStream(await client.send(request));
 
     var data = json.decode(resp.body);
@@ -140,10 +146,14 @@ class AccessToken {
 
   final DateTime expirationTime;
 
-  AccessToken.fromJson(Map<String, dynamic> json) : this(json['access_token'], Duration(seconds: json['expires_in']));
+  AccessToken.fromJson(Map<String, dynamic> json)
+      : this(json['access_token'], Duration(seconds: json['expires_in']));
 
   AccessToken(this.accessToken, Duration expiresIn)
       : expirationTime = expiresIn == null ? null : clock.now().add(expiresIn);
 
-  Map<String, dynamic> toJson() => {'accessToken': accessToken, 'expirationTime': expirationTime?.toIso8601String()};
+  Map<String, dynamic> toJson() => {
+        'accessToken': accessToken,
+        'expirationTime': expirationTime?.toIso8601String()
+      };
 }
