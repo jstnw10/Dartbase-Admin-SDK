@@ -21,4 +21,4 @@ jobs:
     - name: Verify code formatting
       run: dartfmt --dry-run --set-exit-if-changed .
     - name: Static code analysis
-      run: dartanalyzer --fatal-infos --fatal-warnings .
+      run: dartanalyzer lib example --fatal-infos --fatal-warnings
