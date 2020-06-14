@@ -12,8 +12,7 @@ class WebAccess extends AbstractPlatformAccess {
 
   @override
   String getEnvironmentVariable(String environmentVariable) =>
-      throw UnsupportedError(
-          'Environment variables do not exist on the platform you are using.');
+      throw UnsupportedError('Environment variables do not exist on the platform you are using.');
 
   /// Untested
   @override
@@ -24,11 +23,11 @@ class WebAccess extends AbstractPlatformAccess {
 
   /// Need someone more knowledgeable with dart:html
   @override
-  StreamConsumer openWrite(String filePath) => throw UnsupportedError(
-      'File objects do not exist on the platform you are using.');
+  StreamConsumer openWrite(String filePath) =>
+      throw UnsupportedError('File objects do not exist on the platform you are using.');
 
   /// Need someone more knowledgeable with dart:html
   @override
-  Stream openRead(String filePath) => throw UnsupportedError(
-      'File objects do not exist on the platform you are using.');
+  Stream openRead(String filePath) =>
+      throw UnsupportedError('File objects do not exist on the platform you are using.');
 }

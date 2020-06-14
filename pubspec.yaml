@@ -2,6 +2,7 @@ name: dartbase
 description: A dart-native implementation of the Firebase Admin SDK.
 version: 0.1.0
 homepage: https://github.com/SwissCheese5/Dartbase-Admin-SDK
+repository: https://github.com/SwissCheese5/Dartbase-Admin-SDK
 
 environment:
   sdk: ">=2.2.2 <3.0.0"

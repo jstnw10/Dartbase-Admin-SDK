@@ -9,31 +9,9 @@ const GetDocumentRequest$json = const {
   '1': 'GetDocumentRequest',
   '2': const [
     const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    const {
-      '1': 'mask',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.DocumentMask',
-      '10': 'mask'
-    },
-    const {
-      '1': 'transaction',
-      '3': 3,
-      '4': 1,
-      '5': 12,
-      '9': 0,
-      '10': 'transaction'
-    },
-    const {
-      '1': 'read_time',
-      '3': 5,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Timestamp',
-      '9': 0,
-      '10': 'readTime'
-    },
+    const {'1': 'mask', '3': 2, '4': 1, '5': 11, '6': '.google.firestore.v1.DocumentMask', '10': 'mask'},
+    const {'1': 'transaction', '3': 3, '4': 1, '5': 12, '9': 0, '10': 'transaction'},
+    const {'1': 'read_time', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '9': 0, '10': 'readTime'},
   ],
   '8': const [
     const {'1': 'consistency_selector'},
@@ -48,31 +26,9 @@ const ListDocumentsRequest$json = const {
     const {'1': 'page_size', '3': 3, '4': 1, '5': 5, '10': 'pageSize'},
     const {'1': 'page_token', '3': 4, '4': 1, '5': 9, '10': 'pageToken'},
     const {'1': 'order_by', '3': 6, '4': 1, '5': 9, '10': 'orderBy'},
-    const {
-      '1': 'mask',
-      '3': 7,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.DocumentMask',
-      '10': 'mask'
-    },
-    const {
-      '1': 'transaction',
-      '3': 8,
-      '4': 1,
-      '5': 12,
-      '9': 0,
-      '10': 'transaction'
-    },
-    const {
-      '1': 'read_time',
-      '3': 10,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Timestamp',
-      '9': 0,
-      '10': 'readTime'
-    },
+    const {'1': 'mask', '3': 7, '4': 1, '5': 11, '6': '.google.firestore.v1.DocumentMask', '10': 'mask'},
+    const {'1': 'transaction', '3': 8, '4': 1, '5': 12, '9': 0, '10': 'transaction'},
+    const {'1': 'read_time', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '9': 0, '10': 'readTime'},
     const {'1': 'show_missing', '3': 12, '4': 1, '5': 8, '10': 'showMissing'},
   ],
   '8': const [
@@ -83,21 +39,8 @@ const ListDocumentsRequest$json = const {
 const ListDocumentsResponse$json = const {
   '1': 'ListDocumentsResponse',
   '2': const [
-    const {
-      '1': 'documents',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.google.firestore.v1.Document',
-      '10': 'documents'
-    },
-    const {
-      '1': 'next_page_token',
-      '3': 2,
-      '4': 1,
-      '5': 9,
-      '10': 'nextPageToken'
-    },
+    const {'1': 'documents', '3': 1, '4': 3, '5': 11, '6': '.google.firestore.v1.Document', '10': 'documents'},
+    const {'1': 'next_page_token', '3': 2, '4': 1, '5': 9, '10': 'nextPageToken'},
   ],
 };
 
@@ -107,52 +50,17 @@ const CreateDocumentRequest$json = const {
     const {'1': 'parent', '3': 1, '4': 1, '5': 9, '10': 'parent'},
     const {'1': 'collection_id', '3': 2, '4': 1, '5': 9, '10': 'collectionId'},
     const {'1': 'document_id', '3': 3, '4': 1, '5': 9, '10': 'documentId'},
-    const {
-      '1': 'document',
-      '3': 4,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.Document',
-      '10': 'document'
-    },
-    const {
-      '1': 'mask',
-      '3': 5,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.DocumentMask',
-      '10': 'mask'
-    },
+    const {'1': 'document', '3': 4, '4': 1, '5': 11, '6': '.google.firestore.v1.Document', '10': 'document'},
+    const {'1': 'mask', '3': 5, '4': 1, '5': 11, '6': '.google.firestore.v1.DocumentMask', '10': 'mask'},
   ],
 };
 
 const UpdateDocumentRequest$json = const {
   '1': 'UpdateDocumentRequest',
   '2': const [
-    const {
-      '1': 'document',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.Document',
-      '10': 'document'
-    },
-    const {
-      '1': 'update_mask',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.DocumentMask',
-      '10': 'updateMask'
-    },
-    const {
-      '1': 'mask',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.DocumentMask',
-      '10': 'mask'
-    },
+    const {'1': 'document', '3': 1, '4': 1, '5': 11, '6': '.google.firestore.v1.Document', '10': 'document'},
+    const {'1': 'update_mask', '3': 2, '4': 1, '5': 11, '6': '.google.firestore.v1.DocumentMask', '10': 'updateMask'},
+    const {'1': 'mask', '3': 3, '4': 1, '5': 11, '6': '.google.firestore.v1.DocumentMask', '10': 'mask'},
     const {
       '1': 'current_document',
       '3': 4,
@@ -184,22 +92,8 @@ const BatchGetDocumentsRequest$json = const {
   '2': const [
     const {'1': 'database', '3': 1, '4': 1, '5': 9, '10': 'database'},
     const {'1': 'documents', '3': 2, '4': 3, '5': 9, '10': 'documents'},
-    const {
-      '1': 'mask',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.DocumentMask',
-      '10': 'mask'
-    },
-    const {
-      '1': 'transaction',
-      '3': 4,
-      '4': 1,
-      '5': 12,
-      '9': 0,
-      '10': 'transaction'
-    },
+    const {'1': 'mask', '3': 3, '4': 1, '5': 11, '6': '.google.firestore.v1.DocumentMask', '10': 'mask'},
+    const {'1': 'transaction', '3': 4, '4': 1, '5': 12, '9': 0, '10': 'transaction'},
     const {
       '1': 'new_transaction',
       '3': 5,
@@ -209,15 +103,7 @@ const BatchGetDocumentsRequest$json = const {
       '9': 0,
       '10': 'newTransaction'
     },
-    const {
-      '1': 'read_time',
-      '3': 7,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Timestamp',
-      '9': 0,
-      '10': 'readTime'
-    },
+    const {'1': 'read_time', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '9': 0, '10': 'readTime'},
   ],
   '8': const [
     const {'1': 'consistency_selector'},
@@ -227,25 +113,10 @@ const BatchGetDocumentsRequest$json = const {
 const BatchGetDocumentsResponse$json = const {
   '1': 'BatchGetDocumentsResponse',
   '2': const [
-    const {
-      '1': 'found',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.Document',
-      '9': 0,
-      '10': 'found'
-    },
+    const {'1': 'found', '3': 1, '4': 1, '5': 11, '6': '.google.firestore.v1.Document', '9': 0, '10': 'found'},
     const {'1': 'missing', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'missing'},
     const {'1': 'transaction', '3': 3, '4': 1, '5': 12, '10': 'transaction'},
-    const {
-      '1': 'read_time',
-      '3': 4,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Timestamp',
-      '10': 'readTime'
-    },
+    const {'1': 'read_time', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'readTime'},
   ],
   '8': const [
     const {'1': 'result'},
@@ -256,14 +127,7 @@ const BeginTransactionRequest$json = const {
   '1': 'BeginTransactionRequest',
   '2': const [
     const {'1': 'database', '3': 1, '4': 1, '5': 9, '10': 'database'},
-    const {
-      '1': 'options',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.TransactionOptions',
-      '10': 'options'
-    },
+    const {'1': 'options', '3': 2, '4': 1, '5': 11, '6': '.google.firestore.v1.TransactionOptions', '10': 'options'},
   ],
 };
 
@@ -278,14 +142,7 @@ const CommitRequest$json = const {
   '1': 'CommitRequest',
   '2': const [
     const {'1': 'database', '3': 1, '4': 1, '5': 9, '10': 'database'},
-    const {
-      '1': 'writes',
-      '3': 2,
-      '4': 3,
-      '5': 11,
-      '6': '.google.firestore.v1.Write',
-      '10': 'writes'
-    },
+    const {'1': 'writes', '3': 2, '4': 3, '5': 11, '6': '.google.firestore.v1.Write', '10': 'writes'},
     const {'1': 'transaction', '3': 3, '4': 1, '5': 12, '10': 'transaction'},
   ],
 };
@@ -301,14 +158,7 @@ const CommitResponse$json = const {
       '6': '.google.firestore.v1.WriteResult',
       '10': 'writeResults'
     },
-    const {
-      '1': 'commit_time',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Timestamp',
-      '10': 'commitTime'
-    },
+    const {'1': 'commit_time', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'commitTime'},
   ],
 };
 
@@ -333,14 +183,7 @@ const RunQueryRequest$json = const {
       '9': 0,
       '10': 'structuredQuery'
     },
-    const {
-      '1': 'transaction',
-      '3': 5,
-      '4': 1,
-      '5': 12,
-      '9': 1,
-      '10': 'transaction'
-    },
+    const {'1': 'transaction', '3': 5, '4': 1, '5': 12, '9': 1, '10': 'transaction'},
     const {
       '1': 'new_transaction',
       '3': 6,
@@ -350,15 +193,7 @@ const RunQueryRequest$json = const {
       '9': 1,
       '10': 'newTransaction'
     },
-    const {
-      '1': 'read_time',
-      '3': 7,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Timestamp',
-      '9': 1,
-      '10': 'readTime'
-    },
+    const {'1': 'read_time', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '9': 1, '10': 'readTime'},
   ],
   '8': const [
     const {'1': 'query_type'},
@@ -370,29 +205,9 @@ const RunQueryResponse$json = const {
   '1': 'RunQueryResponse',
   '2': const [
     const {'1': 'transaction', '3': 2, '4': 1, '5': 12, '10': 'transaction'},
-    const {
-      '1': 'document',
-      '3': 1,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.Document',
-      '10': 'document'
-    },
-    const {
-      '1': 'read_time',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Timestamp',
-      '10': 'readTime'
-    },
-    const {
-      '1': 'skipped_results',
-      '3': 4,
-      '4': 1,
-      '5': 5,
-      '10': 'skippedResults'
-    },
+    const {'1': 'document', '3': 1, '4': 1, '5': 11, '6': '.google.firestore.v1.Document', '10': 'document'},
+    const {'1': 'read_time', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'readTime'},
+    const {'1': 'skipped_results', '3': 4, '4': 1, '5': 5, '10': 'skippedResults'},
   ],
 };
 
@@ -401,14 +216,7 @@ const WriteRequest$json = const {
   '2': const [
     const {'1': 'database', '3': 1, '4': 1, '5': 9, '10': 'database'},
     const {'1': 'stream_id', '3': 2, '4': 1, '5': 9, '10': 'streamId'},
-    const {
-      '1': 'writes',
-      '3': 3,
-      '4': 3,
-      '5': 11,
-      '6': '.google.firestore.v1.Write',
-      '10': 'writes'
-    },
+    const {'1': 'writes', '3': 3, '4': 3, '5': 11, '6': '.google.firestore.v1.Write', '10': 'writes'},
     const {'1': 'stream_token', '3': 4, '4': 1, '5': 12, '10': 'streamToken'},
     const {
       '1': 'labels',
@@ -444,14 +252,7 @@ const WriteResponse$json = const {
       '6': '.google.firestore.v1.WriteResult',
       '10': 'writeResults'
     },
-    const {
-      '1': 'commit_time',
-      '3': 4,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Timestamp',
-      '10': 'commitTime'
-    },
+    const {'1': 'commit_time', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'commitTime'},
   ],
 };
 
@@ -459,23 +260,8 @@ const ListenRequest$json = const {
   '1': 'ListenRequest',
   '2': const [
     const {'1': 'database', '3': 1, '4': 1, '5': 9, '10': 'database'},
-    const {
-      '1': 'add_target',
-      '3': 2,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.Target',
-      '9': 0,
-      '10': 'addTarget'
-    },
-    const {
-      '1': 'remove_target',
-      '3': 3,
-      '4': 1,
-      '5': 5,
-      '9': 0,
-      '10': 'removeTarget'
-    },
+    const {'1': 'add_target', '3': 2, '4': 1, '5': 11, '6': '.google.firestore.v1.Target', '9': 0, '10': 'addTarget'},
+    const {'1': 'remove_target', '3': 3, '4': 1, '5': 5, '9': 0, '10': 'removeTarget'},
     const {
       '1': 'labels',
       '3': 4,
@@ -539,15 +325,7 @@ const ListenResponse$json = const {
       '9': 0,
       '10': 'documentRemove'
     },
-    const {
-      '1': 'filter',
-      '3': 5,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.ExistenceFilter',
-      '9': 0,
-      '10': 'filter'
-    },
+    const {'1': 'filter', '3': 5, '4': 1, '5': 11, '6': '.google.firestore.v1.ExistenceFilter', '9': 0, '10': 'filter'},
   ],
   '8': const [
     const {'1': 'response_type'},
@@ -575,23 +353,8 @@ const Target$json = const {
       '9': 0,
       '10': 'documents'
     },
-    const {
-      '1': 'resume_token',
-      '3': 4,
-      '4': 1,
-      '5': 12,
-      '9': 1,
-      '10': 'resumeToken'
-    },
-    const {
-      '1': 'read_time',
-      '3': 11,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Timestamp',
-      '9': 1,
-      '10': 'readTime'
-    },
+    const {'1': 'resume_token', '3': 4, '4': 1, '5': 12, '9': 1, '10': 'resumeToken'},
+    const {'1': 'read_time', '3': 11, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '9': 1, '10': 'readTime'},
     const {'1': 'target_id', '3': 5, '4': 1, '5': 5, '10': 'targetId'},
     const {'1': 'once', '3': 6, '4': 1, '5': 8, '10': 'once'},
   ],
@@ -640,23 +403,9 @@ const TargetChange$json = const {
       '10': 'targetChangeType'
     },
     const {'1': 'target_ids', '3': 2, '4': 3, '5': 5, '10': 'targetIds'},
-    const {
-      '1': 'cause',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.google.rpc.Status',
-      '10': 'cause'
-    },
+    const {'1': 'cause', '3': 3, '4': 1, '5': 11, '6': '.google.rpc.Status', '10': 'cause'},
     const {'1': 'resume_token', '3': 4, '4': 1, '5': 12, '10': 'resumeToken'},
-    const {
-      '1': 'read_time',
-      '3': 6,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Timestamp',
-      '10': 'readTime'
-    },
+    const {'1': 'read_time', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'readTime'},
   ],
   '4': const [TargetChange_TargetChangeType$json],
 };
@@ -684,19 +433,7 @@ const ListCollectionIdsRequest$json = const {
 const ListCollectionIdsResponse$json = const {
   '1': 'ListCollectionIdsResponse',
   '2': const [
-    const {
-      '1': 'collection_ids',
-      '3': 1,
-      '4': 3,
-      '5': 9,
-      '10': 'collectionIds'
-    },
-    const {
-      '1': 'next_page_token',
-      '3': 2,
-      '4': 1,
-      '5': 9,
-      '10': 'nextPageToken'
-    },
+    const {'1': 'collection_ids', '3': 1, '4': 3, '5': 9, '10': 'collectionIds'},
+    const {'1': 'next_page_token', '3': 2, '4': 1, '5': 9, '10': 'nextPageToken'},
   ],
 };

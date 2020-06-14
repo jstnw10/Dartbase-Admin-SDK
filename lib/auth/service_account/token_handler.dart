@@ -142,7 +142,8 @@ class AccessToken {
 
   AccessToken.fromJson(Map<String, dynamic> json) : this(json['access_token'], Duration(seconds: json['expires_in']));
 
-  AccessToken(this.accessToken, Duration expiresIn) : expirationTime = expiresIn == null ? null : clock.now().add(expiresIn);
+  AccessToken(this.accessToken, Duration expiresIn)
+      : expirationTime = expiresIn == null ? null : clock.now().add(expiresIn);
 
   Map<String, dynamic> toJson() => {'accessToken': accessToken, 'expirationTime': expirationTime?.toIso8601String()};
 }

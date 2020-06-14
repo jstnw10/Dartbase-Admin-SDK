@@ -4,16 +4,13 @@ import 'package:test/test.dart';
 
 import 'test_config.dart';
 
-
-
 Future main() async {
-  Firebase firebase;
   FCM fcm;
   final nameRegExp = RegExp(r'projects/.*/messages/[0-9]+');
 
   setUpAll(() async {
-    firebase = await Firebase.initialize(projectId, await ServiceAccount.fromFile(serviceAccountPath));
-    fcm = FCM(firebase: firebase, fcmConfig: FCMConfig(firebase.projectId));
+    await Firebase.initialize(projectId, await ServiceAccount.fromFile(serviceAccountPath));
+    fcm = FCM.initialize();
   });
 
   await test('Send message with token', () async {

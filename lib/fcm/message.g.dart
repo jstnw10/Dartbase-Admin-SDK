@@ -12,23 +12,12 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
     data: json['data'] as Map<String, dynamic>,
     notification: json['notification'] == null
         ? null
-        : MessageNotification.fromJson(
-            json['notification'] as Map<String, dynamic>),
-    android: json['android'] == null
-        ? null
-        : MessageAndroidConfig.fromJson(
-            json['android'] as Map<String, dynamic>),
-    webpush: json['webpush'] == null
-        ? null
-        : MessageWebpushConfig.fromJson(
-            json['webpush'] as Map<String, dynamic>),
-    apns: json['apns'] == null
-        ? null
-        : MessageApnsConfig.fromJson(json['apns'] as Map<String, dynamic>),
-    fcm_options: json['fcm_options'] == null
-        ? null
-        : MessageFcmOptions.fromJson(
-            json['fcm_options'] as Map<String, dynamic>),
+        : MessageNotification.fromJson(json['notification'] as Map<String, dynamic>),
+    android: json['android'] == null ? null : MessageAndroidConfig.fromJson(json['android'] as Map<String, dynamic>),
+    webpush: json['webpush'] == null ? null : MessageWebpushConfig.fromJson(json['webpush'] as Map<String, dynamic>),
+    apns: json['apns'] == null ? null : MessageApnsConfig.fromJson(json['apns'] as Map<String, dynamic>),
+    fcm_options:
+        json['fcm_options'] == null ? null : MessageFcmOptions.fromJson(json['fcm_options'] as Map<String, dynamic>),
     token: json['token'] as String,
     topic: json['topic'] as String,
     condition: json['condition'] as String,
@@ -89,18 +78,15 @@ MessageAndroidConfig _$MessageAndroidConfigFromJson(Map<String, dynamic> json) {
     data: json['data'] as Map<String, dynamic>,
     notification: json['notification'] == null
         ? null
-        : MessageAndroidNotification.fromJson(
-            json['notification'] as Map<String, dynamic>),
+        : MessageAndroidNotification.fromJson(json['notification'] as Map<String, dynamic>),
     fcm_options: json['fcm_options'] == null
         ? null
-        : MessageAndroidFcmOptions.fromJson(
-            json['fcm_options'] as Map<String, dynamic>),
+        : MessageAndroidFcmOptions.fromJson(json['fcm_options'] as Map<String, dynamic>),
     direct_boot_ok: json['direct_boot_ok'] as bool,
   );
 }
 
-Map<String, dynamic> _$MessageAndroidConfigToJson(
-    MessageAndroidConfig instance) {
+Map<String, dynamic> _$MessageAndroidConfigToJson(MessageAndroidConfig instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -120,8 +106,7 @@ Map<String, dynamic> _$MessageAndroidConfigToJson(
   return val;
 }
 
-MessageAndroidNotification _$MessageAndroidNotificationFromJson(
-    Map<String, dynamic> json) {
+MessageAndroidNotification _$MessageAndroidNotificationFromJson(Map<String, dynamic> json) {
   return MessageAndroidNotification(
     title: json['title'] as String,
     body: json['body'] as String,
@@ -131,11 +116,9 @@ MessageAndroidNotification _$MessageAndroidNotificationFromJson(
     tag: json['tag'] as String,
     click_action: json['click_action'] as String,
     body_loc_key: json['body_loc_key'] as String,
-    body_loc_args:
-        (json['body_loc_args'] as List)?.map((e) => e as String)?.toList(),
+    body_loc_args: (json['body_loc_args'] as List)?.map((e) => e as String)?.toList(),
     title_loc_key: json['title_loc_key'] as String,
-    title_loc_args:
-        (json['title_loc_args'] as List)?.map((e) => e as String)?.toList(),
+    title_loc_args: (json['title_loc_args'] as List)?.map((e) => e as String)?.toList(),
     channel_id: json['channel_id'] as String,
     ticker: json['ticker'] as String,
     sticky: json['sticky'] as bool,
@@ -145,20 +128,17 @@ MessageAndroidNotification _$MessageAndroidNotificationFromJson(
     default_sound: json['default_sound'] as bool,
     default_vibrate_timings: json['default_vibrate_timings'] as bool,
     default_light_settings: json['default_light_settings'] as bool,
-    vibrate_timings:
-        (json['vibrate_timings'] as List)?.map((e) => e as String)?.toList(),
+    vibrate_timings: (json['vibrate_timings'] as List)?.map((e) => e as String)?.toList(),
     visibility: json['visibility'] as String,
     notification_count: json['notification_count'] as int,
     light_settings: json['light_settings'] == null
         ? null
-        : MessageLightSettings.fromJson(
-            json['light_settings'] as Map<String, dynamic>),
+        : MessageLightSettings.fromJson(json['light_settings'] as Map<String, dynamic>),
     image: json['image'] as String,
   );
 }
 
-Map<String, dynamic> _$MessageAndroidNotificationToJson(
-    MessageAndroidNotification instance) {
+Map<String, dynamic> _$MessageAndroidNotificationToJson(MessageAndroidNotification instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -196,19 +176,15 @@ Map<String, dynamic> _$MessageAndroidNotificationToJson(
 }
 
 MessageLightSettings _$MessageLightSettingsFromJson(Map<String, dynamic> json) {
-  $checkKeys(json,
-      requiredKeys: const ['color', 'light_on_duration', 'light_off_duration']);
+  $checkKeys(json, requiredKeys: const ['color', 'light_on_duration', 'light_off_duration']);
   return MessageLightSettings(
-    color: json['color'] == null
-        ? null
-        : MessageColor.fromJson(json['color'] as Map<String, dynamic>),
+    color: json['color'] == null ? null : MessageColor.fromJson(json['color'] as Map<String, dynamic>),
     light_on_duration: json['light_on_duration'] as String,
     light_off_duration: json['light_off_duration'] as String,
   );
 }
 
-Map<String, dynamic> _$MessageLightSettingsToJson(
-    MessageLightSettings instance) {
+Map<String, dynamic> _$MessageLightSettingsToJson(MessageLightSettings instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -248,15 +224,13 @@ Map<String, dynamic> _$MessageColorToJson(MessageColor instance) {
   return val;
 }
 
-MessageAndroidFcmOptions _$MessageAndroidFcmOptionsFromJson(
-    Map<String, dynamic> json) {
+MessageAndroidFcmOptions _$MessageAndroidFcmOptionsFromJson(Map<String, dynamic> json) {
   return MessageAndroidFcmOptions(
     analytics_label: json['analytics_label'] as String,
   );
 }
 
-Map<String, dynamic> _$MessageAndroidFcmOptionsToJson(
-    MessageAndroidFcmOptions instance) {
+Map<String, dynamic> _$MessageAndroidFcmOptionsToJson(MessageAndroidFcmOptions instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -280,13 +254,11 @@ MessageWebpushConfig _$MessageWebpushConfigFromJson(Map<String, dynamic> json) {
     notification: json['notification'],
     fcm_options: json['fcm_options'] == null
         ? null
-        : MessageWebpushFcmOptions.fromJson(
-            json['fcm_options'] as Map<String, dynamic>),
+        : MessageWebpushFcmOptions.fromJson(json['fcm_options'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$MessageWebpushConfigToJson(
-    MessageWebpushConfig instance) {
+Map<String, dynamic> _$MessageWebpushConfigToJson(MessageWebpushConfig instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -302,16 +274,14 @@ Map<String, dynamic> _$MessageWebpushConfigToJson(
   return val;
 }
 
-MessageWebpushFcmOptions _$MessageWebpushFcmOptionsFromJson(
-    Map<String, dynamic> json) {
+MessageWebpushFcmOptions _$MessageWebpushFcmOptionsFromJson(Map<String, dynamic> json) {
   return MessageWebpushFcmOptions(
     link: json['link'] as String,
     analytics_label: json['analytics_label'] as String,
   );
 }
 
-Map<String, dynamic> _$MessageWebpushFcmOptionsToJson(
-    MessageWebpushFcmOptions instance) {
+Map<String, dynamic> _$MessageWebpushFcmOptionsToJson(MessageWebpushFcmOptions instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -333,8 +303,7 @@ MessageApnsConfig _$MessageApnsConfigFromJson(Map<String, dynamic> json) {
     payload: json['payload'],
     fcm_options: json['fcm_options'] == null
         ? null
-        : MessageApnsFcmOptions.fromJson(
-            json['fcm_options'] as Map<String, dynamic>),
+        : MessageApnsFcmOptions.fromJson(json['fcm_options'] as Map<String, dynamic>),
   );
 }
 
@@ -353,15 +322,13 @@ Map<String, dynamic> _$MessageApnsConfigToJson(MessageApnsConfig instance) {
   return val;
 }
 
-MessageApnsFcmOptions _$MessageApnsFcmOptionsFromJson(
-    Map<String, dynamic> json) {
+MessageApnsFcmOptions _$MessageApnsFcmOptionsFromJson(Map<String, dynamic> json) {
   return MessageApnsFcmOptions(
     analytics_label: json['analytics_label'] as String,
   )..image = json['image'] as String;
 }
 
-Map<String, dynamic> _$MessageApnsFcmOptionsToJson(
-    MessageApnsFcmOptions instance) {
+Map<String, dynamic> _$MessageApnsFcmOptionsToJson(MessageApnsFcmOptions instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

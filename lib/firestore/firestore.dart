@@ -8,13 +8,11 @@ class Firestore {
 
   static bool get initialized => _instance != null;
 
-  static Firestore initialize(
-      {Firebase firebase, String databaseId = '(default)'}) {
+  static Firestore initialize({Firebase firebase, String databaseId = '(default)'}) {
     assert(!initialized,
         'Firestore global instance is already initialized. Do not call this twice or create a local instance via Firestore()');
 
-    _instance = Firestore(
-        firebase: firebase ?? Firebase.instance, databaseId: databaseId);
+    _instance = Firestore(firebase: firebase ?? Firebase.instance, databaseId: databaseId);
     return _instance;
   }
 
@@ -32,13 +30,11 @@ class Firestore {
   Firestore({this.firebase, String databaseId = '(default)'})
       : assert(firebase != null || Firebase.initialized,
             'Firebase global instance not initialized, run Firebase.initialize().\nAlternatively, provide a local instance via Firestore.initialize(firebase: <firebase instance>)'),
-        _gateway = FirestoreGateway(firebase ?? Firebase.instance,
-            databaseId: databaseId);
+        _gateway = FirestoreGateway(firebase ?? Firebase.instance, databaseId: databaseId);
 
   Reference reference(String path) => Reference.create(_gateway, path);
 
-  CollectionReference collection(String path) =>
-      CollectionReference(_gateway, path);
+  CollectionReference collection(String path) => CollectionReference(_gateway, path);
 
   DocumentReference document(String path) => DocumentReference(_gateway, path);
 

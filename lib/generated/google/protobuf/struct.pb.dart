@@ -8,7 +8,6 @@
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
-
 import 'package:protobuf/src/protobuf/mixins/well_known.dart' as $mixin;
 
 import 'struct.pbenum.dart';
@@ -31,38 +30,26 @@ class Struct extends $pb.GeneratedMessage with $mixin.StructMixin {
 
   Struct._() : super();
   factory Struct() => create();
-  factory Struct.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Struct.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory Struct.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Struct.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   Struct clone() => Struct()..mergeFromMessage(this);
-  Struct copyWith(void Function(Struct) updates) =>
-      super.copyWith((message) => updates(message as Struct));
+  Struct copyWith(void Function(Struct) updates) => super.copyWith((message) => updates(message as Struct));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Struct create() => Struct._();
   Struct createEmptyInstance() => create();
   static $pb.PbList<Struct> createRepeated() => $pb.PbList<Struct>();
   @$core.pragma('dart2js:noInline')
-  static Struct getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Struct>(create);
+  static Struct getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Struct>(create);
   static Struct _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.Map<$core.String, Value> get fields => $_getMap(0);
 }
 
-enum Value_Kind {
-  nullValue,
-  numberValue,
-  stringValue,
-  boolValue,
-  structValue,
-  listValue,
-  notSet
-}
+enum Value_Kind { nullValue, numberValue, stringValue, boolValue, structValue, listValue, notSet }
 
 class Value extends $pb.GeneratedMessage with $mixin.ValueMixin {
   static const $core.Map<$core.int, Value_Kind> _Value_KindByTag = {
@@ -81,9 +68,7 @@ class Value extends $pb.GeneratedMessage with $mixin.ValueMixin {
       fromProto3Json: $mixin.ValueMixin.fromProto3JsonHelper)
     ..oo(0, [1, 2, 3, 4, 5, 6])
     ..e<NullValue>(1, 'nullValue', $pb.PbFieldType.OE,
-        defaultOrMaker: NullValue.NULL_VALUE,
-        valueOf: NullValue.valueOf,
-        enumValues: NullValue.values)
+        defaultOrMaker: NullValue.NULL_VALUE, valueOf: NullValue.valueOf, enumValues: NullValue.values)
     ..a<$core.double>(2, 'numberValue', $pb.PbFieldType.OD)
     ..aOS(3, 'stringValue')
     ..aOB(4, 'boolValue')
@@ -93,23 +78,19 @@ class Value extends $pb.GeneratedMessage with $mixin.ValueMixin {
 
   Value._() : super();
   factory Value() => create();
-  factory Value.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Value.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory Value.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Value.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   Value clone() => Value()..mergeFromMessage(this);
-  Value copyWith(void Function(Value) updates) =>
-      super.copyWith((message) => updates(message as Value));
+  Value copyWith(void Function(Value) updates) => super.copyWith((message) => updates(message as Value));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Value create() => Value._();
   Value createEmptyInstance() => create();
   static $pb.PbList<Value> createRepeated() => $pb.PbList<Value>();
   @$core.pragma('dart2js:noInline')
-  static Value getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Value>(create);
+  static Value getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Value>(create);
   static Value _defaultInstance;
 
   Value_Kind whichKind() => _Value_KindByTag[$_whichOneof(0)];
@@ -203,23 +184,19 @@ class ListValue extends $pb.GeneratedMessage with $mixin.ListValueMixin {
 
   ListValue._() : super();
   factory ListValue() => create();
-  factory ListValue.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory ListValue.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ListValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   ListValue clone() => ListValue()..mergeFromMessage(this);
-  ListValue copyWith(void Function(ListValue) updates) =>
-      super.copyWith((message) => updates(message as ListValue));
+  ListValue copyWith(void Function(ListValue) updates) => super.copyWith((message) => updates(message as ListValue));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static ListValue create() => ListValue._();
   ListValue createEmptyInstance() => create();
   static $pb.PbList<ListValue> createRepeated() => $pb.PbList<ListValue>();
   @$core.pragma('dart2js:noInline')
-  static ListValue getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListValue>(create);
+  static ListValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ListValue>(create);
   static ListValue _defaultInstance;
 
   @$pb.TagNumber(1)

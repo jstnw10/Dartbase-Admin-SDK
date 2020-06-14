@@ -10,45 +10,39 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../protobuf/struct.pbenum.dart' as $2;
 import '../../protobuf/timestamp.pb.dart' as $0;
 import '../../type/latlng.pb.dart' as $1;
 
-import '../../protobuf/struct.pbenum.dart' as $2;
-
 class Document extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Document',
-      package: const $pb.PackageName('google.firestore.v1'),
-      createEmptyInstance: create)
-    ..aOS(1, 'name')
-    ..m<$core.String, Value>(2, 'fields',
-        entryClassName: 'Document.FieldsEntry',
-        keyFieldType: $pb.PbFieldType.OS,
-        valueFieldType: $pb.PbFieldType.OM,
-        valueCreator: Value.create,
-        packageName: const $pb.PackageName('google.firestore.v1'))
-    ..aOM<$0.Timestamp>(3, 'createTime', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(4, 'updateTime', subBuilder: $0.Timestamp.create)
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i =
+      $pb.BuilderInfo('Document', package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+        ..aOS(1, 'name')
+        ..m<$core.String, Value>(2, 'fields',
+            entryClassName: 'Document.FieldsEntry',
+            keyFieldType: $pb.PbFieldType.OS,
+            valueFieldType: $pb.PbFieldType.OM,
+            valueCreator: Value.create,
+            packageName: const $pb.PackageName('google.firestore.v1'))
+        ..aOM<$0.Timestamp>(3, 'createTime', subBuilder: $0.Timestamp.create)
+        ..aOM<$0.Timestamp>(4, 'updateTime', subBuilder: $0.Timestamp.create)
+        ..hasRequiredFields = false;
 
   Document._() : super();
   factory Document() => create();
-  factory Document.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Document.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory Document.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Document.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   Document clone() => Document()..mergeFromMessage(this);
-  Document copyWith(void Function(Document) updates) =>
-      super.copyWith((message) => updates(message as Document));
+  Document copyWith(void Function(Document) updates) => super.copyWith((message) => updates(message as Document));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Document create() => Document._();
   Document createEmptyInstance() => create();
   static $pb.PbList<Document> createRepeated() => $pb.PbList<Document>();
   @$core.pragma('dart2js:noInline')
-  static Document getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Document>(create);
+  static Document getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Document>(create);
   static Document _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -125,45 +119,38 @@ class Value extends $pb.GeneratedMessage {
     18: Value_ValueType.bytesValue,
     0: Value_ValueType.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Value',
-      package: const $pb.PackageName('google.firestore.v1'),
-      createEmptyInstance: create)
-    ..oo(0, [1, 2, 3, 5, 6, 8, 9, 10, 11, 17, 18])
-    ..aOB(1, 'booleanValue')
-    ..aInt64(2, 'integerValue')
-    ..a<$core.double>(3, 'doubleValue', $pb.PbFieldType.OD)
-    ..aOS(5, 'referenceValue')
-    ..aOM<MapValue>(6, 'mapValue', subBuilder: MapValue.create)
-    ..aOM<$1.LatLng>(8, 'geoPointValue', subBuilder: $1.LatLng.create)
-    ..aOM<ArrayValue>(9, 'arrayValue', subBuilder: ArrayValue.create)
-    ..aOM<$0.Timestamp>(10, 'timestampValue', subBuilder: $0.Timestamp.create)
-    ..e<$2.NullValue>(11, 'nullValue', $pb.PbFieldType.OE,
-        defaultOrMaker: $2.NullValue.NULL_VALUE,
-        valueOf: $2.NullValue.valueOf,
-        enumValues: $2.NullValue.values)
-    ..aOS(17, 'stringValue')
-    ..a<$core.List<$core.int>>(18, 'bytesValue', $pb.PbFieldType.OY)
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i =
+      $pb.BuilderInfo('Value', package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+        ..oo(0, [1, 2, 3, 5, 6, 8, 9, 10, 11, 17, 18])
+        ..aOB(1, 'booleanValue')
+        ..aInt64(2, 'integerValue')
+        ..a<$core.double>(3, 'doubleValue', $pb.PbFieldType.OD)
+        ..aOS(5, 'referenceValue')
+        ..aOM<MapValue>(6, 'mapValue', subBuilder: MapValue.create)
+        ..aOM<$1.LatLng>(8, 'geoPointValue', subBuilder: $1.LatLng.create)
+        ..aOM<ArrayValue>(9, 'arrayValue', subBuilder: ArrayValue.create)
+        ..aOM<$0.Timestamp>(10, 'timestampValue', subBuilder: $0.Timestamp.create)
+        ..e<$2.NullValue>(11, 'nullValue', $pb.PbFieldType.OE,
+            defaultOrMaker: $2.NullValue.NULL_VALUE, valueOf: $2.NullValue.valueOf, enumValues: $2.NullValue.values)
+        ..aOS(17, 'stringValue')
+        ..a<$core.List<$core.int>>(18, 'bytesValue', $pb.PbFieldType.OY)
+        ..hasRequiredFields = false;
 
   Value._() : super();
   factory Value() => create();
-  factory Value.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Value.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory Value.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory Value.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   Value clone() => Value()..mergeFromMessage(this);
-  Value copyWith(void Function(Value) updates) =>
-      super.copyWith((message) => updates(message as Value));
+  Value copyWith(void Function(Value) updates) => super.copyWith((message) => updates(message as Value));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Value create() => Value._();
   Value createEmptyInstance() => create();
   static $pb.PbList<Value> createRepeated() => $pb.PbList<Value>();
   @$core.pragma('dart2js:noInline')
-  static Value getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Value>(create);
+  static Value getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Value>(create);
   static Value _defaultInstance;
 
   Value_ValueType whichValueType() => _Value_ValueTypeByTag[$_whichOneof(0)];
@@ -311,31 +298,26 @@ class Value extends $pb.GeneratedMessage {
 }
 
 class ArrayValue extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ArrayValue',
-      package: const $pb.PackageName('google.firestore.v1'),
-      createEmptyInstance: create)
-    ..pc<Value>(1, 'values', $pb.PbFieldType.PM, subBuilder: Value.create)
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i =
+      $pb.BuilderInfo('ArrayValue', package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+        ..pc<Value>(1, 'values', $pb.PbFieldType.PM, subBuilder: Value.create)
+        ..hasRequiredFields = false;
 
   ArrayValue._() : super();
   factory ArrayValue() => create();
-  factory ArrayValue.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ArrayValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory ArrayValue.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory ArrayValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   ArrayValue clone() => ArrayValue()..mergeFromMessage(this);
-  ArrayValue copyWith(void Function(ArrayValue) updates) =>
-      super.copyWith((message) => updates(message as ArrayValue));
+  ArrayValue copyWith(void Function(ArrayValue) updates) => super.copyWith((message) => updates(message as ArrayValue));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static ArrayValue create() => ArrayValue._();
   ArrayValue createEmptyInstance() => create();
   static $pb.PbList<ArrayValue> createRepeated() => $pb.PbList<ArrayValue>();
   @$core.pragma('dart2js:noInline')
-  static ArrayValue getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ArrayValue>(create);
+  static ArrayValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ArrayValue>(create);
   static ArrayValue _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -343,36 +325,31 @@ class ArrayValue extends $pb.GeneratedMessage {
 }
 
 class MapValue extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('MapValue',
-      package: const $pb.PackageName('google.firestore.v1'),
-      createEmptyInstance: create)
-    ..m<$core.String, Value>(1, 'fields',
-        entryClassName: 'MapValue.FieldsEntry',
-        keyFieldType: $pb.PbFieldType.OS,
-        valueFieldType: $pb.PbFieldType.OM,
-        valueCreator: Value.create,
-        packageName: const $pb.PackageName('google.firestore.v1'))
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i =
+      $pb.BuilderInfo('MapValue', package: const $pb.PackageName('google.firestore.v1'), createEmptyInstance: create)
+        ..m<$core.String, Value>(1, 'fields',
+            entryClassName: 'MapValue.FieldsEntry',
+            keyFieldType: $pb.PbFieldType.OS,
+            valueFieldType: $pb.PbFieldType.OM,
+            valueCreator: Value.create,
+            packageName: const $pb.PackageName('google.firestore.v1'))
+        ..hasRequiredFields = false;
 
   MapValue._() : super();
   factory MapValue() => create();
-  factory MapValue.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory MapValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory MapValue.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+  factory MapValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   MapValue clone() => MapValue()..mergeFromMessage(this);
-  MapValue copyWith(void Function(MapValue) updates) =>
-      super.copyWith((message) => updates(message as MapValue));
+  MapValue copyWith(void Function(MapValue) updates) => super.copyWith((message) => updates(message as MapValue));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static MapValue create() => MapValue._();
   MapValue createEmptyInstance() => create();
   static $pb.PbList<MapValue> createRepeated() => $pb.PbList<MapValue>();
   @$core.pragma('dart2js:noInline')
-  static MapValue getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MapValue>(create);
+  static MapValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MapValue>(create);
   static MapValue _defaultInstance;
 
   @$pb.TagNumber(1)

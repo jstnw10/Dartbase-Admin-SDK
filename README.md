@@ -7,114 +7,165 @@ This library also uses these files from appsup-dart/firebase_admin to enable adm
 * user_record.dart.
 * token_handler.dart
 
-### Currently supported:
+## Currently supported:
 
 * Firebase Auth
 * Firestore
 * Firebase Storage
 * Firebase Cloud Messaging
 
-# INCOMPLETE README
+## Installing
 
-## Dependencies
-
-Add firedart to your `pubspec.yaml` file:
+Add dartbase to your `pubspec.yaml` file:
 
 ``` yaml
 dependencies:
-  firedart: [latest version]
+  dartbase: [latest version]
+```
+
+## Setup & Usage
+``` dart
+import 'package:dartbase/dartbase.dart';
+```
+
+To begin, you need to initialize Firebase:
+- You can initialize the global singleton instance provided by the package that you can access anywhere.
+
+- You can initialize a new local instance of Firebase as a variable and as many times as you want. You can pass that instance to all the other Firebase features, but if you don't, they default back to the global instance.
+
+### Global Instance
+``` dart
+await Firebase.initialize(projectId, ServiceAccount);
+
+var firebase = Firebase.instance;
+```
+
+### Local Instance
+``` dart
+var firebase = Firebase(projectId, ServiceAccount);
+
+await firebase.init();
+```
+
+### ServiceAccount
+
+You can reference a service account through several means:
+
+## First way:
+``` dart
+ServiceAccount.fromEnvironmentVariable('Environment Variable Key');
+```
+If you do NOT specify an environment variable key, it will fallback to `GOOGLE_APPLICATION_CREDENTIALS`
+
+## Second way:
+``` dart
+ServiceAccount.fromJson(r'''
+{
+      Project Settings -> Service Accounts -> generate new private key
+      Paste the json here
+}
+''');
+```
+
+## Third way:
+``` dart
+await ServiceAccount.fromFile(serviceAccountFilePath);
 ```
 
 ## Firebase Auth
 
-The `Firebase` class implements the necessary functionality for managing accounts. It currently only supports `Email/Password` sign-in, so make sure it's enabled under `Authentication` -> `Sign-in Method`.
+The [FirebaseAuth](https://github.com/SwissCheese5/Dartbase-Admin-SDK/blob/master/lib/auth/firebase_auth.dart) class will let you control administrative tasks related to user management.
 
-You'll also need to go to your `Firebase Console`, open `Project Settings` and under the `General` tab copy the `Web API Key`.
+Currently, the feature-set for it is very limited, but the available methods are:
 
-> **Note: in order to reduce external dependencies this library doesn't include a mechanism for persisting tokens. Please look at the following examples based on [SharedPreferences](https://gist.github.com/cachapa/539dd1007fcf097179040f4056cdd4c7) and [Hive](https://gist.github.com/cachapa/33944987bd8fe6c6ba84021cecef8fb7).**
-
-### Usage
-
+### Get a user
 ``` dart
-import 'package:firedart/firedart.dart';
+UserRecord user = await FirebaseAuth.instance.getUserById(uid);
 ```
+The UserRecord object holds data like id, email, profilePicture, etc...
 
-`Firebase` has a singleton version which should be enough for most use cases. You'll need to initialise it with your API key and a token store (see note above):
-
+### Verify an ID Token
 ``` dart
-Firebase.initialize(apiKey, await HiveStore());
-await Firebase.instance.signIn(email, password);
-var user = await Firebase.instance.getUser();
+try {
+    String id = await FirebaseAuth.instance.verifyIdToken(<client token>, enforceEmailVerification: true, checkRevoked: true);
+} catch (e) {
+    print(e);
+}
 ```
+The client token can be acquired from any client using a Firebase Client SDK of any kind.
+There should be a method called firebase.currentUser.idToken() (or something along those lines) that gives you an id token you can send to your backend, waiting to be processed by this method here.
 
-Alternatively you can instantiate your own `Firebase` object:
+The returned id is the user's id. This method will throw an exception if verification does not succeed, with a descriptive exception message.
 
-``` dart
-var firebaseAuth = Firebase.(apiKey, await PreferencesStore());
-await firebaseAuth.signIn(email, password);
-var user = await firebaseAuth.getUser();
-```
-
-Further usage examples can be found in the [integration tests](https://github.com/cachapa/firedart/blob/master/test/firebase_auth_test.dart).
-
-### Limitations
-
-* Currently the only supported authentication provider is `Email/Password`.
+Further usage examples can be found in the [integration tests](https://github.com/SwissCheese5/Dartbase-Admin-SDK/blob/master/test/firebase_auth_test.dart).
 
 ## Firestore
-
-The `Firestore` class is a basic implementation of the service's RPC interface. The API is similar (but not identical) to that of the official SDK.
+This will give you ADMIN access to firestore, be careful.
+The [Firestore](https://github.com/SwissCheese5/Dartbase-Admin-SDK/blob/master/lib/firestore/firestore.dart) class implements the necessary functionality for a usable firestore implementation.
 
 ### Usage
-
 ``` dart
-import 'package:firedart/firedart.dart';
+  // Instantiate a reference to a document - this happens offline
+  var ref = Firestore.instance.collection('test').document('doc');
+
+  // Subscribe to changes to that document
+  ref.stream.listen((document) => print('updated: $document'));
+
+  // Update the document
+  await ref.update({'value': 'test'});
+
+  // Get a snapshot of the document
+  var document = await ref.get();
+  print('snapshot: ${document['value']}');
+
+  print(
+      'Sleeping for 30 seconds. You can make changes to test/doc in the UI console');
+  await Future.delayed((const Duration(seconds: 30)));
+
+  print('closing the connection');
+  await Firestore.instance.close();
 ```
 
-As with `Firebase`, `Firestore` offers a singleton version that needs to be initialised with your `Project ID`, which you can find under `Project Settings` -> `General`:
-
-``` dart
-Firestore.initialize(projectId);
-var map = await Firestore.instance.collection("users").get();
-var users = UserCollection.fromMap(map);
-```
-
-You can also instantiate your own `Firestore` object. Please note that if your database requires authenticated access, you'll need to pass along an instance of `Firebase`.
-
-``` dart
-var firebaseAuth = Firebase.(apiKey, await HiveStore());
-var firestore = Firestore(projectId, auth: firebaseAuth);
-
-await firebaseAuth.signIn(email, password);
-var map = await firestore.collection("users").get();
-var users = UserCollection.fromMap(map);
-```
-
-Further usage examples can be found in the [integration tests](https://github.com/cachapa/firedart/blob/master/test/firestore_test.dart).
-
-### Using the Firestore Admin SDK
-
-Limited support is provided for using the Firestore Admin SDK.  See (example/admin.dart)[example/admin.dart].
-
+Further usage examples can be found in the [integration tests](https://github.com/SwissCheese5/Dartbase-Admin-SDK/blob/master/test/firestore_test.dart).
 
 ### Limitations
 
-* Collection queries (limit, sort, etc.) are currently not supported.
 * The data is not cached locally.
 * Failed writes (e.g. due to network errors) are not retried.
 * Closed streams are not automatically recovered.
 
-### Regenerating the RPC stubs
+## Firebase Storage
 
-The Firestore RPC stubs are based on Google's official protobuf definition files from [googleapis](https://github.com/googleapis/googleapis).
+The [FirebaseStorage](https://github.com/SwissCheese5/Dartbase-Admin-SDK/blob/master/lib/storage/firebase_storage.dart) class implements the necessary functionality for bucket interactions with firebase.
+Note that it is a wrapper from [gcloud](https://pub.dev/packages/gcloud) and made io-safe. It does not reference dart:io
 
-To regenerate them, you will need to check out both [googleapis](https://github.com/googleapis/googleapis) and [protobuf](https://github.com/google/protobuf).
+### Usage
+There is no global/local instances to initialize here. You can reference a Bucket at any time as a local variable anywhere.
 
-Set the `PROTOBUF` and `GOOGLEAPIS` environment variables to point to your clones of the above repositories respectively, and then run:
+The storageURL looks like so: `<project-id>.appspot.com`
 
-```sh
-$ tool/regenerate.sh
+``` dart
+var bucket = await FirebaseStorage.getBucket(storageUrl);
+
+/// UPLOAD
+await bucket.upload('remoteDirectory/remoteFile.jpg', localFile.absolute.path);
+
+/// INFO
+var info = await bucket.info('remoteDirectory/remoteFile.jpg');
+
+/// DOWNLOAD
+await bucket.download('remoteDirectory/remoteFile.jpg', localFile.absolute.path);
+
+/// LIST
+var list = await (await bucket.list(prefix: 'remoteDirectory/')).toList();
+
+/// DELETE
+await bucket.delete('remoteDirectory/remoteFile.jpg');
 ```
+
+Several helper methods exist for uploading and downloading if you explore the `FirebaseStorage` class.
+
+More advanced usages and further usage examples can be found in the [integration tests](https://github.com/SwissCheese5/Dartbase-Admin-SDK/blob/master/test/firebase_storage_test.dart).
 
 ## Firebase Cloud Messaging
 
@@ -125,19 +176,15 @@ You'll also need to go to open `Project Settings` and under the `Cloud Messaging
 
 ### Usage
 
-You'll need to create a `test_config.dart` file:
-``` dart
-const projectId = "Project Settings -> General -> Project ID";
-const serviceAccountPath = 'Project Settings -> Service Accounts -> generate new private key -> download and get file path';
-const cloudMessagingServerKey = 'Project settings -> Cloud Messaging -> Server key';
-```
-
 Then in your main script:
 ``` dart
 import 'package:dartbase/dartbase.dart';
 import 'package:dartbase/fcm/message.dart';
 
+const cloudMessagingServerKey = 'Project settings -> Cloud Messaging -> Server key';
+
 main() async {
+
   var firebase = await Firebase.initialize(projectId,
       await ServiceAccount.fromFile(serviceAccountPath));
   var fcm = FCM(firebase, FCMConfig(firebase.projectId));
@@ -145,9 +192,9 @@ main() async {
   const topic = '<Choose a topic name>';
 
   // Send to a token
-  var message = V1Message(
+  var message = Message(
     token: token,
-    notification: V1MessageNotification(
+    notification: MessageNotification(
       title: "plantyplants test",
       body: "Some body text here",
     ),
@@ -155,9 +202,9 @@ main() async {
   var nameTopicMessage = await fcm.send(message);
 
   // Send to a topic
-  var message = V1Message(
+  var message = Message(
     topic: topic,
-    notification: V1MessageNotification(
+    notification: MessageNotification(
       title: "plantyplants test",
       body: "Some body text here",
     ),
@@ -174,16 +221,3 @@ Further usage examples can be found in the [integration tests](https://github.co
 
 * Doesn't support [batch send](https://firebase.google.com/docs/cloud-messaging/send-message#send-messages-to-multiple-devices).
 * Doesn't support receiving a cloud message.
-
-## Debugging
-
-For debugging `Firebase Auth` you can use `VerboseClient`, an HTTP client that logs all communication to the console. The logs can expose sensitive data including passwords and keys, so it's recommended to only enable it for development builds. In Flutter this can be achieved using the `kReleaseMode` constant from the `foundation` package:
-
-``` dart
-var client = !kReleaseMode ? VerboseClient() : http.Client();
-var firebaseAuth = Firebase(apiKey, await PreferencesStore(), httpClient: client);
-```
-
-## Securing Tokens
-
-If you're running your code in an environment that requires securing access tokens, you can extend `TokenStore` to persist data in a secure maner, e.g. by encrypting the data or storing it in an external vault. Example implementations can be found in [token_store.dart](https://github.com/cachapa/firedart/blob/master/lib/auth/token_store.dart).

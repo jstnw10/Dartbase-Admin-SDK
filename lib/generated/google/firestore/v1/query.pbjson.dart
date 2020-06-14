@@ -24,14 +24,7 @@ const StructuredQuery$json = const {
       '6': '.google.firestore.v1.StructuredQuery.CollectionSelector',
       '10': 'from'
     },
-    const {
-      '1': 'where',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.StructuredQuery.Filter',
-      '10': 'where'
-    },
+    const {'1': 'where', '3': 3, '4': 1, '5': 11, '6': '.google.firestore.v1.StructuredQuery.Filter', '10': 'where'},
     const {
       '1': 'order_by',
       '3': 4,
@@ -40,31 +33,10 @@ const StructuredQuery$json = const {
       '6': '.google.firestore.v1.StructuredQuery.Order',
       '10': 'orderBy'
     },
-    const {
-      '1': 'start_at',
-      '3': 7,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.Cursor',
-      '10': 'startAt'
-    },
-    const {
-      '1': 'end_at',
-      '3': 8,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.Cursor',
-      '10': 'endAt'
-    },
+    const {'1': 'start_at', '3': 7, '4': 1, '5': 11, '6': '.google.firestore.v1.Cursor', '10': 'startAt'},
+    const {'1': 'end_at', '3': 8, '4': 1, '5': 11, '6': '.google.firestore.v1.Cursor', '10': 'endAt'},
     const {'1': 'offset', '3': 6, '4': 1, '5': 5, '10': 'offset'},
-    const {
-      '1': 'limit',
-      '3': 5,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Int32Value',
-      '10': 'limit'
-    },
+    const {'1': 'limit', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'limit'},
   ],
   '3': const [
     StructuredQuery_CollectionSelector$json,
@@ -83,13 +55,7 @@ const StructuredQuery_CollectionSelector$json = const {
   '1': 'CollectionSelector',
   '2': const [
     const {'1': 'collection_id', '3': 2, '4': 1, '5': 9, '10': 'collectionId'},
-    const {
-      '1': 'all_descendants',
-      '3': 3,
-      '4': 1,
-      '5': 8,
-      '10': 'allDescendants'
-    },
+    const {'1': 'all_descendants', '3': 3, '4': 1, '5': 8, '10': 'allDescendants'},
   ],
 };
 
@@ -179,14 +145,7 @@ const StructuredQuery_FieldFilter$json = const {
       '6': '.google.firestore.v1.StructuredQuery.FieldFilter.Operator',
       '10': 'op'
     },
-    const {
-      '1': 'value',
-      '3': 3,
-      '4': 1,
-      '5': 11,
-      '6': '.google.firestore.v1.Value',
-      '10': 'value'
-    },
+    const {'1': 'value', '3': 3, '4': 1, '5': 11, '6': '.google.firestore.v1.Value', '10': 'value'},
   ],
   '4': const [StructuredQuery_FieldFilter_Operator$json],
 };
@@ -297,14 +256,7 @@ const StructuredQuery_Direction$json = const {
 const Cursor$json = const {
   '1': 'Cursor',
   '2': const [
-    const {
-      '1': 'values',
-      '3': 1,
-      '4': 3,
-      '5': 11,
-      '6': '.google.firestore.v1.Value',
-      '10': 'values'
-    },
+    const {'1': 'values', '3': 1, '4': 3, '5': 11, '6': '.google.firestore.v1.Value', '10': 'values'},
     const {'1': 'before', '3': 2, '4': 1, '5': 8, '10': 'before'},
   ],
 };
