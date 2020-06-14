@@ -11,23 +11,23 @@ Future main() async {
     await Firebase.initialize(
         projectId, await ServiceAccount.fromFile(serviceAccountPath));
 
-    fd.FirebaseAuth.initialize(webApiKey, fd.VolatileStore());
-
     await FirebaseAuth.initialize();
   });
 
   test('Get user by ID', () async {
     var user = await FirebaseAuth.instance.getUserById(uid);
+    print(user.toString());
     expect(user.email, email);
   });
 
   test('Verify Token', () async {
+    fd.FirebaseAuth.initialize(webApiKey, fd.VolatileStore());
     await fd.FirebaseAuth.instance.signIn(email, pass);
     var token = await fd.FirebaseAuth.instance.tokenProvider.idToken;
 
     await Future.delayed(const Duration(seconds: 5));
     var id = await FirebaseAuth.instance.verifyIdToken(token,
-        enforceEmailVerification: true, checkRevoked: true);
+        checkRevoked: true, enforceEmailVerification: true);
     expect(id != null, true);
     print(id);
   });

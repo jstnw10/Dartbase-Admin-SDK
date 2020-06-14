@@ -26,7 +26,7 @@ class UserGateway {
     var response = await firebase.client.post(requestUrl, body: body);
 
     if (response.statusCode != 200) {
-      throw AuthException(response.body);
+      throw AuthException(response.body + '\nReason:' + response.reasonPhrase);
     }
 
     return json.decode(response.body);

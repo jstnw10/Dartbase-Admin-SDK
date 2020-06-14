@@ -167,4 +167,9 @@ class UserRecord {
         'tenantId': tenantId,
         'providerData': providerData.map((v) => v.toJson()).toList()
       };
+
+  @override
+  String toString() {
+    return 'UserRecord{uid: $uid, email: $email, emailVerified: $emailVerified, displayName: $displayName, photoUrl: $photoUrl, phoneNumber: $phoneNumber, disabled: $disabled, metadata: $metadata, providerData: $providerData, passwordHash: $passwordHash, passwordSalt: $passwordSalt, customClaims: $customClaims, tenantId: $tenantId, tokensValidAfterTime: $tokensValidAfterTime}';
+  }
 }
