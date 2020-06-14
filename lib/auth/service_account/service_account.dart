@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:dartbase_admin/platform/access_exporter.dart';
 import 'package:dartbase_admin/auth/service_account/token_handler.dart';
+import 'package:dartbase_admin/platform/access_exporter.dart';
 
 class ServiceAccount {
   final String serviceAccountString;
