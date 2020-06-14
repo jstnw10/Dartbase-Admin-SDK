@@ -1,5 +1,7 @@
 # Dartbase Admin SDK™️
 
+![Dart CI](https://github.com/SwissCheese5/Dartbase-Admin-SDK/workflows/Dart%20CI/badge.svg)
+
 A dart-native implementation of the Firebase Admin SDK.
 
 This library is a fork of cachapa's client firebase sdk; cachapa/firedart; modified and converted to support admin only firebase features.
