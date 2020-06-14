@@ -25,7 +25,7 @@ dependencies:
 
 ## Setup & Usage
 ``` dart
-import 'package:dartbase_admin/dartbase_admin.dart';
+import 'package:dartbase_admin/dartbase.dart';
 ```
 
 To begin, you need to initialize Firebase:

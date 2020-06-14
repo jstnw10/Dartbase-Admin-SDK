@@ -5,13 +5,12 @@ import 'package:test/test.dart';
 import 'test_config.dart';
 
 Future main() async {
-  FCM fcm;
   final nameRegExp = RegExp(r'projects/.*/messages/[0-9]+');
 
   setUpAll(() async {
     await Firebase.initialize(
         projectId, await ServiceAccount.fromFile(serviceAccountPath));
-    fcm = FCM.initialize();
+    await FCM.initialize();
   });
 
   await test('Send message with token', () async {
@@ -22,7 +21,7 @@ Future main() async {
         body: 'Some body text here',
       ),
     );
-    var name = await fcm.send(message);
+    var name = await FCM.instance.send(message);
     expect(nameRegExp.hasMatch(name), true);
   });
 
@@ -34,7 +33,7 @@ Future main() async {
         body: 'Some body text here',
       ),
     );
-    var name = await fcm.send(message);
+    var name = await FCM.instance.send(message);
     expect(nameRegExp.hasMatch(name), true);
   });
 }
