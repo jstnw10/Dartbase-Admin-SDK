@@ -20,12 +20,12 @@ Add dartbase to your `pubspec.yaml` file:
 
 ``` yaml
 dependencies:
-  dartbase: [latest version]
+  dartbase_admin: [latest version]
 ```
 
 ## Setup & Usage
 ``` dart
-import 'package:dartbase_admin/dartbase.dart';
+import 'package:dartbase_admin/dartbase_admin.dart';
 ```
 
 To begin, you need to initialize Firebase:
