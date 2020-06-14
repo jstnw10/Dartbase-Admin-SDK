@@ -51,13 +51,13 @@ await firebase.init();
 
 You can reference a service account through several means:
 
-## First way:
+#### First way:
 ``` dart
 ServiceAccount.fromEnvironmentVariable('Environment Variable Key');
 ```
 If you do NOT specify an environment variable key, it will fallback to `GOOGLE_APPLICATION_CREDENTIALS`
 
-## Second way:
+#### Second way:
 ``` dart
 ServiceAccount.fromJson(r'''
 {
@@ -67,7 +67,7 @@ ServiceAccount.fromJson(r'''
 ''');
 ```
 
-## Third way:
+#### Third way:
 ``` dart
 await ServiceAccount.fromFile(serviceAccountFilePath);
 ```
