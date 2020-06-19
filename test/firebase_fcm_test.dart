@@ -1,4 +1,4 @@
-import 'package:dartbase_admin/dartbase.dart';
+import 'package:dartbase_admin/dartbase_admin.dart';
 import 'package:dartbase_admin/fcm/message.dart';
 import 'package:test/test.dart';
 
