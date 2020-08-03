@@ -24,8 +24,8 @@ class Jwt {
 
     /// CREATE A VALIDATOR TO MATCH OUR FIREBASE PROJECT
     var validator = JWTValidator()
-      ..audience = 'chacha-44'
-      ..issuer = 'https://securetoken.google.com/chacha-44';
+      ..audience = firebaseAuth.firebase.projectId
+      ..issuer = 'https://securetoken.google.com/${firebaseAuth.firebase.projectId}';
 
     /// GET GOOGLE PUBLIC KEYS
     var response = await http.get(
@@ -50,7 +50,7 @@ class Jwt {
       throw TokenValidationException(errors.join('\n'));
     }
 
-    if (decodedToken.subject?.isNotEmpty ?? false) {
+    if (decodedToken.subject?.isEmpty ?? false) {
       throw TokenValidationException('Subject is empty or null.');
     }
     if (decodedToken.subject != null && decodedToken.subject.length > 128) {
