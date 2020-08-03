@@ -2,11 +2,8 @@ import 'dart:convert';
 
 import 'package:dartbase_admin/base/exceptions.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:corsac_jwt/corsac_jwt.dart';
-
 import '../firebase_auth.dart';
-import 'rsa.dart';
 
 class Jwt {
   final String token;
@@ -33,7 +30,7 @@ class Jwt {
     /// GET GOOGLE PUBLIC KEYS
     var response = await http.get(
         'https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com');
-    Map<String, String> publicKeys = jsonDecode(response.body);
+    Map<String, dynamic> publicKeys = jsonDecode(response.body);
 
     /// RUN SIGNATURE VERIFICATION
     var verified = false;

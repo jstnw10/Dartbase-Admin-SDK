@@ -6,7 +6,7 @@ import 'package:dartbase_admin/platform/access_exporter.dart';
 class ServiceAccount {
   final String serviceAccountString;
 
-  Map<String, String> map;
+  Map<String, dynamic> map;
 
   ServiceAccount.fromJson(this.serviceAccountString)
       : map = jsonDecode(serviceAccountString);

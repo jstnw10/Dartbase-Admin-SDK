@@ -14,7 +14,6 @@ class AuthException implements Exception {
 }
 
 class TokenValidationException implements Exception {
-
   String body;
 
   TokenValidationException(this.body);
