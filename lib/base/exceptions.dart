@@ -12,3 +12,13 @@ class AuthException implements Exception {
   @override
   String toString() => 'AuthException: $errorCode';
 }
+
+class TokenValidationException implements Exception {
+
+  String body;
+
+  TokenValidationException(this.body);
+
+  @override
+  String toString() => 'Token Validation Exception: $body';
+}
