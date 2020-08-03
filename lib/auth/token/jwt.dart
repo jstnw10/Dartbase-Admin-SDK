@@ -35,7 +35,6 @@ class Jwt {
         'https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com');
     Map<String, String> publicKeys = jsonDecode(response.body);
 
-
     /// RUN SIGNATURE VERIFICATION
     var verified = false;
     for (var key in publicKeys.values) {
@@ -47,7 +46,6 @@ class Jwt {
     if (!verified) {
       throw TokenValidationException('Public key in token is invalid');
     }
-
 
     /// RUN VALIDATION
     var errors = validator.validate(decodedToken);
@@ -67,7 +65,8 @@ class Jwt {
     if (checkRevoked) {
       var user = await auth.getUserById(decodedToken.subject);
       if (user.tokensValidAfterTime != null) {
-        final authTimeUtc = DateTime.fromMillisecondsSinceEpoch(decodedToken.issuedAt * 1000);
+        final authTimeUtc =
+            DateTime.fromMillisecondsSinceEpoch(decodedToken.issuedAt * 1000);
         final validSinceUtc = user.tokensValidAfterTime;
         if (authTimeUtc.isBefore(validSinceUtc)) {
           throw TokenValidationException('Token is revoked');

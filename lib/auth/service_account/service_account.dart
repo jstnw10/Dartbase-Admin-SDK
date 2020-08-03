@@ -8,17 +8,22 @@ class ServiceAccount {
 
   Map<String, String> map;
 
-  ServiceAccount.fromJson(this.serviceAccountString) : map = jsonDecode(serviceAccountString);
+  ServiceAccount.fromJson(this.serviceAccountString)
+      : map = jsonDecode(serviceAccountString);
 
   ServiceAccount.fromEnvironmentVariable(
       {String environmentVariable = 'GOOGLE_APPLICATION_CREDENTIALS'})
-      : serviceAccountString = getPlatformAccess().getEnvironmentVariable(environmentVariable),
-        map = jsonDecode(getPlatformAccess().getEnvironmentVariable(environmentVariable));
+      : serviceAccountString =
+            getPlatformAccess().getEnvironmentVariable(environmentVariable),
+        map = jsonDecode(
+            getPlatformAccess().getEnvironmentVariable(environmentVariable));
 
   Future<AccessToken> getAccessToken() async {
-    return ServiceAccountCredential(jsonDecode(serviceAccountString)).getAccessToken();
+    return ServiceAccountCredential(jsonDecode(serviceAccountString))
+        .getAccessToken();
   }
 
   static Future<ServiceAccount> fromFile(String filePath) async =>
-      ServiceAccount.fromJson(await getPlatformAccess().getStringFromFile(filePath));
+      ServiceAccount.fromJson(
+          await getPlatformAccess().getStringFromFile(filePath));
 }
