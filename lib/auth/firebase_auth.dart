@@ -38,12 +38,9 @@ class FirebaseAuth {
 
   // Returns the uid of the subject if the token is valid. Throws exception otherwise.
   Future<String> verifyIdToken(String token,
-      {bool enforceEmailVerification = false,
-      bool checkRevoked = false}) async {
+      {bool checkRevoked = false}) async {
     var uid = await verifyToken(token,
-        firebaseAuth: this,
-        enforceEmailVerification: enforceEmailVerification,
-        checkRevoked: checkRevoked);
+        firebaseAuth: this, checkRevoked: checkRevoked);
     return uid;
   }
 }

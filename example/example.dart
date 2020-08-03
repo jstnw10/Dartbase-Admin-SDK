@@ -77,10 +77,8 @@ void authExample() async {
   try {
     /// Get the user id from a client generate id token through verification.
     /// A bad token will throw an exception.
-    var userId = await FirebaseAuth.instance.verifyIdToken(
-        'A client generated id token.',
-        checkRevoked: true,
-        enforceEmailVerification: true);
+    var userId = await FirebaseAuth.instance
+        .verifyIdToken('A client generated id token.', checkRevoked: true);
 
     /// We can use that id to get the user object or pass any user id we want that
     /// signed up to our project's firebase auth flow.

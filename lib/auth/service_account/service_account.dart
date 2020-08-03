@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:dartbase_admin/auth/service_account/token_handler.dart';
+import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:dartbase_admin/platform/access_exporter.dart';
+import 'package:http/http.dart' as http;
 
 class ServiceAccount {
   final String serviceAccountString;
@@ -18,9 +19,31 @@ class ServiceAccount {
         map = jsonDecode(
             getPlatformAccess().getEnvironmentVariable(environmentVariable));
 
-  Future<AccessToken> getAccessToken() async {
-    return ServiceAccountCredential(jsonDecode(serviceAccountString))
-        .getAccessToken();
+  Future<String> getAccessToken() async {
+    var builder = JWTBuilder()
+      ..issuer = map['client_email']
+      ..issuedAt = DateTime.now()
+      ..expiresAt = DateTime.now().add(Duration(seconds: 3600))
+      ..audience = map['token_uri']
+      ..setClaim(
+          'scope',
+          [
+            'https://www.googleapis.com/auth/cloud-platform',
+            'https://www.googleapis.com/auth/firebase.database',
+            'https://www.googleapis.com/auth/firebase.messaging',
+            'https://www.googleapis.com/auth/identitytoolkit',
+            'https://www.googleapis.com/auth/userinfo.email',
+          ].join(' '));
+
+    var signer = JWTRsaSha256Signer(privateKey: map['private_key']);
+    var signedToken = builder.getSignedToken(signer).toString();
+
+    var response = await http.post(map['token_uri'], body: {
+      'grant_type': 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+      'assertion': signedToken,
+    });
+    var json = jsonDecode(response.body);
+    return json['access_token'];
   }
 
   static Future<ServiceAccount> fromFile(String filePath) async =>

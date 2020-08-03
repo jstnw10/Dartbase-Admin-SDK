@@ -7,7 +7,6 @@ A dart-native implementation of the Firebase Admin SDK.
 This library is a fork of cachapa's client firebase sdk; cachapa/firedart; modified and converted to support admin only firebase features.
 This library also uses these files from appsup-dart/firebase_admin to enable admin authentication to firebase because it is not documented on firebase's official documentation (May 2020):
 * user_record.dart.
-* token_handler.dart
 
 ## Currently supported:
 
@@ -89,7 +88,7 @@ The UserRecord object holds data like id, email, profilePicture, etc...
 ### Verify an ID Token
 ``` dart
 try {
-    String id = await FirebaseAuth.instance.verifyIdToken(<client token>, enforceEmailVerification: true, checkRevoked: true);
+    String id = await FirebaseAuth.instance.verifyIdToken(<client token>, checkRevoked: true);
 } catch (e) {
     print(e);
 }

@@ -12,9 +12,7 @@ class Jwt {
 
   // Returns subject uid if token is valid. Throws exception otherwise.
   Future<String> validate(Map<String, String> certificates,
-      {FirebaseAuth firebaseAuth,
-      bool enforceEmailVerification = false,
-      bool checkRevoked = false}) async {
+      {FirebaseAuth firebaseAuth, bool checkRevoked = false}) async {
     assert(firebaseAuth != null || FirebaseAuth.initialized,
         "Firebase Auth hasn't been initialized. Call FirebaseAuth.initialize() before using this global instance. Alternatively, create a local instance via FirebaseAuth() and use that.");
 
@@ -25,7 +23,8 @@ class Jwt {
     /// CREATE A VALIDATOR TO MATCH OUR FIREBASE PROJECT
     var validator = JWTValidator()
       ..audience = firebaseAuth.firebase.projectId
-      ..issuer = 'https://securetoken.google.com/${firebaseAuth.firebase.projectId}';
+      ..issuer =
+          'https://securetoken.google.com/${firebaseAuth.firebase.projectId}';
 
     /// GET GOOGLE PUBLIC KEYS
     var response = await http.get(

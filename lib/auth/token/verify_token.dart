@@ -7,13 +7,9 @@ import 'jwt.dart';
 
 /// Verify a Firebase token
 Future<String> verifyToken(String token,
-        {FirebaseAuth firebaseAuth,
-        bool enforceEmailVerification = false,
-        bool checkRevoked = false}) async =>
+        {FirebaseAuth firebaseAuth, bool checkRevoked = false}) async =>
     Jwt(token).validate(await _googleCertificates,
-        firebaseAuth: firebaseAuth,
-        enforceEmailVerification: enforceEmailVerification,
-        checkRevoked: checkRevoked);
+        firebaseAuth: firebaseAuth, checkRevoked: checkRevoked);
 
 const _certificateUrl =
     'https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com';

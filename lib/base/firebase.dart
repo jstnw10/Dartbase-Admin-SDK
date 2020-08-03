@@ -35,7 +35,7 @@ class Firebase {
 
   Future<void> init() async {
     var accessToken = await serviceAccount.getAccessToken();
-    client = AdminClient(
-        httpClient, {'authorization': 'Bearer ${accessToken.accessToken}'});
+    client =
+        AdminClient(httpClient, {'Authorization': 'Bearer ${accessToken}'});
   }
 }
