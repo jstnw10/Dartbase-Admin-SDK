@@ -28,7 +28,6 @@ class Firebase {
   final String projectId;
   final ServiceAccount serviceAccount;
 
-  final http.Client httpClient = http.Client();
   AdminClient client;
 
   Firebase(this.projectId, this.serviceAccount);
@@ -36,6 +35,6 @@ class Firebase {
   Future<void> init() async {
     var accessToken = await serviceAccount.getAccessToken();
     client =
-        AdminClient(httpClient, {'Authorization': 'Bearer ${accessToken}'});
+        AdminClient(http.Client(), {'Authorization': 'Bearer ${accessToken}'});
   }
 }

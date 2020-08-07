@@ -3,7 +3,6 @@ import 'dart:typed_data';
 
 import 'package:dartbase_admin/platform/access_exporter.dart';
 import 'package:gcloud/storage.dart';
-import 'package:googleapis_auth/auth_io.dart' as gauth;
 
 import '../base/firebase.dart';
 
@@ -20,12 +19,7 @@ class FirebaseStorage {
 
     firebase ??= Firebase.instance;
 
-    var credentials = gauth.ServiceAccountCredentials.fromJson(
-        firebase.serviceAccount.serviceAccountString);
-    var client = await gauth.clientViaServiceAccount(
-        credentials, Storage.SCOPES,
-        baseClient: firebase.httpClient);
-    var storage = Storage(client, firebase.projectId);
+    var storage = Storage(firebase.client, firebase.projectId);
     var bucket = await storage.bucket(bucketId);
 
     return FirebaseStorage._internal(bucket);
