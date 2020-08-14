@@ -1,8 +1,9 @@
 import 'dart:convert';
 
+import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:dartbase_admin/base/exceptions.dart';
 import 'package:http/http.dart' as http;
-import 'package:corsac_jwt/corsac_jwt.dart';
+
 import '../firebase_auth.dart';
 
 class Jwt {
@@ -23,8 +24,13 @@ class Jwt {
     /// CREATE A VALIDATOR TO MATCH OUR FIREBASE PROJECT
     var validator = JWTValidator()
       ..audience = firebaseAuth.firebase.projectId
-      ..issuer =
-          'https://securetoken.google.com/${firebaseAuth.firebase.projectId}';
+      ..issuer = 'https://securetoken.google.com/${firebaseAuth.firebase.projectId}';
+
+    /// RUN VALIDATION
+    var errors = validator.validate(decodedToken);
+    if (errors.isNotEmpty) {
+      throw TokenValidationException(errors.join('\n'));
+    }
 
     /// GET GOOGLE PUBLIC KEYS
     var response = await http.get(
@@ -32,21 +38,20 @@ class Jwt {
     Map<String, dynamic> publicKeys = jsonDecode(response.body);
 
     /// RUN SIGNATURE VERIFICATION
-    var verified = false;
-    for (var key in publicKeys.values) {
-      if (decodedToken.verify(JWTRsaSha256Signer(publicKey: key))) {
-        verified = true;
-        break;
-      }
+    if (!publicKeys.containsKey(decodedToken.headers['kid'])) {
+      throw TokenValidationException('No matching public keys for kid claim in token.'
+          '\nKid claim:'
+          '\n     > ${decodedToken.headers['kid']}'
+          '\nPublic Keys:'
+          '\n     > ${publicKeys.keys.join('\n     > ')}');
     }
+    var publicKey = publicKeys[decodedToken.headers['kid']];
+    var verified = decodedToken.verify(JWTRsaSha256Signer(publicKey: publicKey));
     if (!verified) {
-      throw TokenValidationException('Public key in token is invalid');
-    }
-
-    /// RUN VALIDATION
-    var errors = validator.validate(decodedToken);
-    if (errors.isNotEmpty) {
-      throw TokenValidationException(errors.join('\n'));
+      throw TokenValidationException('Could not verify token against public key.'
+          '\nToken:            ${decodedToken.toString()}'
+          '\nPublic Key:       ${decodedToken.headers['kid']}'
+          '\nPublic Key Value: $publicKey');
     }
 
     if (decodedToken.subject?.isEmpty ?? false) {
@@ -61,8 +66,7 @@ class Jwt {
     if (checkRevoked) {
       var user = await auth.getUserById(decodedToken.subject);
       if (user.tokensValidAfterTime != null) {
-        final authTimeUtc =
-            DateTime.fromMillisecondsSinceEpoch(decodedToken.issuedAt * 1000);
+        final authTimeUtc = DateTime.fromMillisecondsSinceEpoch(decodedToken.issuedAt * 1000);
         final validSinceUtc = user.tokensValidAfterTime;
         if (authTimeUtc.isBefore(validSinceUtc)) {
           throw TokenValidationException('Token is revoked');

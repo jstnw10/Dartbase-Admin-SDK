@@ -20,7 +20,7 @@ class ServiceAccount {
     var builder = JWTBuilder()
       ..issuer = map['client_email']
       ..issuedAt = DateTime.now()
-      ..expiresAt = DateTime.now().add(Duration(hours: 3600))
+      ..expiresAt = DateTime.now().add(Duration(seconds: 3600))
       ..audience = map['token_uri']
       ..setClaim(
           'scope',

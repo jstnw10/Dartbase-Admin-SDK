@@ -4,3 +4,4 @@ const serviceAccountPath = 'Project Settings -> Service Accounts -> generate new
 const cloudMessagingServerKey = 'Project settings -> Cloud Messaging -> Server key';
 const cloudMessagingToken = 'Token for test device';
 const cloudMessagingTopic = 'Cloud Messaging Topic';
+const jwtToken = 'Some JWT token from firebase to verify';

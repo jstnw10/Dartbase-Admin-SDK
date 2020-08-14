@@ -59,6 +59,8 @@ class AdminClient extends http.BaseClient {
 
     request.headers['Authorization'] = 'Bearer $token';
 
+    print('${request.headers['Authorization']}');
+
     return _client.send(request);
   }
 }
