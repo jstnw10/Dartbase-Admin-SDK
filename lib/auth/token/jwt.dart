@@ -21,6 +21,11 @@ class Jwt {
 
     var decodedToken = JWT.parse(token);
 
+    if (decodedToken.headers['alg'] != 'RS256') {
+      throw TokenValidationException(
+          'Algorithm is not RS256. alg header returned ${decodedToken.headers['alg']}');
+    }
+
     /// CREATE A VALIDATOR TO MATCH OUR FIREBASE PROJECT
     var validator = JWTValidator()
       ..audience = firebaseAuth.firebase.projectId
@@ -45,8 +50,10 @@ class Jwt {
           '\nPublic Keys:'
           '\n     > ${publicKeys.keys.join('\n     > ')}');
     }
+
     var publicKey = publicKeys[decodedToken.headers['kid']];
-    var verified = decodedToken.verify(JWTRsaSha256Signer(publicKey: publicKey));
+    var signer = JWTRsaSha256Signer(publicKey: publicKey);
+    var verified = decodedToken.verify(signer);
     if (!verified) {
       throw TokenValidationException('Could not verify token against public key.'
           '\nToken:            ${decodedToken.toString()}'

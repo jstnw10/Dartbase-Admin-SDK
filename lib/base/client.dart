@@ -48,12 +48,12 @@ class AdminClient extends http.BaseClient {
   Future<http.StreamedResponse> send(http.BaseRequest request) async {
     if (token == null) {
       /// Generate a fresh token
-      token = await _serviceAccount.generateAccessToken();
+      token = await _serviceAccount.generateAdminAccessToken();
     } else {
       /// Generate a new token after the current one expires.
       var decodedToken = JWT.parse(token);
       if (decodedToken.expiresAt - (DateTime.now().millisecondsSinceEpoch / 1000) <= 0) {
-        token = await _serviceAccount.generateAccessToken();
+        token = await _serviceAccount.generateAdminAccessToken();
       }
     }
 

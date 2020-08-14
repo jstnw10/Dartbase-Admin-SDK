@@ -16,7 +16,7 @@ class ServiceAccount {
       : serviceAccountString = getPlatformAccess().getEnvironmentVariable(environmentVariable),
         map = jsonDecode(getPlatformAccess().getEnvironmentVariable(environmentVariable));
 
-  Future<String> generateAccessToken() async {
+  Future<String> generateAdminAccessToken() async {
     var builder = JWTBuilder()
       ..issuer = map['client_email']
       ..issuedAt = DateTime.now()
