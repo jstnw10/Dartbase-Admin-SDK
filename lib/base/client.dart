@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:corsac_jwt/corsac_jwt.dart';
+import 'package:dartbase_admin/auth/service_account/service_account.dart';
 import 'package:http/http.dart' as http;
 
 class VerboseClient extends http.BaseClient {
@@ -16,8 +18,7 @@ class VerboseClient extends http.BaseClient {
     print((request as http.Request).body);
 
     var response = await _client.send(request);
-    print(
-        '<-- ${response.statusCode} ${response.reasonPhrase} ${response.request.url}');
+    print('<-- ${response.statusCode} ${response.reasonPhrase} ${response.request.url}');
     var loggedStream = response.stream.map((event) {
       print(utf8.decode(event));
       return event;
@@ -37,16 +38,27 @@ class VerboseClient extends http.BaseClient {
 }
 
 class AdminClient extends http.BaseClient {
-  final http.Client client;
-  final Map<String, String> metadata;
+  final http.Client _client;
+  final ServiceAccount _serviceAccount;
+  String token;
 
-  AdminClient(this.client, this.metadata);
+  AdminClient(this._client, this._serviceAccount);
 
   @override
-  Future<http.StreamedResponse> send(http.BaseRequest request) {
-    if (!request.headers.containsKey('authorization')) {
-      request.headers.addAll(metadata);
+  Future<http.StreamedResponse> send(http.BaseRequest request) async {
+    if (token == null) {
+      /// Generate a fresh token
+      token = await _serviceAccount.generateAccessToken();
+    } else {
+      /// Generate a new token after the current one expires.
+      var decodedToken = JWT.parse(token);
+      if (decodedToken.expiresAt - (DateTime.now().millisecondsSinceEpoch / 1000) <= 0) {
+        token = await _serviceAccount.generateAccessToken();
+      }
     }
-    return client.send(request);
+
+    request.headers['Authorization'] = token;
+
+    return _client.send(request);
   }
 }

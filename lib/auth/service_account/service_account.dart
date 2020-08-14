@@ -9,21 +9,18 @@ class ServiceAccount {
 
   Map<String, dynamic> map;
 
-  ServiceAccount.fromJson(this.serviceAccountString)
-      : map = jsonDecode(serviceAccountString);
+  ServiceAccount.fromJson(this.serviceAccountString) : map = jsonDecode(serviceAccountString);
 
   ServiceAccount.fromEnvironmentVariable(
       {String environmentVariable = 'GOOGLE_APPLICATION_CREDENTIALS'})
-      : serviceAccountString =
-            getPlatformAccess().getEnvironmentVariable(environmentVariable),
-        map = jsonDecode(
-            getPlatformAccess().getEnvironmentVariable(environmentVariable));
+      : serviceAccountString = getPlatformAccess().getEnvironmentVariable(environmentVariable),
+        map = jsonDecode(getPlatformAccess().getEnvironmentVariable(environmentVariable));
 
-  Future<String> getAccessToken() async {
+  Future<String> generateAccessToken() async {
     var builder = JWTBuilder()
       ..issuer = map['client_email']
       ..issuedAt = DateTime.now()
-      ..expiresAt = DateTime.now().add(Duration(seconds: 3600))
+      ..expiresAt = DateTime.now().add(Duration(hours: 3600))
       ..audience = map['token_uri']
       ..setClaim(
           'scope',
@@ -47,6 +44,5 @@ class ServiceAccount {
   }
 
   static Future<ServiceAccount> fromFile(String filePath) async =>
-      ServiceAccount.fromJson(
-          await getPlatformAccess().getStringFromFile(filePath));
+      ServiceAccount.fromJson(await getPlatformAccess().getStringFromFile(filePath));
 }
