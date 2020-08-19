@@ -69,7 +69,6 @@ class Jwt {
     }
 
     /// CHECK IF IT'S REVOKED
-    /// https://github.com/firebase/firebase-admin-java/blob/7b991238067137818907847826513bbd62a8f68a/src/main/java/com/google/firebase/auth/RevocationCheckDecorator.java#L63-L67
     if (checkRevoked) {
       var user = await auth.getUserById(decodedToken.subject);
       if (user.tokensValidAfterTime != null) {

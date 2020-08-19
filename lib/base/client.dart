@@ -51,6 +51,7 @@ class AdminClient extends http.BaseClient {
       token = await _serviceAccount.generateAdminAccessToken();
     } else {
       /// Generate a new token after the current one expires.
+      print('SERVICE ACCOUNT TOKEN:\n$token');
       var decodedToken = JWT.parse(token);
       if (decodedToken.expiresAt - (DateTime.now().millisecondsSinceEpoch / 1000) <= 0) {
         token = await _serviceAccount.generateAdminAccessToken();
