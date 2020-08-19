@@ -29,7 +29,8 @@ class Jwt {
     /// CREATE A VALIDATOR TO MATCH OUR FIREBASE PROJECT
     var validator = JWTValidator()
       ..audience = firebaseAuth.firebase.projectId
-      ..issuer = 'https://securetoken.google.com/${firebaseAuth.firebase.projectId}';
+      ..issuer =
+          'https://securetoken.google.com/${firebaseAuth.firebase.projectId}';
 
     /// RUN VALIDATION
     var errors = validator.validate(decodedToken);
@@ -44,7 +45,8 @@ class Jwt {
 
     /// RUN SIGNATURE VERIFICATION
     if (!publicKeys.containsKey(decodedToken.headers['kid'])) {
-      throw TokenValidationException('No matching public keys for kid claim in token.'
+      throw TokenValidationException(
+          'No matching public keys for kid claim in token.'
           '\nKid claim:'
           '\n     > ${decodedToken.headers['kid']}'
           '\nPublic Keys:'
@@ -55,7 +57,8 @@ class Jwt {
     var signer = JWTRsaSha256Signer(publicKey: publicKey);
     var verified = decodedToken.verify(signer);
     if (!verified) {
-      throw TokenValidationException('Could not verify token against public key.'
+      throw TokenValidationException(
+          'Could not verify token against public key.'
           '\nToken:            ${decodedToken.toString()}'
           '\nPublic Key:       ${decodedToken.headers['kid']}'
           '\nPublic Key Value: $publicKey');
@@ -72,7 +75,8 @@ class Jwt {
     if (checkRevoked) {
       var user = await auth.getUserById(decodedToken.subject);
       if (user.tokensValidAfterTime != null) {
-        final authTimeUtc = DateTime.fromMillisecondsSinceEpoch(decodedToken.issuedAt * 1000);
+        final authTimeUtc =
+            DateTime.fromMillisecondsSinceEpoch(decodedToken.issuedAt * 1000);
         final validSinceUtc = user.tokensValidAfterTime;
         if (authTimeUtc.isBefore(validSinceUtc)) {
           throw TokenValidationException('Token is revoked');

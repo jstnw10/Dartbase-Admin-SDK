@@ -7,7 +7,8 @@ import 'test_config.dart';
 /// in our tests.
 Future main() async {
   setUpAll(() async {
-    await Firebase.initialize(projectId, await ServiceAccount.fromFile(serviceAccountPath));
+    await Firebase.initialize(
+        projectId, await ServiceAccount.fromFile(serviceAccountPath));
 
     await FirebaseAuth.initialize();
   });
@@ -19,7 +20,8 @@ Future main() async {
   });
 
   test('Verify Token', () async {
-    var id = await FirebaseAuth.instance.verifyIdToken(jwtToken, checkRevoked: true);
+    var id =
+        await FirebaseAuth.instance.verifyIdToken(jwtToken, checkRevoked: true);
     expect(id != null, true);
     print(id);
   });
