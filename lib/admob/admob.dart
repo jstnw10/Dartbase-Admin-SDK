@@ -39,8 +39,8 @@ class Admob {
             'Firebase global instance not initialized, run Firebase.initialize().\nAlternatively, provide a local instance via Firestore.initialize(firebase: <firebase instance>)');
 
   Future<void> init() async {
-    var response = await firebase.client
-        .get('https://www.gstatic.com/admob/reward/verifier-keys.json');
+    var response =
+        await firebase.client.get('https://www.gstatic.com/admob/reward/verifier-keys.json');
     if (response.statusCode == 200) {
       Map<String, dynamic> admobPublicKeys = jsonDecode(response.body);
       for (var keyMap in admobPublicKeys['keys'] as List) {
@@ -68,11 +68,9 @@ class Admob {
       throw GeneralSecurityException('Needs a keyId query parameter.');
     }
 
-    var keyId = params['keyId'];
+    var keyId = params['key_id'];
     var signature = params['signature'];
-    var dataMap = Map<String, String>.from(params)
-      ..remove('keyId')
-      ..remove('signature');
+    var dataMap = Map<String, String>.from(params)..remove('keyId')..remove('signature');
     var data = Uri(queryParameters: dataMap).query;
 
     if (admobPublicKeys.containsKey(keyId)) {
@@ -82,8 +80,7 @@ class Admob {
 
       return signer.verify(data, publicKey);
     } else {
-      throw GeneralSecurityException(
-          'Cannot find verifying key with key id: $keyId');
+      throw GeneralSecurityException('Cannot find verifying key with key id: $keyId');
     }
   }
 }
