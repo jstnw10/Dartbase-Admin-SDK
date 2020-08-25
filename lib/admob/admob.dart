@@ -44,7 +44,7 @@ class Admob {
     if (response.statusCode == 200) {
       Map<String, dynamic> admobPublicKeys = jsonDecode(response.body);
       for (var keyMap in admobPublicKeys['keys'] as List) {
-        admobPublicKeys[keyMap['keyId']] = keyMap['base64'];
+        this.admobPublicKeys[keyMap['keyId']] = keyMap['base64'];
       }
     } else {
       throw InitializationException(
