@@ -42,9 +42,13 @@ class Admob {
     var response =
         await firebase.client.get('https://www.gstatic.com/admob/reward/verifier-keys.json');
     if (response.statusCode == 200) {
-      Map<String, dynamic> admobPublicKeys = jsonDecode(response.body);
-      for (var keyMap in admobPublicKeys['keys'] as List) {
-        this.admobPublicKeys[keyMap['keyId']] = keyMap['base64'];
+      try {
+        Map<String, dynamic> admobPublicKeys = jsonDecode(response.body);
+        for (var keyMap in admobPublicKeys['keys'] as List) {
+          this.admobPublicKeys[keyMap['keyId']] = keyMap['base64'];
+        }
+      } catch(error) {
+        throw InitializationException("Couldn't parse admob public keys.");
       }
     } else {
       throw InitializationException(
@@ -64,8 +68,8 @@ class Admob {
     if (!params.containsKey('signature')) {
       throw GeneralSecurityException('Needs a signature query parameter.');
     }
-    if (!params.containsKey('keyId')) {
-      throw GeneralSecurityException('Needs a keyId query parameter.');
+    if (!params.containsKey('key_id')) {
+      throw GeneralSecurityException('Needs a key_id query parameter.');
     }
 
     var keyId = params['key_id'];
