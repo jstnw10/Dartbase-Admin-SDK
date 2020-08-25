@@ -16,6 +16,7 @@ dependencies:
   json_annotation: ^3.0.1
   meta: ^1.1.8
   corsac_jwt: ^0.2.2
+  eosdart_ecc: ^0.4.3
 
 dev_dependencies:
   build_runner: ^1.10.0
