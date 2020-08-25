@@ -47,7 +47,7 @@ class Admob {
         for (var keyMap in admobPublicKeys['keys'] as List) {
           this.admobPublicKeys[keyMap['keyId']] = keyMap['base64'];
         }
-      } catch(error) {
+      } catch (error) {
         throw InitializationException("Couldn't parse admob public keys.");
       }
     } else {
@@ -65,6 +65,7 @@ class Admob {
   bool verifyRewardAd(String callbackURL) {
     var uri = Uri.parse(callbackURL);
     var params = uri.queryParameters;
+
     if (!params.containsKey('signature')) {
       throw GeneralSecurityException('Needs a signature query parameter.');
     }
@@ -72,13 +73,14 @@ class Admob {
       throw GeneralSecurityException('Needs a key_id query parameter.');
     }
 
-    var keyId = params['key_id'];
+    var keyId = int.parse(params['key_id']);
     var signature = params['signature'];
     var dataMap = Map<String, String>.from(params)..remove('key_id')..remove('signature');
     var data = Uri(queryParameters: dataMap).query;
 
     if (admobPublicKeys.containsKey(keyId)) {
-      var privateKey = EOSPrivateKey.fromString(admobPublicKeys[keyId]);
+      var base64 = base64Decode(admobPublicKeys[keyId]);
+      var privateKey = EOSPrivateKey.fromBuffer(base64);
       var publicKey = privateKey.toEOSPublicKey();
       var signer = privateKey.signString(signature);
 
