@@ -70,7 +70,7 @@ class Admob {
 
     var keyId = params['key_id'];
     var signature = params['signature'];
-    var dataMap = Map<String, String>.from(params)..remove('keyId')..remove('signature');
+    var dataMap = Map<String, String>.from(params)..remove('key_id')..remove('signature');
     var data = Uri(queryParameters: dataMap).query;
 
     if (admobPublicKeys.containsKey(keyId)) {
